@@ -5,12 +5,14 @@ on:
     branches:
       - master
     paths-ignore:
+      - '.circleci/**'
       - '.github/workflows/**'
       - '!.github/workflows/compile.yaml'
   push:
     branches:
       - master
     paths-ignore:
+      - '.circleci/**'
       - '.github/workflows/**'
       - '!.github/workflows/compile.yaml'
 
