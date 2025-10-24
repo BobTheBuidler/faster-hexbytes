@@ -60,9 +60,6 @@ jobs:
           name: pytest-benchmark-results
           path: benchmark.json
         
-      - name: Generate Markdown Benchmark Results
-        run: make benchmark-results
-        
       - name: Commit and Push Markdown Benchmark Results
         continue-on-error: true
         run: |
