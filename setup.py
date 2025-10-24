@@ -33,6 +33,11 @@ extras_require = {
         "pytest>=7.0.0",
         "pytest-xdist>=2.4.0",
     ],
+    "benchmark": [
+        "pytest-benchmark",
+        "pytest-codspeed>=4.2,<4.3",
+        "eth-typing",
+    ],
     "codspeed": [
         "pytest-codspeed>=4.2,<4.3",
         "eth-typing",
