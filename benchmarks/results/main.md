@@ -1,486 +1,486 @@
-#### [faster_hexbytes.main](https://github.com/BobTheBuidler/faster-hexbytes/blob/master/faster_hexbytes/main.py) - [view benchmarks](https://github.com/BobTheBuidler/faster-hexbytes/blob/master/benchmarks/test_main_benchmarks.py)
+#### [faster_hexbytes.main](https://github.com/BobTheBuidler/faster-hexbytes/blob/make-benchmark/faster_hexbytes/main.py) - [view benchmarks](https://github.com/BobTheBuidler/faster-hexbytes/blob/make-benchmark/benchmarks/test_main_benchmarks.py)
 
 | Function | Reference Mean | Faster Mean | % Change | Speedup (%) | x Faster | Faster |
 |----------|---------------|-------------|----------|-------------|----------|--------|
-| `hexbytes_getitem_index[-1-0-9]` | 2.47961879428296e-05 | 2.3600852443870694e-05 | 4.82% | 5.06% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-4-byte pattern]` | 2.4990771768112057e-05 | 2.3470240777710745e-05 | 6.08% | 6.48% | 1.06x | ✅ |
-| `hexbytes_getitem_index[-1-all byte values]` | 2.4954437707068516e-05 | 2.343433030024078e-05 | 6.09% | 6.49% | 1.06x | ✅ |
-| `hexbytes_getitem_index[-1-alternating 0x00/0xff]` | 2.4756902628143095e-05 | 2.3664985370465303e-05 | 4.41% | 4.61% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-alternating 0xaa/0x55]` | 2.4744284078080394e-05 | 2.3599129470981166e-05 | 4.63% | 4.85% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-ascii sentence]` | 2.4855905225322433e-05 | 2.343272912355699e-05 | 5.73% | 6.07% | 1.06x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\x00'*32]` | 2.4949694727878803e-05 | 2.3657533237962182e-05 | 5.18% | 5.46% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\x00\\xff\\x00\\xff']` | 2.4797930049412803e-05 | 2.3272595729762294e-05 | 6.15% | 6.55% | 1.07x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\x01'*100]` | 2.486056515254496e-05 | 2.3689396923244204e-05 | 4.71% | 4.94% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\x01'*2048]` | 2.4473709616217086e-05 | 2.331198665252751e-05 | 4.75% | 4.98% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\x01\\x02\\x03']` | 2.4603658087074372e-05 | 2.360916716310224e-05 | 4.04% | 4.21% | 1.04x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\x10\\x20\\x30\\x40\\x50']` | 2.4783125419572636e-05 | 2.3658236734173768e-05 | 4.54% | 4.75% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\x7f'*8]` | 2.484113859746501e-05 | 2.3590669243793656e-05 | 5.03% | 5.30% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\x80'*8]` | 2.4839203207875786e-05 | 2.3597241757476354e-05 | 5.00% | 5.26% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\xde\\xad\\xbe\\xef']` | 2.4744554180993656e-05 | 2.3641781694069645e-05 | 4.46% | 4.66% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-b'\\xff'*64]` | 2.450743416050331e-05 | 2.3586095370713955e-05 | 3.76% | 3.91% | 1.04x | ✅ |
-| `hexbytes_getitem_index[-1-b'a'*1024]` | 2.4593504433573853e-05 | 2.3629078609692493e-05 | 3.92% | 4.08% | 1.04x | ✅ |
-| `hexbytes_getitem_index[-1-b'abc']` | 2.4501838329400095e-05 | 2.3514330201211553e-05 | 4.03% | 4.20% | 1.04x | ✅ |
-| `hexbytes_getitem_index[-1-long alternating]` | 2.4856989417690272e-05 | 2.3485754076507972e-05 | 5.52% | 5.84% | 1.06x | ✅ |
-| `hexbytes_getitem_index[-1-mixed pattern]` | 2.495910989002433e-05 | 2.3367611919589715e-05 | 6.38% | 6.81% | 1.07x | ✅ |
-| `hexbytes_getitem_index[-1-multiples of 0x10]` | 2.4662546193598303e-05 | 2.3415792875731232e-05 | 5.06% | 5.32% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-palindrome ascii]` | 2.488978179731246e-05 | 2.3505124867025644e-05 | 5.56% | 5.89% | 1.06x | ✅ |
-| `hexbytes_getitem_index[-1-palindrome numeric]` | 2.495691411246807e-05 | 2.3460445350326393e-05 | 6.00% | 6.38% | 1.06x | ✅ |
-| `hexbytes_getitem_index[-1-palindrome]` | 2.476622432859715e-05 | 2.346458795362343e-05 | 5.26% | 5.55% | 1.06x | ✅ |
-| `hexbytes_getitem_index[-1-repeated 0-9]` | 2.4886147320892175e-05 | 2.3597259358224812e-05 | 5.18% | 5.46% | 1.05x | ✅ |
-| `hexbytes_getitem_index[-1-two patterns]` | 2.492216729730925e-05 | 2.3462960129157708e-05 | 5.86% | 6.22% | 1.06x | ✅ |
-| `hexbytes_getitem_index[0-0-9]` | 2.378204874248647e-05 | 2.23558352875795e-05 | 6.00% | 6.38% | 1.06x | ✅ |
-| `hexbytes_getitem_index[0-4-byte pattern]` | 2.4055124019637912e-05 | 2.2523256451758878e-05 | 6.37% | 6.80% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-all byte values]` | 2.3783592089383062e-05 | 2.245614231438357e-05 | 5.58% | 5.91% | 1.06x | ✅ |
-| `hexbytes_getitem_index[0-alternating 0x00/0xff]` | 2.3681338536153547e-05 | 2.2586542953778942e-05 | 4.62% | 4.85% | 1.05x | ✅ |
-| `hexbytes_getitem_index[0-alternating 0xaa/0x55]` | 2.3741253685632876e-05 | 2.2281103851779494e-05 | 6.15% | 6.55% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-ascii sentence]` | 2.420931146629276e-05 | 2.2396419345526033e-05 | 7.49% | 8.09% | 1.08x | ✅ |
-| `hexbytes_getitem_index[0-b'\\x00'*32]` | 2.3747470277978013e-05 | 2.2662390846992338e-05 | 4.57% | 4.79% | 1.05x | ✅ |
-| `hexbytes_getitem_index[0-b'\\x00\\xff\\x00\\xff']` | 2.401088789376542e-05 | 2.2871592324675824e-05 | 4.74% | 4.98% | 1.05x | ✅ |
-| `hexbytes_getitem_index[0-b'\\x01'*100]` | 2.399539701561214e-05 | 2.241967563887267e-05 | 6.57% | 7.03% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-b'\\x01'*2048]` | 2.391280601088424e-05 | 2.2187036644050305e-05 | 7.22% | 7.78% | 1.08x | ✅ |
-| `hexbytes_getitem_index[0-b'\\x01\\x02\\x03']` | 2.396634127724611e-05 | 2.2446154771855683e-05 | 6.34% | 6.77% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-b'\\x10\\x20\\x30\\x40\\x50']` | 2.397532813833452e-05 | 2.2395320374607006e-05 | 6.59% | 7.06% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-b'\\x7f'*8]` | 2.3871595416076546e-05 | 2.2413688924862176e-05 | 6.11% | 6.50% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-b'\\x80'*8]` | 2.3940029900117133e-05 | 2.233028985445127e-05 | 6.72% | 7.21% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-b'\\xde\\xad\\xbe\\xef']` | 2.395686287294846e-05 | 2.2401007690639552e-05 | 6.49% | 6.95% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-b'\\xff'*64]` | 2.3942094277640987e-05 | 2.229196737780448e-05 | 6.89% | 7.40% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-b'a'*1024]` | 2.384646357293162e-05 | 2.264621751686517e-05 | 5.03% | 5.30% | 1.05x | ✅ |
-| `hexbytes_getitem_index[0-b'abc']` | 2.3808261585368793e-05 | 2.235581010505805e-05 | 6.10% | 6.50% | 1.06x | ✅ |
-| `hexbytes_getitem_index[0-long alternating]` | 2.4149763413993078e-05 | 2.2234973304065986e-05 | 7.93% | 8.61% | 1.09x | ✅ |
-| `hexbytes_getitem_index[0-mixed pattern]` | 2.4164326985356005e-05 | 2.2237581566654437e-05 | 7.97% | 8.66% | 1.09x | ✅ |
-| `hexbytes_getitem_index[0-multiples of 0x10]` | 2.380144829236845e-05 | 2.3240936346886146e-05 | 2.35% | 2.41% | 1.02x | ✅ |
-| `hexbytes_getitem_index[0-palindrome ascii]` | 2.394056488992261e-05 | 2.2229808315491564e-05 | 7.15% | 7.70% | 1.08x | ✅ |
-| `hexbytes_getitem_index[0-palindrome numeric]` | 2.3924867916470914e-05 | 2.2245639990851826e-05 | 7.02% | 7.55% | 1.08x | ✅ |
-| `hexbytes_getitem_index[0-palindrome]` | 2.4029331030262717e-05 | 2.226367293994406e-05 | 7.35% | 7.93% | 1.08x | ✅ |
-| `hexbytes_getitem_index[0-repeated 0-9]` | 2.4034978583392115e-05 | 2.2494985776282453e-05 | 6.41% | 6.85% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-single 0xff]` | 2.4107646466602487e-05 | 2.2322452117043562e-05 | 7.41% | 8.00% | 1.08x | ✅ |
-| `hexbytes_getitem_index[0-single null byte]` | 2.409588508850455e-05 | 2.250381275726788e-05 | 6.61% | 7.07% | 1.07x | ✅ |
-| `hexbytes_getitem_index[0-two patterns]` | 2.4287305799982148e-05 | 2.256941222190542e-05 | 7.07% | 7.61% | 1.08x | ✅ |
-| `hexbytes_getitem_index[1-0-9]` | 2.3973882182622548e-05 | 2.2455327837044124e-05 | 6.33% | 6.76% | 1.07x | ✅ |
-| `hexbytes_getitem_index[1-4-byte pattern]` | 2.3684824611728383e-05 | 2.2474941426075163e-05 | 5.11% | 5.38% | 1.05x | ✅ |
-| `hexbytes_getitem_index[1-all byte values]` | 2.3647459553209193e-05 | 2.2439774146570565e-05 | 5.11% | 5.38% | 1.05x | ✅ |
-| `hexbytes_getitem_index[1-alternating 0x00/0xff]` | 2.3922625837251935e-05 | 2.236504407408622e-05 | 6.51% | 6.96% | 1.07x | ✅ |
-| `hexbytes_getitem_index[1-alternating 0xaa/0x55]` | 2.385675857341069e-05 | 2.246882350757294e-05 | 5.82% | 6.18% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-ascii sentence]` | 2.3826312469969287e-05 | 2.2390345926802005e-05 | 6.03% | 6.41% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-b'\\x00'*32]` | 2.415432032877948e-05 | 2.2864891783535245e-05 | 5.34% | 5.64% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-b'\\x00\\xff\\x00\\xff']` | 2.3939881513886133e-05 | 2.2302426597620633e-05 | 6.84% | 7.34% | 1.07x | ✅ |
-| `hexbytes_getitem_index[1-b'\\x01'*100]` | 2.4025747189180578e-05 | 2.2494504891662626e-05 | 6.37% | 6.81% | 1.07x | ✅ |
-| `hexbytes_getitem_index[1-b'\\x01'*2048]` | 2.3815206198438168e-05 | 2.2521448783494592e-05 | 5.43% | 5.74% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-b'\\x01\\x02\\x03']` | 2.4308653824441492e-05 | 2.2371287869190236e-05 | 7.97% | 8.66% | 1.09x | ✅ |
-| `hexbytes_getitem_index[1-b'\\x10\\x20\\x30\\x40\\x50']` | 2.3906567683681124e-05 | 2.2454718867113123e-05 | 6.07% | 6.47% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-b'\\x7f'*8]` | 2.401126514512816e-05 | 2.2434144717054366e-05 | 6.57% | 7.03% | 1.07x | ✅ |
-| `hexbytes_getitem_index[1-b'\\x80'*8]` | 2.3997564433094353e-05 | 2.2544426734536572e-05 | 6.06% | 6.45% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-b'\\xde\\xad\\xbe\\xef']` | 2.40884775302006e-05 | 2.2234171638349544e-05 | 7.70% | 8.34% | 1.08x | ✅ |
-| `hexbytes_getitem_index[1-b'\\xff'*64]` | 2.425982083697931e-05 | 2.2394082832273507e-05 | 7.69% | 8.33% | 1.08x | ✅ |
-| `hexbytes_getitem_index[1-b'a'*1024]` | 2.414416831766283e-05 | 2.236671554269058e-05 | 7.36% | 7.95% | 1.08x | ✅ |
-| `hexbytes_getitem_index[1-b'abc']` | 2.4055332495818492e-05 | 2.229404870616368e-05 | 7.32% | 7.90% | 1.08x | ✅ |
-| `hexbytes_getitem_index[1-long alternating]` | 2.384946024020796e-05 | 2.241585375601057e-05 | 6.01% | 6.40% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-mixed pattern]` | 2.378022917118701e-05 | 2.2220606842675673e-05 | 6.56% | 7.02% | 1.07x | ✅ |
-| `hexbytes_getitem_index[1-multiples of 0x10]` | 2.3593798909710504e-05 | 2.2527745416764938e-05 | 4.52% | 4.73% | 1.05x | ✅ |
-| `hexbytes_getitem_index[1-palindrome ascii]` | 2.358287529491771e-05 | 2.2236869301128472e-05 | 5.71% | 6.05% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-palindrome numeric]` | 2.3675418230975246e-05 | 2.237271211139667e-05 | 5.50% | 5.82% | 1.06x | ✅ |
-| `hexbytes_getitem_index[1-palindrome]` | 2.3988652614688478e-05 | 2.2256835218238658e-05 | 7.22% | 7.78% | 1.08x | ✅ |
-| `hexbytes_getitem_index[1-repeated 0-9]` | 2.350856682591982e-05 | 2.2319682531571982e-05 | 5.06% | 5.33% | 1.05x | ✅ |
-| `hexbytes_getitem_index[1-two patterns]` | 2.370499824503354e-05 | 2.222719603146767e-05 | 6.23% | 6.65% | 1.07x | ✅ |
-| `hexbytes_getitem_index[2-0-9]` | 2.34385395358988e-05 | 2.2311208654189047e-05 | 4.81% | 5.05% | 1.05x | ✅ |
-| `hexbytes_getitem_index[2-4-byte pattern]` | 2.3596159335257532e-05 | 2.229971818371628e-05 | 5.49% | 5.81% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-all byte values]` | 2.337301108392666e-05 | 2.224874684552138e-05 | 4.81% | 5.05% | 1.05x | ✅ |
-| `hexbytes_getitem_index[2-alternating 0x00/0xff]` | 2.3726349625403433e-05 | 2.2572623690432152e-05 | 4.86% | 5.11% | 1.05x | ✅ |
-| `hexbytes_getitem_index[2-alternating 0xaa/0x55]` | 2.3556612783856402e-05 | 2.2317582849079174e-05 | 5.26% | 5.55% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-ascii sentence]` | 2.383309410374139e-05 | 2.3463966211891876e-05 | 1.55% | 1.57% | 1.02x | ✅ |
-| `hexbytes_getitem_index[2-b'\\x00'*32]` | 2.3800758968260915e-05 | 2.2961941823558513e-05 | 3.52% | 3.65% | 1.04x | ✅ |
-| `hexbytes_getitem_index[2-b'\\x00\\xff\\x00\\xff']` | 2.3400621472113934e-05 | 2.247492903167818e-05 | 3.96% | 4.12% | 1.04x | ✅ |
-| `hexbytes_getitem_index[2-b'\\x01'*100]` | 2.3670276720094737e-05 | 2.241383311118674e-05 | 5.31% | 5.61% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-b'\\x01'*2048]` | 2.3543655269600148e-05 | 2.239115085468918e-05 | 4.90% | 5.15% | 1.05x | ✅ |
-| `hexbytes_getitem_index[2-b'\\x01\\x02\\x03']` | 2.382973785298402e-05 | 2.2314034610704883e-05 | 6.36% | 6.79% | 1.07x | ✅ |
-| `hexbytes_getitem_index[2-b'\\x10\\x20\\x30\\x40\\x50']` | 2.3699455755383894e-05 | 2.2326799854518626e-05 | 5.79% | 6.15% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-b'\\x7f'*8]` | 2.3728809395845286e-05 | 2.2395692567939092e-05 | 5.62% | 5.95% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-b'\\x80'*8]` | 2.375533270869214e-05 | 2.2434040812694403e-05 | 5.56% | 5.89% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-b'\\xde\\xad\\xbe\\xef']` | 2.387269835153264e-05 | 2.2303579633077602e-05 | 6.57% | 7.04% | 1.07x | ✅ |
-| `hexbytes_getitem_index[2-b'\\xff'*64]` | 2.3849877359434386e-05 | 2.2482287829588664e-05 | 5.73% | 6.08% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-b'a'*1024]` | 2.382584739270989e-05 | 2.5125808616285165e-05 | -5.46% | -5.17% | 0.95x | ❌ |
-| `hexbytes_getitem_index[2-b'abc']` | 2.3737451934582988e-05 | 2.2397862697112815e-05 | 5.64% | 5.98% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-long alternating]` | 2.3629671762663173e-05 | 2.2588680633181277e-05 | 4.41% | 4.61% | 1.05x | ✅ |
-| `hexbytes_getitem_index[2-mixed pattern]` | 2.3695491081467262e-05 | 2.2227597247656536e-05 | 6.19% | 6.60% | 1.07x | ✅ |
-| `hexbytes_getitem_index[2-multiples of 0x10]` | 2.355905275824654e-05 | 2.237172839851851e-05 | 5.04% | 5.31% | 1.05x | ✅ |
-| `hexbytes_getitem_index[2-palindrome ascii]` | 2.3575207523204408e-05 | 2.250331641770232e-05 | 4.55% | 4.76% | 1.05x | ✅ |
-| `hexbytes_getitem_index[2-palindrome numeric]` | 2.358881223426642e-05 | 2.2521528823461648e-05 | 4.52% | 4.74% | 1.05x | ✅ |
-| `hexbytes_getitem_index[2-palindrome]` | 2.3674043505695358e-05 | 2.2343518885701736e-05 | 5.62% | 5.95% | 1.06x | ✅ |
-| `hexbytes_getitem_index[2-repeated 0-9]` | 2.3781886549884267e-05 | 2.2249806374029873e-05 | 6.44% | 6.89% | 1.07x | ✅ |
-| `hexbytes_getitem_index[2-two patterns]` | 2.3812829996716743e-05 | 2.2377528603154656e-05 | 6.03% | 6.41% | 1.06x | ✅ |
-| `hexbytes_getitem_index[3-0-9]` | 2.3688547562953164e-05 | 2.2263088623265983e-05 | 6.02% | 6.40% | 1.06x | ✅ |
-| `hexbytes_getitem_index[3-4-byte pattern]` | 2.352288711456464e-05 | 2.234339910566698e-05 | 5.01% | 5.28% | 1.05x | ✅ |
-| `hexbytes_getitem_index[3-all byte values]` | 2.3847958574201112e-05 | 2.2312478682812324e-05 | 6.44% | 6.88% | 1.07x | ✅ |
-| `hexbytes_getitem_index[3-alternating 0x00/0xff]` | 2.356524555554951e-05 | 2.2419824640560712e-05 | 4.86% | 5.11% | 1.05x | ✅ |
-| `hexbytes_getitem_index[3-alternating 0xaa/0x55]` | 2.3732187596705516e-05 | 2.2518071185056863e-05 | 5.12% | 5.39% | 1.05x | ✅ |
-| `hexbytes_getitem_index[3-ascii sentence]` | 2.3891319796405288e-05 | 2.238884645434133e-05 | 6.29% | 6.71% | 1.07x | ✅ |
-| `hexbytes_getitem_index[3-b'\\x00'*32]` | 2.3762587029280746e-05 | 2.2729060114330386e-05 | 4.35% | 4.55% | 1.05x | ✅ |
-| `hexbytes_getitem_index[3-b'\\x00\\xff\\x00\\xff']` | 2.3704659144926437e-05 | 2.2306253184465268e-05 | 5.90% | 6.27% | 1.06x | ✅ |
-| `hexbytes_getitem_index[3-b'\\x01'*100]` | 2.379110761734665e-05 | 2.2412953816670894e-05 | 5.79% | 6.15% | 1.06x | ✅ |
-| `hexbytes_getitem_index[3-b'\\x01'*2048]` | 2.3514836101321345e-05 | 2.237475087745944e-05 | 4.85% | 5.10% | 1.05x | ✅ |
-| `hexbytes_getitem_index[3-b'\\x10\\x20\\x30\\x40\\x50']` | 2.351744409440999e-05 | 2.2564409279384136e-05 | 4.05% | 4.22% | 1.04x | ✅ |
-| `hexbytes_getitem_index[3-b'\\x7f'*8]` | 2.3620574918086866e-05 | 2.2423142109647965e-05 | 5.07% | 5.34% | 1.05x | ✅ |
-| `hexbytes_getitem_index[3-b'\\x80'*8]` | 2.372372347878709e-05 | 2.2313518196661848e-05 | 5.94% | 6.32% | 1.06x | ✅ |
-| `hexbytes_getitem_index[3-b'\\xde\\xad\\xbe\\xef']` | 2.373069056312161e-05 | 2.224977868566421e-05 | 6.24% | 6.66% | 1.07x | ✅ |
-| `hexbytes_getitem_index[3-b'\\xff'*64]` | 2.3657540051047838e-05 | 2.2257956951115528e-05 | 5.92% | 6.29% | 1.06x | ✅ |
-| `hexbytes_getitem_index[3-b'a'*1024]` | 2.3800967690920422e-05 | 2.2291147803295692e-05 | 6.34% | 6.77% | 1.07x | ✅ |
-| `hexbytes_getitem_index[3-long alternating]` | 2.3835517325257137e-05 | 2.246781019519733e-05 | 5.74% | 6.09% | 1.06x | ✅ |
-| `hexbytes_getitem_index[3-mixed pattern]` | 2.3785650580130855e-05 | 2.260472393495216e-05 | 4.96% | 5.22% | 1.05x | ✅ |
-| `hexbytes_getitem_index[3-multiples of 0x10]` | 2.375849967342668e-05 | 2.2166524364956987e-05 | 6.70% | 7.18% | 1.07x | ✅ |
-| `hexbytes_getitem_index[3-palindrome ascii]` | 2.3915177591747427e-05 | 2.221881177345536e-05 | 7.09% | 7.63% | 1.08x | ✅ |
-| `hexbytes_getitem_index[3-palindrome numeric]` | 2.372101629799534e-05 | 2.216003291559524e-05 | 6.58% | 7.04% | 1.07x | ✅ |
-| `hexbytes_getitem_index[3-palindrome]` | 2.3581293569595987e-05 | 2.2389059211338044e-05 | 5.06% | 5.33% | 1.05x | ✅ |
-| `hexbytes_getitem_index[3-repeated 0-9]` | 2.3852734176514886e-05 | 2.2308559236075993e-05 | 6.47% | 6.92% | 1.07x | ✅ |
-| `hexbytes_getitem_index[3-two patterns]` | 2.386602984058612e-05 | 2.2489418916014407e-05 | 5.77% | 6.12% | 1.06x | ✅ |
-| `hexbytes_getitem_index[4-0-9]` | 2.3650476847559054e-05 | 2.2423811038780686e-05 | 5.19% | 5.47% | 1.05x | ✅ |
-| `hexbytes_getitem_index[4-4-byte pattern]` | 2.3575151409806527e-05 | 2.2617312036206332e-05 | 4.06% | 4.23% | 1.04x | ✅ |
-| `hexbytes_getitem_index[4-all byte values]` | 2.3510012919511286e-05 | 2.2294312708007265e-05 | 5.17% | 5.45% | 1.05x | ✅ |
-| `hexbytes_getitem_index[4-alternating 0x00/0xff]` | 2.377802177691101e-05 | 2.2610479999043214e-05 | 4.91% | 5.16% | 1.05x | ✅ |
-| `hexbytes_getitem_index[4-alternating 0xaa/0x55]` | 2.366875880595009e-05 | 2.238682366251946e-05 | 5.42% | 5.73% | 1.06x | ✅ |
-| `hexbytes_getitem_index[4-ascii sentence]` | 2.3632205770497846e-05 | 2.2389457864283138e-05 | 5.26% | 5.55% | 1.06x | ✅ |
-| `hexbytes_getitem_index[4-b'\\x00'*32]` | 2.3845345044841145e-05 | 2.2751026910338174e-05 | 4.59% | 4.81% | 1.05x | ✅ |
-| `hexbytes_getitem_index[4-b'\\x01'*100]` | 2.3856339539586988e-05 | 2.241040486657727e-05 | 6.06% | 6.45% | 1.06x | ✅ |
-| `hexbytes_getitem_index[4-b'\\x01'*2048]` | 2.3624553636880806e-05 | 2.229576312505141e-05 | 5.62% | 5.96% | 1.06x | ✅ |
-| `hexbytes_getitem_index[4-b'\\x10\\x20\\x30\\x40\\x50']` | 2.36210484918095e-05 | 2.249385140012655e-05 | 4.77% | 5.01% | 1.05x | ✅ |
-| `hexbytes_getitem_index[4-b'\\x7f'*8]` | 2.3892053037286346e-05 | 2.2358410637134693e-05 | 6.42% | 6.86% | 1.07x | ✅ |
-| `hexbytes_getitem_index[4-b'\\x80'*8]` | 2.3797018945760718e-05 | 2.2376234188497598e-05 | 5.97% | 6.35% | 1.06x | ✅ |
-| `hexbytes_getitem_index[4-b'\\xff'*64]` | 2.3923115706647037e-05 | 2.2381232971223467e-05 | 6.45% | 6.89% | 1.07x | ✅ |
-| `hexbytes_getitem_index[4-b'a'*1024]` | 2.391506549099881e-05 | 2.2427803977185106e-05 | 6.22% | 6.63% | 1.07x | ✅ |
-| `hexbytes_getitem_index[4-long alternating]` | 2.3453996432203805e-05 | 2.2568679872962996e-05 | 3.77% | 3.92% | 1.04x | ✅ |
-| `hexbytes_getitem_index[4-mixed pattern]` | 2.3615028367017926e-05 | 2.2487833733767863e-05 | 4.77% | 5.01% | 1.05x | ✅ |
-| `hexbytes_getitem_index[4-multiples of 0x10]` | 2.3692704890947054e-05 | 2.220350517890072e-05 | 6.29% | 6.71% | 1.07x | ✅ |
-| `hexbytes_getitem_index[4-palindrome ascii]` | 2.3734712608859013e-05 | 2.2432265219054494e-05 | 5.49% | 5.81% | 1.06x | ✅ |
-| `hexbytes_getitem_index[4-palindrome numeric]` | 2.339860793502093e-05 | 2.238667724496636e-05 | 4.32% | 4.52% | 1.05x | ✅ |
-| `hexbytes_getitem_index[4-palindrome]` | 2.3855156616456042e-05 | 2.230907913489062e-05 | 6.48% | 6.93% | 1.07x | ✅ |
-| `hexbytes_getitem_index[4-repeated 0-9]` | 2.3658352224272606e-05 | 2.2363130912816756e-05 | 5.47% | 5.79% | 1.06x | ✅ |
-| `hexbytes_getitem_index[4-two patterns]` | 2.3560231131695263e-05 | 2.2555930610328324e-05 | 4.26% | 4.45% | 1.04x | ✅ |
-| `hexbytes_getitem_index[5-0-9]` | 2.3874027454028395e-05 | 2.235607865901923e-05 | 6.36% | 6.79% | 1.07x | ✅ |
-| `hexbytes_getitem_index[5-4-byte pattern]` | 2.3906467133971598e-05 | 2.2304131729500075e-05 | 6.70% | 7.18% | 1.07x | ✅ |
-| `hexbytes_getitem_index[5-all byte values]` | 2.3964159392390355e-05 | 2.2291623641676797e-05 | 6.98% | 7.50% | 1.08x | ✅ |
-| `hexbytes_getitem_index[5-alternating 0x00/0xff]` | 2.3388851977909192e-05 | 2.2534815380135177e-05 | 3.65% | 3.79% | 1.04x | ✅ |
-| `hexbytes_getitem_index[5-alternating 0xaa/0x55]` | 2.3425912897231543e-05 | 2.224887823754891e-05 | 5.02% | 5.29% | 1.05x | ✅ |
-| `hexbytes_getitem_index[5-ascii sentence]` | 2.37093048816149e-05 | 2.2374083100012883e-05 | 5.63% | 5.97% | 1.06x | ✅ |
-| `hexbytes_getitem_index[5-b'\\x00'*32]` | 2.3806277834422893e-05 | 2.2627026735610147e-05 | 4.95% | 5.21% | 1.05x | ✅ |
-| `hexbytes_getitem_index[5-b'\\x01'*100]` | 2.361379797541659e-05 | 2.249514975801338e-05 | 4.74% | 4.97% | 1.05x | ✅ |
-| `hexbytes_getitem_index[5-b'\\x01'*2048]` | 2.3867489040196936e-05 | 2.2400549386953603e-05 | 6.15% | 6.55% | 1.07x | ✅ |
-| `hexbytes_getitem_index[5-b'\\x7f'*8]` | 2.364288243616484e-05 | 2.23526904549935e-05 | 5.46% | 5.77% | 1.06x | ✅ |
-| `hexbytes_getitem_index[5-b'\\x80'*8]` | 2.375122742266059e-05 | 2.254689373097089e-05 | 5.07% | 5.34% | 1.05x | ✅ |
-| `hexbytes_getitem_index[5-b'\\xff'*64]` | 2.369940300682656e-05 | 2.2341153527679886e-05 | 5.73% | 6.08% | 1.06x | ✅ |
-| `hexbytes_getitem_index[5-b'a'*1024]` | 2.365740373063478e-05 | 2.237209054661865e-05 | 5.43% | 5.75% | 1.06x | ✅ |
-| `hexbytes_getitem_index[5-long alternating]` | 2.390674626752826e-05 | 2.232228341496812e-05 | 6.63% | 7.10% | 1.07x | ✅ |
-| `hexbytes_getitem_index[5-mixed pattern]` | 2.374267860004839e-05 | 2.2554698447657276e-05 | 5.00% | 5.27% | 1.05x | ✅ |
-| `hexbytes_getitem_index[5-multiples of 0x10]` | 2.3879916717642476e-05 | 2.248988138896159e-05 | 5.82% | 6.18% | 1.06x | ✅ |
-| `hexbytes_getitem_index[5-palindrome ascii]` | 2.41617928391949e-05 | 2.2202414442300284e-05 | 8.11% | 8.83% | 1.09x | ✅ |
-| `hexbytes_getitem_index[5-palindrome]` | 2.3605334454092288e-05 | 2.274793652782196e-05 | 3.63% | 3.77% | 1.04x | ✅ |
-| `hexbytes_getitem_index[5-repeated 0-9]` | 2.3652865343493466e-05 | 2.2332594290410854e-05 | 5.58% | 5.91% | 1.06x | ✅ |
-| `hexbytes_getitem_index[5-two patterns]` | 2.3443646661488326e-05 | 2.2448681318737277e-05 | 4.24% | 4.43% | 1.04x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-0-9]` | 8.128503596012436e-05 | 5.7764189147479476e-05 | 28.94% | 40.72% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-4-byte pattern]` | 8.105367903600578e-05 | 5.898060929882079e-05 | 27.23% | 37.42% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-all byte values]` | 8.06658986591256e-05 | 5.9136963735364886e-05 | 26.69% | 36.41% | 1.36x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-alternating 0x00/0xff]` | 8.08178652083403e-05 | 5.864142536238824e-05 | 27.44% | 37.82% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-alternating 0xaa/0x55]` | 8.084116881647188e-05 | 5.817582392916637e-05 | 28.04% | 38.96% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-ascii sentence]` | 8.116863387571069e-05 | 5.91085763710781e-05 | 27.18% | 37.32% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'']` | 7.929147094454882e-05 | 5.61087157290314e-05 | 29.24% | 41.32% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\x00'*32]` | 8.254972314247495e-05 | 5.7690383758490804e-05 | 30.11% | 43.09% | 1.43x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\x00\\xff\\x00\\xff']` | 8.139870802241e-05 | 5.828026669922113e-05 | 28.40% | 39.67% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\x01'*100]` | 8.91394388134318e-05 | 5.787824284754266e-05 | 35.07% | 54.01% | 1.54x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\x01'*2048]` | 8.134344314543237e-05 | 5.78825660073608e-05 | 28.84% | 40.53% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\x01\\x02\\x03']` | 8.177684735686464e-05 | 5.8718644488910234e-05 | 28.20% | 39.27% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.164089743524925e-05 | 5.8227527758955505e-05 | 28.68% | 40.21% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\x7f'*8]` | 8.205765497117379e-05 | 5.789253370219894e-05 | 29.45% | 41.74% | 1.42x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\x80'*8]` | 8.87286655965727e-05 | 5.8267002109954196e-05 | 34.33% | 52.28% | 1.52x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\xde\\xad\\xbe\\xef']` | 8.189464560661422e-05 | 5.828244190008033e-05 | 28.83% | 40.51% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'\\xff'*64]` | 8.134494464716244e-05 | 5.857019956834714e-05 | 28.00% | 38.88% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'a'*1024]` | 8.201381539093067e-05 | 5.819883166004342e-05 | 29.04% | 40.92% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-b'abc']` | 8.284176616417648e-05 | 5.893930990979214e-05 | 28.85% | 40.55% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-long alternating]` | 8.126312718379934e-05 | 5.856957027534441e-05 | 27.93% | 38.75% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-mixed pattern]` | 8.138635947379059e-05 | 5.848672778741843e-05 | 28.14% | 39.15% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-multiples of 0x10]` | 8.171570915689098e-05 | 5.809092509389159e-05 | 28.91% | 40.67% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-palindrome ascii]` | 8.134682873434365e-05 | 5.883234952133758e-05 | 27.68% | 38.27% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-palindrome numeric]` | 8.140501377408015e-05 | 5.8854409249840026e-05 | 27.70% | 38.32% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-palindrome]` | 8.204008599846324e-05 | 5.8308778577398914e-05 | 28.93% | 40.70% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-repeated 0-9]` | 8.169223498288783e-05 | 5.914748930862165e-05 | 27.60% | 38.12% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-single 0xff]` | 7.913354203706342e-05 | 5.6558613404773945e-05 | 28.53% | 39.91% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-single null byte]` | 7.954486363627051e-05 | 5.576026695739809e-05 | 29.90% | 42.66% | 1.43x | ✅ |
-| `hexbytes_getitem_slice[slice(-3,None)-two patterns]` | 8.121202548771073e-05 | 5.825679990341855e-05 | 28.27% | 39.40% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-0-9]` | 8.204714770227483e-05 | 5.973428912569595e-05 | 27.20% | 37.35% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-4-byte pattern]` | 8.251868831965552e-05 | 6.003683652674045e-05 | 27.24% | 37.45% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-all byte values]` | 8.187214706383816e-05 | 5.9765978217802206e-05 | 27.00% | 36.99% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-alternating 0x00/0xff]` | 8.261270183287231e-05 | 6.033620736421122e-05 | 26.96% | 36.92% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-alternating 0xaa/0x55]` | 8.209857842926357e-05 | 5.956355951990069e-05 | 27.45% | 37.83% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-ascii sentence]` | 8.257150585451582e-05 | 5.95216706658141e-05 | 27.91% | 38.73% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'']` | 8.109503871292586e-05 | 5.675058354335874e-05 | 30.02% | 42.90% | 1.43x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\x00'*32]` | 8.271066717298366e-05 | 6.001843223939645e-05 | 27.44% | 37.81% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\x00\\xff\\x00\\xff']` | 8.246047722851587e-05 | 5.9567534239601255e-05 | 27.76% | 38.43% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\x01'*100]` | 8.229554604107227e-05 | 5.8945270422689e-05 | 28.37% | 39.61% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\x01'*2048]` | 8.099760790791003e-05 | 5.984556841878689e-05 | 26.11% | 35.34% | 1.35x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\x01\\x02\\x03']` | 8.282332797856244e-05 | 5.9406264352742496e-05 | 28.27% | 39.42% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.219581264824521e-05 | 5.952808761886066e-05 | 27.58% | 38.08% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\x7f'*8]` | 8.266534574647062e-05 | 5.974057470519068e-05 | 27.73% | 38.37% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\x80'*8]` | 8.261286354628662e-05 | 5.9612003974458726e-05 | 27.84% | 38.58% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\xde\\xad\\xbe\\xef']` | 8.251559962767048e-05 | 5.9135156498424614e-05 | 28.33% | 39.54% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'\\xff'*64]` | 8.266938105978432e-05 | 5.949546056475745e-05 | 28.03% | 38.95% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'a'*1024]` | 8.275983639970333e-05 | 5.931206833492912e-05 | 28.33% | 39.53% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-b'abc']` | 8.348704057591885e-05 | 5.999764406456333e-05 | 28.14% | 39.15% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-long alternating]` | 8.199529786364035e-05 | 5.934577841187198e-05 | 27.62% | 38.17% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-mixed pattern]` | 8.236844262598271e-05 | 5.956024016872117e-05 | 27.69% | 38.29% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-multiples of 0x10]` | 8.218337645101933e-05 | 5.938338919103888e-05 | 27.74% | 38.39% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-palindrome ascii]` | 8.179454952271585e-05 | 5.963149580199249e-05 | 27.10% | 37.17% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-palindrome numeric]` | 8.192113739754433e-05 | 5.9489484187805666e-05 | 27.38% | 37.71% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-palindrome]` | 8.30170097821926e-05 | 5.947138846231142e-05 | 28.36% | 39.59% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-repeated 0-9]` | 8.193626549833853e-05 | 5.944936693230745e-05 | 27.44% | 37.83% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-single 0xff]` | 8.100160506362227e-05 | 5.8146712587243954e-05 | 28.22% | 39.31% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-single null byte]` | 8.190639433517932e-05 | 5.7914920914197874e-05 | 29.29% | 41.43% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(0,3)-two patterns]` | 8.171641588049014e-05 | 6.039090352815665e-05 | 26.10% | 35.31% | 1.35x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-0-9]` | 8.085875245313709e-05 | 5.869267820360293e-05 | 27.41% | 37.77% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-4-byte pattern]` | 8.145903231603855e-05 | 5.968258857614615e-05 | 26.73% | 36.49% | 1.36x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-all byte values]` | 8.220732533858941e-05 | 5.9487732338740406e-05 | 27.64% | 38.19% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-alternating 0x00/0xff]` | 8.201628743624746e-05 | 5.9146585450963654e-05 | 27.88% | 38.67% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-alternating 0xaa/0x55]` | 8.158335060519532e-05 | 5.94424401554846e-05 | 27.14% | 37.25% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-ascii sentence]` | 8.256762038798762e-05 | 5.893813931694817e-05 | 28.62% | 40.09% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'']` | 7.987221585775769e-05 | 5.682835446035633e-05 | 28.85% | 40.55% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\x00'*32]` | 8.220630680688986e-05 | 5.929694718746592e-05 | 27.87% | 38.63% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\x00\\xff\\x00\\xff']` | 8.18991868955243e-05 | 6.019918211579512e-05 | 26.50% | 36.05% | 1.36x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\x01'*100]` | 8.286074179814395e-05 | 5.9506071205829335e-05 | 28.19% | 39.25% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\x01'*2048]` | 8.162942235417808e-05 | 5.9110700240382485e-05 | 27.59% | 38.10% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\x01\\x02\\x03']` | 8.27160905496026e-05 | 6.0017729490835405e-05 | 27.44% | 37.82% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.200954001383994e-05 | 5.944865727627214e-05 | 27.51% | 37.95% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\x7f'*8]` | 8.197958745030561e-05 | 5.93997273675986e-05 | 27.54% | 38.01% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\x80'*8]` | 8.405190096296156e-05 | 5.953894788089724e-05 | 29.16% | 41.17% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\xde\\xad\\xbe\\xef']` | 8.216743044250873e-05 | 5.983062120357438e-05 | 27.18% | 37.33% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'\\xff'*64]` | 8.164155075412925e-05 | 5.9219295187828564e-05 | 27.46% | 37.86% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'a'*1024]` | 8.168677333353003e-05 | 5.8872126926264016e-05 | 27.93% | 38.75% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-b'abc']` | 8.233119765372968e-05 | 5.947056264242016e-05 | 27.77% | 38.44% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-long alternating]` | 8.193383516837256e-05 | 5.9477621811058176e-05 | 27.41% | 37.76% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-mixed pattern]` | 8.223098703072402e-05 | 5.860141843362742e-05 | 28.74% | 40.32% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-multiples of 0x10]` | 8.241795710842765e-05 | 6.009865719531188e-05 | 27.08% | 37.14% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-palindrome ascii]` | 8.150498660188114e-05 | 5.94458723210555e-05 | 27.06% | 37.11% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-palindrome numeric]` | 8.211325836995169e-05 | 5.954850794843173e-05 | 27.48% | 37.89% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-palindrome]` | 8.161882945432943e-05 | 5.8981126323637765e-05 | 27.74% | 38.38% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-repeated 0-9]` | 8.234859642552314e-05 | 5.975985975138819e-05 | 27.43% | 37.80% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-single 0xff]` | 8.04377650504462e-05 | 5.695217941762702e-05 | 29.20% | 41.24% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-single null byte]` | 8.02415083072538e-05 | 5.6956960055123076e-05 | 29.02% | 40.88% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(1,6)-two patterns]` | 8.238119032608895e-05 | 5.973712340677065e-05 | 27.49% | 37.91% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-0-9]` | 8.145969140591902e-05 | 5.8058146974760425e-05 | 28.73% | 40.31% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-4-byte pattern]` | 8.187092019111e-05 | 5.903272564815145e-05 | 27.90% | 38.69% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-all byte values]` | 8.248129304329877e-05 | 5.9493891335630265e-05 | 27.87% | 38.64% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-alternating 0x00/0xff]` | 8.129528778911892e-05 | 5.89632477325531e-05 | 27.47% | 37.87% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-alternating 0xaa/0x55]` | 8.145840317577878e-05 | 5.8627211101645035e-05 | 28.03% | 38.94% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-ascii sentence]` | 8.167674866674616e-05 | 5.8355428304063995e-05 | 28.55% | 39.96% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'']` | 7.999443492223258e-05 | 5.5788203061891394e-05 | 30.26% | 43.39% | 1.43x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\x00'*32]` | 8.169833151194682e-05 | 5.85202623560862e-05 | 28.37% | 39.61% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\x00\\xff\\x00\\xff']` | 8.129564087086777e-05 | 5.877659025626381e-05 | 27.70% | 38.31% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\x01'*100]` | 8.126778763414667e-05 | 5.9394491663375046e-05 | 26.92% | 36.83% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\x01'*2048]` | 0.00010363196835389697 | 8.142211153527747e-05 | 21.43% | 27.28% | 1.27x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\x01\\x02\\x03']` | 7.949108074183069e-05 | 5.7019136452325334e-05 | 28.27% | 39.41% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.194300127220463e-05 | 5.879707824023149e-05 | 28.25% | 39.37% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\x7f'*8]` | 8.0519093197029e-05 | 5.8621574318847484e-05 | 27.20% | 37.35% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\x80'*8]` | 8.123668131978114e-05 | 5.8961387359805534e-05 | 27.42% | 37.78% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\xde\\xad\\xbe\\xef']` | 8.112475548666977e-05 | 5.884958137636812e-05 | 27.46% | 37.85% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'\\xff'*64]` | 8.011915535865711e-05 | 5.86742100470391e-05 | 26.77% | 36.55% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'a'*1024]` | 0.00010247483552868944 | 7.356720844669531e-05 | 28.21% | 39.29% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-b'abc']` | 7.96468295087794e-05 | 5.629603203553488e-05 | 29.32% | 41.48% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-long alternating]` | 9.945458554863164e-05 | 7.545672713024374e-05 | 24.13% | 31.80% | 1.32x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-mixed pattern]` | 8.24459430286961e-05 | 5.984616889906269e-05 | 27.41% | 37.76% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-multiples of 0x10]` | 8.163860642201383e-05 | 5.7857837710940816e-05 | 29.13% | 41.10% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-palindrome ascii]` | 8.135606735471299e-05 | 5.810666046393752e-05 | 28.58% | 40.01% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-palindrome numeric]` | 8.094885176617891e-05 | 5.852401563900753e-05 | 27.70% | 38.32% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-palindrome]` | 8.082509696050966e-05 | 5.847386041170154e-05 | 27.65% | 38.22% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-repeated 0-9]` | 8.155388795320956e-05 | 5.9334059050990976e-05 | 27.25% | 37.45% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-single 0xff]` | 7.93519223231959e-05 | 5.603508047530237e-05 | 29.38% | 41.61% | 1.42x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-single null byte]` | 7.863131421415127e-05 | 5.586868976869134e-05 | 28.95% | 40.74% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(2,None)-two patterns]` | 8.119538494192148e-05 | 5.8576407645577534e-05 | 27.86% | 38.61% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-0-9]` | 8.019266988394612e-05 | 5.614653305909737e-05 | 29.99% | 42.83% | 1.43x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-4-byte pattern]` | 8.186916342624233e-05 | 5.811877271643159e-05 | 29.01% | 40.87% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-all byte values]` | 8.131461462709178e-05 | 5.85182900817984e-05 | 28.03% | 38.96% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-alternating 0x00/0xff]` | 8.042212481353904e-05 | 5.6565553703930374e-05 | 29.66% | 42.18% | 1.42x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-alternating 0xaa/0x55]` | 8.043103665849928e-05 | 5.6726164711465474e-05 | 29.47% | 41.79% | 1.42x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-ascii sentence]` | 8.149148787767833e-05 | 5.697392156583733e-05 | 30.09% | 43.03% | 1.43x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'']` | 7.710793755438017e-05 | 5.421808499076085e-05 | 29.69% | 42.22% | 1.42x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\x00'*32]` | 8.031833989769992e-05 | 5.714616098415897e-05 | 28.85% | 40.55% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\x00\\xff\\x00\\xff']` | 7.915704794126072e-05 | 5.751601861309912e-05 | 27.34% | 37.63% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\x01'*100]` | 8.023019512306886e-05 | 5.7255985642877205e-05 | 28.64% | 40.13% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\x01'*2048]` | 0.00010578066377899353 | 7.881086603066184e-05 | 25.50% | 34.22% | 1.34x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\x01\\x02\\x03']` | 8.0095985933205e-05 | 5.793475082260523e-05 | 27.67% | 38.25% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\x10\\x20\\x30\\x40\\x50']` | 7.975728381892274e-05 | 5.754819634206954e-05 | 27.85% | 38.59% | 1.39x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\x7f'*8]` | 8.013564739798385e-05 | 5.577702469337988e-05 | 30.40% | 43.67% | 1.44x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\x80'*8]` | 8.043267836603167e-05 | 5.6949805147635846e-05 | 29.20% | 41.23% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\xde\\xad\\xbe\\xef']` | 8.036345698154007e-05 | 5.7253835639898426e-05 | 28.76% | 40.36% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'\\xff'*64]` | 8.057814000133535e-05 | 5.6669008412928126e-05 | 29.67% | 42.19% | 1.42x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'a'*1024]` | 9.929634181322926e-05 | 7.229021861813026e-05 | 27.20% | 37.36% | 1.37x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-b'abc']` | 7.961277906620544e-05 | 5.769959561147602e-05 | 27.52% | 37.98% | 1.38x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-long alternating]` | 9.885480629759894e-05 | 7.414752684610774e-05 | 24.99% | 33.32% | 1.33x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-mixed pattern]` | 8.076642918536947e-05 | 5.771208262252573e-05 | 28.54% | 39.95% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-multiples of 0x10]` | 7.943040791522782e-05 | 5.677173835743441e-05 | 28.53% | 39.91% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-palindrome ascii]` | 7.96400232769049e-05 | 5.694658274300411e-05 | 28.50% | 39.85% | 1.40x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-palindrome numeric]` | 8.023610016572714e-05 | 5.675756152273245e-05 | 29.26% | 41.37% | 1.41x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-palindrome]` | 7.999673759445253e-05 | 5.638909347427654e-05 | 29.51% | 41.87% | 1.42x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-repeated 0-9]` | 8.149140852500767e-05 | 5.637023778926537e-05 | 30.83% | 44.56% | 1.45x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-single 0xff]` | 7.823943208100587e-05 | 5.410742887170331e-05 | 30.84% | 44.60% | 1.45x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-single null byte]` | 7.842157671721007e-05 | 5.42757952320848e-05 | 30.79% | 44.49% | 1.44x | ✅ |
-| `hexbytes_getitem_slice[slice(None,None)-two patterns]` | 7.927673628768106e-05 | 5.718555191252001e-05 | 27.87% | 38.63% | 1.39x | ✅ |
-| `hexbytes_new['']` | 7.173713857167064e-05 | 3.703615837635082e-05 | 48.37% | 93.69% | 1.94x | ✅ |
-| `hexbytes_new['0x'+'00'*64]` | 9.276139963066289e-05 | 5.009589312328975e-05 | 45.99% | 85.17% | 1.85x | ✅ |
-| `hexbytes_new['0x'+'a'*128]` | 9.182055851752282e-05 | 4.9228332396435196e-05 | 46.39% | 86.52% | 1.87x | ✅ |
-| `hexbytes_new['0x'+'ff'*32]` | 8.865986227293416e-05 | 4.652069189301804e-05 | 47.53% | 90.58% | 1.91x | ✅ |
-| `hexbytes_new['0x']` | 7.928058814067211e-05 | 3.7358935962702135e-05 | 52.88% | 112.21% | 2.12x | ✅ |
-| `hexbytes_new['0x1234']` | 8.800068806981742e-05 | 4.5788841398954256e-05 | 47.97% | 92.19% | 1.92x | ✅ |
-| `hexbytes_new['0xCAFEBABE']` | 8.610357118164067e-05 | 4.494722613248128e-05 | 47.80% | 91.57% | 1.92x | ✅ |
-| `hexbytes_new['0xabcdef']` | 8.737884942960893e-05 | 4.5293212526073313e-05 | 48.16% | 92.92% | 1.93x | ✅ |
-| `hexbytes_new['0xdeadbeef']` | 8.655544942625783e-05 | 4.608461107138972e-05 | 46.76% | 87.82% | 1.88x | ✅ |
-| `hexbytes_new['abc']` | 8.331058069126893e-05 | 4.742631317143377e-05 | 43.07% | 75.66% | 1.76x | ✅ |
-| `hexbytes_new['deadbeef']` | 7.709953580098201e-05 | 4.066782685507515e-05 | 47.25% | 89.58% | 1.90x | ✅ |
-| `hexbytes_new[0-9]` | 4.20296849637365e-05 | 2.5751140414361255e-05 | 38.73% | 63.21% | 1.63x | ✅ |
-| `hexbytes_new[0]` | 0.00012316796082409009 | 6.037762966152965e-05 | 50.98% | 104.00% | 2.04x | ✅ |
-| `hexbytes_new[123456]` | 0.00012886655731707836 | 6.590450707851035e-05 | 48.86% | 95.54% | 1.96x | ✅ |
-| `hexbytes_new[2**16]` | 0.00012622991716703386 | 6.48492162177431e-05 | 48.63% | 94.65% | 1.95x | ✅ |
-| `hexbytes_new[2**256-1]` | 0.00012937509198026858 | 7.323697983392126e-05 | 43.39% | 76.65% | 1.77x | ✅ |
-| `hexbytes_new[2**32]` | 0.00012893654071712674 | 6.89477399032995e-05 | 46.53% | 87.01% | 1.87x | ✅ |
-| `hexbytes_new[2**64]` | 0.00012995195610163716 | 7.213020396364566e-05 | 44.49% | 80.16% | 1.80x | ✅ |
-| `hexbytes_new[2**8]` | 0.0001262619398244474 | 6.305237736455962e-05 | 50.06% | 100.25% | 2.00x | ✅ |
-| `hexbytes_new[4-byte pattern]` | 4.3208238945293934e-05 | 2.6645058944477893e-05 | 38.33% | 62.16% | 1.62x | ✅ |
-| `hexbytes_new[False]` | 6.095063734349642e-05 | 2.6914308270952974e-05 | 55.84% | 126.46% | 2.26x | ✅ |
-| `hexbytes_new[True]` | 6.052345235090008e-05 | 2.701898046694069e-05 | 55.36% | 124.00% | 2.24x | ✅ |
-| `hexbytes_new[all byte values]` | 4.317790892338641e-05 | 2.656533981604875e-05 | 38.47% | 62.53% | 1.63x | ✅ |
-| `hexbytes_new[alternating 0x00/0xff]` | 4.2974209744420995e-05 | 2.624062244968422e-05 | 38.94% | 63.77% | 1.64x | ✅ |
-| `hexbytes_new[alternating 0xaa/0x55]` | 4.275992043201219e-05 | 2.6255984517074593e-05 | 38.60% | 62.86% | 1.63x | ✅ |
-| `hexbytes_new[ascii sentence]` | 4.216929585554029e-05 | 2.562987281170315e-05 | 39.22% | 64.53% | 1.65x | ✅ |
-| `hexbytes_new[b'']` | 4.2345796061406405e-05 | 2.565936642006129e-05 | 39.41% | 65.03% | 1.65x | ✅ |
-| `hexbytes_new[b'\\x00'*32]` | 4.291299188718689e-05 | 2.5487902014267304e-05 | 40.61% | 68.37% | 1.68x | ✅ |
-| `hexbytes_new[b'\\x00\\xff\\x00\\xff']` | 4.260824575301383e-05 | 2.57035431464234e-05 | 39.67% | 65.77% | 1.66x | ✅ |
-| `hexbytes_new[b'\\x01'*100]` | 4.443391591204329e-05 | 2.606166288660813e-05 | 41.35% | 70.50% | 1.70x | ✅ |
-| `hexbytes_new[b'\\x01'*2048]` | 5.4970707421612e-05 | 3.796386958360309e-05 | 30.94% | 44.80% | 1.45x | ✅ |
-| `hexbytes_new[b'\\x01\\x02\\x03']` | 4.232216193035453e-05 | 2.5595138094956444e-05 | 39.52% | 65.35% | 1.65x | ✅ |
-| `hexbytes_new[b'\\x10\\x20\\x30\\x40\\x50']` | 4.217595869304227e-05 | 2.546253892098728e-05 | 39.63% | 65.64% | 1.66x | ✅ |
-| `hexbytes_new[b'\\x7f'*8]` | 4.236363228914111e-05 | 2.554274988789604e-05 | 39.71% | 65.85% | 1.66x | ✅ |
-| `hexbytes_new[b'\\x80'*8]` | 4.253379323128223e-05 | 2.5651176570574326e-05 | 39.69% | 65.82% | 1.66x | ✅ |
-| `hexbytes_new[b'\\xde\\xad\\xbe\\xef']` | 4.283371713303722e-05 | 2.5628842237573317e-05 | 40.17% | 67.13% | 1.67x | ✅ |
-| `hexbytes_new[b'\\xff'*64]` | 4.249260587316558e-05 | 2.6135390149363425e-05 | 38.49% | 62.59% | 1.63x | ✅ |
-| `hexbytes_new[b'a'*1024]` | 5.0887713927002656e-05 | 3.3320076537675475e-05 | 34.52% | 52.72% | 1.53x | ✅ |
-| `hexbytes_new[b'abc']` | 4.321459174702429e-05 | 2.5425695955649963e-05 | 41.16% | 69.96% | 1.70x | ✅ |
-| `hexbytes_new[bytearray(0-9)]` | 6.93607930162905e-05 | 3.7148325417162236e-05 | 46.44% | 86.71% | 1.87x | ✅ |
-| `hexbytes_new[bytearray(4-byte pattern)]` | 6.91879529922824e-05 | 3.7944821522390115e-05 | 45.16% | 82.34% | 1.82x | ✅ |
-| `hexbytes_new[bytearray(all byte values)]` | 6.98665831494334e-05 | 3.7753380991567914e-05 | 45.96% | 85.06% | 1.85x | ✅ |
-| `hexbytes_new[bytearray(alternating 0x00/0xff)]` | 6.937839210925049e-05 | 3.8147329485777975e-05 | 45.02% | 81.87% | 1.82x | ✅ |
-| `hexbytes_new[bytearray(alternating 0xaa/0x55)]` | 6.979957338017148e-05 | 3.773624734633576e-05 | 45.94% | 84.97% | 1.85x | ✅ |
-| `hexbytes_new[bytearray(ascii sentence)]` | 6.848230781233707e-05 | 3.7553402403532924e-05 | 45.16% | 82.36% | 1.82x | ✅ |
-| `hexbytes_new[bytearray(b'')]` | 6.787774010767617e-05 | 3.5833527419807515e-05 | 47.21% | 89.43% | 1.89x | ✅ |
-| `hexbytes_new[bytearray(b'\\x00'*32)]` | 6.987243505885198e-05 | 3.7576760838321443e-05 | 46.22% | 85.95% | 1.86x | ✅ |
-| `hexbytes_new[bytearray(b'\\x00\\xff\\x00\\xff')]` | 6.905815966876035e-05 | 3.77245568923509e-05 | 45.37% | 83.06% | 1.83x | ✅ |
-| `hexbytes_new[bytearray(b'\\x01'*100)]` | 6.960135265152079e-05 | 3.82401042720387e-05 | 45.06% | 82.01% | 1.82x | ✅ |
-| `hexbytes_new[bytearray(b'\\x01'*2048)]` | 9.320373028564453e-05 | 5.613474928305336e-05 | 39.77% | 66.04% | 1.66x | ✅ |
-| `hexbytes_new[bytearray(b'\\x01\\x02\\x03')]` | 6.954484990962622e-05 | 3.7427060439818195e-05 | 46.18% | 85.81% | 1.86x | ✅ |
-| `hexbytes_new[bytearray(b'\\x10\\x20\\x30\\x40\\x50')]` | 6.945997468938037e-05 | 3.821120190771326e-05 | 44.99% | 81.78% | 1.82x | ✅ |
-| `hexbytes_new[bytearray(b'\\x7f'*8)]` | 6.802337888230117e-05 | 3.744756700418637e-05 | 44.95% | 81.65% | 1.82x | ✅ |
-| `hexbytes_new[bytearray(b'\\x80'*8)]` | 6.843219786055986e-05 | 3.7618727627372794e-05 | 45.03% | 81.91% | 1.82x | ✅ |
-| `hexbytes_new[bytearray(b'\\xde\\xad\\xbe\\xef')]` | 6.902701872972344e-05 | 3.7653703313061354e-05 | 45.45% | 83.32% | 1.83x | ✅ |
-| `hexbytes_new[bytearray(b'\\xff'*64)]` | 6.920886985362704e-05 | 3.749542370883781e-05 | 45.82% | 84.58% | 1.85x | ✅ |
-| `hexbytes_new[bytearray(b'a'*1024)]` | 8.727048940919714e-05 | 5.018644554097558e-05 | 42.49% | 73.89% | 1.74x | ✅ |
-| `hexbytes_new[bytearray(b'abc')]` | 6.942879165385949e-05 | 3.765722176439572e-05 | 45.76% | 84.37% | 1.84x | ✅ |
-| `hexbytes_new[bytearray(long alternating)]` | 8.730163285988232e-05 | 4.9124841750568376e-05 | 43.73% | 77.71% | 1.78x | ✅ |
-| `hexbytes_new[bytearray(mixed pattern)]` | 7.029919571425243e-05 | 3.814456996037079e-05 | 45.74% | 84.30% | 1.84x | ✅ |
-| `hexbytes_new[bytearray(multiples of 0x10)]` | 6.950821473183846e-05 | 3.754990163408111e-05 | 45.98% | 85.11% | 1.85x | ✅ |
-| `hexbytes_new[bytearray(palindrome ascii)]` | 6.898669871019232e-05 | 3.730245841586013e-05 | 45.93% | 84.94% | 1.85x | ✅ |
-| `hexbytes_new[bytearray(palindrome numeric)]` | 6.89944703156345e-05 | 3.777654247355893e-05 | 45.25% | 82.64% | 1.83x | ✅ |
-| `hexbytes_new[bytearray(palindrome)]` | 6.920660346809834e-05 | 3.7437812341523964e-05 | 45.90% | 84.86% | 1.85x | ✅ |
-| `hexbytes_new[bytearray(repeated 0-9)]` | 7.174654935142629e-05 | 3.7718620443474274e-05 | 47.43% | 90.22% | 1.90x | ✅ |
-| `hexbytes_new[bytearray(single 0xff)]` | 7.01178715235607e-05 | 3.761168581918774e-05 | 46.36% | 86.43% | 1.86x | ✅ |
-| `hexbytes_new[bytearray(single null byte)]` | 7.010412147236542e-05 | 3.7938795708324305e-05 | 45.88% | 84.78% | 1.85x | ✅ |
-| `hexbytes_new[bytearray(two patterns)]` | 7.070762793443082e-05 | 3.752548251760691e-05 | 46.93% | 88.43% | 1.88x | ✅ |
-| `hexbytes_new[long alternating]` | 5.0962974051006144e-05 | 3.3044055952263924e-05 | 35.16% | 54.23% | 1.54x | ✅ |
-| `hexbytes_new[memoryview(0-9)]` | 8.404980434569185e-05 | 4.350336827861765e-05 | 48.24% | 93.20% | 1.93x | ✅ |
-| `hexbytes_new[memoryview(4-byte pattern)]` | 8.439079440242638e-05 | 4.3302518756097764e-05 | 48.69% | 94.89% | 1.95x | ✅ |
-| `hexbytes_new[memoryview(all byte values)]` | 8.382222102895231e-05 | 4.3147523952645646e-05 | 48.52% | 94.27% | 1.94x | ✅ |
-| `hexbytes_new[memoryview(alternating 0x00/0xff)]` | 8.123235450702523e-05 | 4.209979717728952e-05 | 48.17% | 92.95% | 1.93x | ✅ |
-| `hexbytes_new[memoryview(alternating 0xaa/0x55)]` | 8.270652363043566e-05 | 4.271982292232735e-05 | 48.35% | 93.60% | 1.94x | ✅ |
-| `hexbytes_new[memoryview(ascii sentence)]` | 8.300314435641027e-05 | 4.227870303608201e-05 | 49.06% | 96.32% | 1.96x | ✅ |
-| `hexbytes_new[memoryview(b'')]` | 8.207166881122042e-05 | 4.3166849694760034e-05 | 47.40% | 90.13% | 1.90x | ✅ |
-| `hexbytes_new[memoryview(b'\\x00'*32)]` | 8.422195761528146e-05 | 4.245904581691494e-05 | 49.59% | 98.36% | 1.98x | ✅ |
-| `hexbytes_new[memoryview(b'\\x00\\xff\\x00\\xff')]` | 8.374496444046643e-05 | 4.216435688731418e-05 | 49.65% | 98.62% | 1.99x | ✅ |
-| `hexbytes_new[memoryview(b'\\x01'*100)]` | 8.39614779484581e-05 | 4.27714655501136e-05 | 49.06% | 96.30% | 1.96x | ✅ |
-| `hexbytes_new[memoryview(b'\\x01'*2048)]` | 0.00010357518126256076 | 6.307157030440447e-05 | 39.11% | 64.22% | 1.64x | ✅ |
-| `hexbytes_new[memoryview(b'\\x01\\x02\\x03')]` | 8.471488131446664e-05 | 4.211277112646543e-05 | 50.29% | 101.16% | 2.01x | ✅ |
-| `hexbytes_new[memoryview(b'\\x10\\x20\\x30\\x40\\x50')]` | 8.3774472043929e-05 | 4.226641615084641e-05 | 49.55% | 98.21% | 1.98x | ✅ |
-| `hexbytes_new[memoryview(b'\\x7f'*8)]` | 8.358734433564302e-05 | 4.235651543357809e-05 | 49.33% | 97.34% | 1.97x | ✅ |
-| `hexbytes_new[memoryview(b'\\x80'*8)]` | 8.376383134118115e-05 | 4.281111557280772e-05 | 48.89% | 95.66% | 1.96x | ✅ |
-| `hexbytes_new[memoryview(b'\\xde\\xad\\xbe\\xef')]` | 8.690497457765071e-05 | 4.2276108793359067e-05 | 51.35% | 105.57% | 2.06x | ✅ |
-| `hexbytes_new[memoryview(b'\\xff'*64)]` | 8.3534284532354e-05 | 4.257534109148901e-05 | 49.03% | 96.20% | 1.96x | ✅ |
-| `hexbytes_new[memoryview(b'a'*1024)]` | 0.00010051565283888755 | 5.52482908203829e-05 | 45.04% | 81.93% | 1.82x | ✅ |
-| `hexbytes_new[memoryview(b'abc')]` | 8.347087241938412e-05 | 4.263469617007113e-05 | 48.92% | 95.78% | 1.96x | ✅ |
-| `hexbytes_new[memoryview(long alternating)]` | 0.0001001692276660304 | 5.62779654756005e-05 | 43.82% | 77.99% | 1.78x | ✅ |
-| `hexbytes_new[memoryview(mixed pattern)]` | 8.386743369789493e-05 | 4.208219541039233e-05 | 49.82% | 99.29% | 1.99x | ✅ |
-| `hexbytes_new[memoryview(multiples of 0x10)]` | 8.400235422516146e-05 | 4.3285301291475516e-05 | 48.47% | 94.07% | 1.94x | ✅ |
-| `hexbytes_new[memoryview(palindrome ascii)]` | 8.389468521231922e-05 | 4.2411898898557197e-05 | 49.45% | 97.81% | 1.98x | ✅ |
-| `hexbytes_new[memoryview(palindrome numeric)]` | 8.382899170562777e-05 | 4.215328925992663e-05 | 49.72% | 98.87% | 1.99x | ✅ |
-| `hexbytes_new[memoryview(palindrome)]` | 8.203182601610584e-05 | 4.201000022709806e-05 | 48.79% | 95.27% | 1.95x | ✅ |
-| `hexbytes_new[memoryview(repeated 0-9)]` | 8.357418029046445e-05 | 4.261185086813309e-05 | 49.01% | 96.13% | 1.96x | ✅ |
-| `hexbytes_new[memoryview(single 0xff)]` | 8.362914008426714e-05 | 4.1964676081810205e-05 | 49.82% | 99.28% | 1.99x | ✅ |
-| `hexbytes_new[memoryview(single null byte)]` | 8.463884082681618e-05 | 4.199566204364647e-05 | 50.38% | 101.54% | 2.02x | ✅ |
-| `hexbytes_new[memoryview(two patterns)]` | 8.333084464704361e-05 | 4.220456114838631e-05 | 49.35% | 97.45% | 1.97x | ✅ |
-| `hexbytes_new[mixed pattern]` | 4.297209791991532e-05 | 2.6447320948890307e-05 | 38.45% | 62.48% | 1.62x | ✅ |
-| `hexbytes_new[multiples of 0x10]` | 4.2285831553658816e-05 | 2.5713973273790126e-05 | 39.19% | 64.45% | 1.64x | ✅ |
-| `hexbytes_new[palindrome ascii]` | 4.178831978964377e-05 | 2.5580518221189474e-05 | 38.79% | 63.36% | 1.63x | ✅ |
-| `hexbytes_new[palindrome numeric]` | 4.213243891949213e-05 | 2.5858314597803366e-05 | 38.63% | 62.94% | 1.63x | ✅ |
-| `hexbytes_new[palindrome]` | 4.2600700487527384e-05 | 2.573229671527083e-05 | 39.60% | 65.55% | 1.66x | ✅ |
-| `hexbytes_new[repeated 0-9]` | 4.2499232572904255e-05 | 2.6435145072853995e-05 | 37.80% | 60.77% | 1.61x | ✅ |
-| `hexbytes_new[single 0xff]` | 4.2302110020172466e-05 | 2.567008769188105e-05 | 39.32% | 64.79% | 1.65x | ✅ |
-| `hexbytes_new[single null byte]` | 4.210738729569374e-05 | 2.577101547870504e-05 | 38.80% | 63.39% | 1.63x | ✅ |
-| `hexbytes_new[two patterns]` | 4.271483874907369e-05 | 2.6363852206205504e-05 | 38.28% | 62.02% | 1.62x | ✅ |
-| `hexbytes_repr[0-9]` | 2.8942047888293864e-05 | 1.434814395847875e-05 | 50.42% | 101.71% | 2.02x | ✅ |
-| `hexbytes_repr[4-byte pattern]` | 0.00011970189664272693 | 4.061280102627386e-05 | 66.07% | 194.74% | 2.95x | ✅ |
-| `hexbytes_repr[all byte values]` | 0.00011955810712988379 | 4.1068720786985166e-05 | 65.65% | 191.12% | 2.91x | ✅ |
-| `hexbytes_repr[alternating 0x00/0xff]` | 4.8486042108562666e-05 | 1.9704515344392695e-05 | 59.36% | 146.07% | 2.46x | ✅ |
-| `hexbytes_repr[alternating 0xaa/0x55]` | 4.867064198609969e-05 | 1.9857109013281722e-05 | 59.20% | 145.10% | 2.45x | ✅ |
-| `hexbytes_repr[ascii sentence]` | 4.0371028615583614e-05 | 1.801910365184787e-05 | 55.37% | 124.05% | 2.24x | ✅ |
-| `hexbytes_repr[b'']` | 2.115984163301662e-05 | 1.240452893162426e-05 | 41.38% | 70.58% | 1.71x | ✅ |
-| `hexbytes_repr[b'\\x00'*32]` | 3.635780553291033e-05 | 1.684765250185759e-05 | 53.66% | 115.80% | 2.16x | ✅ |
-| `hexbytes_repr[b'\\x00\\xff\\x00\\xff']` | 2.644225067984196e-05 | 1.4109873948112675e-05 | 46.64% | 87.40% | 1.87x | ✅ |
-| `hexbytes_repr[b'\\x01'*100]` | 6.201505732884407e-05 | 2.3478341404928987e-05 | 62.14% | 164.14% | 2.64x | ✅ |
-| `hexbytes_repr[b'\\x01'*2048]` | 0.0007619148491327387 | 0.00022312555824831716 | 70.72% | 241.47% | 3.41x | ✅ |
-| `hexbytes_repr[b'\\x01\\x02\\x03']` | 2.622471014972081e-05 | 1.414451608171173e-05 | 46.06% | 85.41% | 1.85x | ✅ |
-| `hexbytes_repr[b'\\x10\\x20\\x30\\x40\\x50']` | 2.6819622998582087e-05 | 1.403419755326318e-05 | 47.67% | 91.10% | 1.91x | ✅ |
-| `hexbytes_repr[b'\\x7f'*8]` | 2.8483464135973797e-05 | 1.4406825444242276e-05 | 49.42% | 97.71% | 1.98x | ✅ |
-| `hexbytes_repr[b'\\x80'*8]` | 2.7981211563345366e-05 | 1.4095882884444738e-05 | 49.62% | 98.51% | 1.99x | ✅ |
-| `hexbytes_repr[b'\\xde\\xad\\xbe\\xef']` | 2.6159438283206397e-05 | 1.4036080909688528e-05 | 46.34% | 86.37% | 1.86x | ✅ |
-| `hexbytes_repr[b'\\xff'*64]` | 4.853529927046031e-05 | 1.9994983568104528e-05 | 58.80% | 142.74% | 2.43x | ✅ |
-| `hexbytes_repr[b'a'*1024]` | 0.00040024404679110225 | 0.00011966165418473044 | 70.10% | 234.48% | 3.34x | ✅ |
-| `hexbytes_repr[b'abc']` | 2.6036692707108945e-05 | 1.4179374118983258e-05 | 45.54% | 83.62% | 1.84x | ✅ |
-| `hexbytes_repr[long alternating]` | 0.0003987094729867445 | 0.00012281070084838237 | 69.20% | 224.65% | 3.25x | ✅ |
-| `hexbytes_repr[mixed pattern]` | 9.766327181631643e-05 | 3.4062846366370624e-05 | 65.12% | 186.71% | 2.87x | ✅ |
-| `hexbytes_repr[multiples of 0x10]` | 2.8599669247216024e-05 | 1.4487458776957795e-05 | 49.34% | 97.41% | 1.97x | ✅ |
-| `hexbytes_repr[palindrome ascii]` | 2.73503067246069e-05 | 1.4297393199175751e-05 | 47.72% | 91.30% | 1.91x | ✅ |
-| `hexbytes_repr[palindrome numeric]` | 2.660739875662851e-05 | 1.4183261333001564e-05 | 46.69% | 87.60% | 1.88x | ✅ |
-| `hexbytes_repr[palindrome]` | 3.171913541705647e-05 | 1.5884576998673486e-05 | 49.92% | 99.69% | 2.00x | ✅ |
-| `hexbytes_repr[repeated 0-9]` | 6.243905779300929e-05 | 2.3409088693296277e-05 | 62.51% | 166.73% | 2.67x | ✅ |
-| `hexbytes_repr[single 0xff]` | 2.522639945491932e-05 | 1.355649427203666e-05 | 46.26% | 86.08% | 1.86x | ✅ |
-| `hexbytes_repr[single null byte]` | 2.519806944232697e-05 | 1.3741608615896497e-05 | 45.47% | 83.37% | 1.83x | ✅ |
-| `hexbytes_repr[two patterns]` | 4.869648249387185e-05 | 1.9903422047940164e-05 | 59.13% | 144.66% | 2.45x | ✅ |
-| `hexbytes_to_0x_hex[0-9]` | 1.5449390681363126e-05 | 1.3675726150096101e-05 | 11.48% | 12.97% | 1.13x | ✅ |
-| `hexbytes_to_0x_hex[4-byte pattern]` | 4.182718665715364e-05 | 3.991290721243648e-05 | 4.58% | 4.80% | 1.05x | ✅ |
-| `hexbytes_to_0x_hex[all byte values]` | 4.2015396059441764e-05 | 4.00576155597234e-05 | 4.66% | 4.89% | 1.05x | ✅ |
-| `hexbytes_to_0x_hex[alternating 0x00/0xff]` | 2.0560273314787597e-05 | 1.91220642669418e-05 | 7.00% | 7.52% | 1.08x | ✅ |
-| `hexbytes_to_0x_hex[alternating 0xaa/0x55]` | 2.0643104990735427e-05 | 1.8792606752697055e-05 | 8.96% | 9.85% | 1.10x | ✅ |
-| `hexbytes_to_0x_hex[ascii sentence]` | 1.8830578453229697e-05 | 1.6785228203591118e-05 | 10.86% | 12.19% | 1.12x | ✅ |
-| `hexbytes_to_0x_hex[b'']` | 1.0068750167242933e-05 | 1.1191736279414041e-05 | -11.15% | -10.03% | 0.90x | ❌ |
-| `hexbytes_to_0x_hex[b'\\x00'*32]` | 1.74233534452257e-05 | 1.5618531340635144e-05 | 10.36% | 11.56% | 1.12x | ✅ |
-| `hexbytes_to_0x_hex[b'\\x00\\xff\\x00\\xff']` | 1.496104174337705e-05 | 1.2961151677503531e-05 | 13.37% | 15.43% | 1.15x | ✅ |
-| `hexbytes_to_0x_hex[b'\\x01'*100]` | 2.537675799329029e-05 | 2.269816247265048e-05 | 10.56% | 11.80% | 1.12x | ✅ |
-| `hexbytes_to_0x_hex[b'\\x01'*2048]` | 0.00022278966971400066 | 0.00022247918562823732 | 0.14% | 0.14% | 1.00x | ✅ |
-| `hexbytes_to_0x_hex[b'\\x01\\x02\\x03']` | 1.4752487464971451e-05 | 1.2751577788254394e-05 | 13.56% | 15.69% | 1.16x | ✅ |
-| `hexbytes_to_0x_hex[b'\\x10\\x20\\x30\\x40\\x50']` | 1.5002845005081845e-05 | 1.3179581482763845e-05 | 12.15% | 13.83% | 1.14x | ✅ |
-| `hexbytes_to_0x_hex[b'\\x7f'*8]` | 1.5132510449309315e-05 | 1.3331285494652362e-05 | 11.90% | 13.51% | 1.14x | ✅ |
-| `hexbytes_to_0x_hex[b'\\x80'*8]` | 1.5208233757404012e-05 | 1.3490124916341388e-05 | 11.30% | 12.74% | 1.13x | ✅ |
-| `hexbytes_to_0x_hex[b'\\xde\\xad\\xbe\\xef']` | 1.4829060433478373e-05 | 1.2996341008699108e-05 | 12.36% | 14.10% | 1.14x | ✅ |
-| `hexbytes_to_0x_hex[b'\\xff'*64]` | 2.049133693719718e-05 | 1.8856511157900126e-05 | 7.98% | 8.67% | 1.09x | ✅ |
-| `hexbytes_to_0x_hex[b'a'*1024]` | 0.0001228400094041355 | 0.0001218651008169912 | 0.79% | 0.80% | 1.01x | ✅ |
-| `hexbytes_to_0x_hex[b'abc']` | 1.4717917858120678e-05 | 1.3156165236859994e-05 | 10.61% | 11.87% | 1.12x | ✅ |
-| `hexbytes_to_0x_hex[long alternating]` | 0.00012267411395700675 | 0.00012308307781067898 | -0.33% | -0.33% | 1.00x | ❌ |
-| `hexbytes_to_0x_hex[mixed pattern]` | 3.5916600321562954e-05 | 3.403581650644288e-05 | 5.24% | 5.53% | 1.06x | ✅ |
-| `hexbytes_to_0x_hex[multiples of 0x10]` | 1.5523812110961592e-05 | 1.3757261210108089e-05 | 11.38% | 12.84% | 1.13x | ✅ |
-| `hexbytes_to_0x_hex[palindrome ascii]` | 1.5091625959151313e-05 | 1.3330397213877353e-05 | 11.67% | 13.21% | 1.13x | ✅ |
-| `hexbytes_to_0x_hex[palindrome numeric]` | 1.5128837804769592e-05 | 1.3450951651567628e-05 | 11.09% | 12.47% | 1.12x | ✅ |
-| `hexbytes_to_0x_hex[palindrome]` | 1.644146763017772e-05 | 1.4421659878892918e-05 | 12.28% | 14.01% | 1.14x | ✅ |
-| `hexbytes_to_0x_hex[repeated 0-9]` | 2.546679005589768e-05 | 2.2772511652160386e-05 | 10.58% | 11.83% | 1.12x | ✅ |
-| `hexbytes_to_0x_hex[single 0xff]` | 1.4562141760867822e-05 | 1.2684861677668724e-05 | 12.89% | 14.80% | 1.15x | ✅ |
-| `hexbytes_to_0x_hex[single null byte]` | 1.4571083922796967e-05 | 1.2764729228765248e-05 | 12.40% | 14.15% | 1.14x | ✅ |
-| `hexbytes_to_0x_hex[two patterns]` | 2.051924499647207e-05 | 1.8939901043739478e-05 | 7.70% | 8.34% | 1.08x | ✅ |
+| `hexbytes_getitem_index[-1-0-9]` | 2.4472661707291417e-05 | 2.3466858742258315e-05 | 4.11% | 4.29% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-4-byte pattern]` | 2.457699769432804e-05 | 2.3511138190377336e-05 | 4.34% | 4.53% | 1.05x | ✅ |
+| `hexbytes_getitem_index[-1-all byte values]` | 2.4669814595103367e-05 | 2.357458413327997e-05 | 4.44% | 4.65% | 1.05x | ✅ |
+| `hexbytes_getitem_index[-1-alternating 0x00/0xff]` | 2.450717147433218e-05 | 2.3642213972068103e-05 | 3.53% | 3.66% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-alternating 0xaa/0x55]` | 2.4508420777571325e-05 | 2.354125808477535e-05 | 3.95% | 4.11% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-ascii sentence]` | 2.4739305860607103e-05 | 2.365137604216128e-05 | 4.40% | 4.60% | 1.05x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\x00'*32]` | 2.4665820195479183e-05 | 2.3789586724011713e-05 | 3.55% | 3.68% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\x00\\xff\\x00\\xff']` | 2.439969369872125e-05 | 2.36211604561169e-05 | 3.19% | 3.30% | 1.03x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\x01'*100]` | 2.4615115855214678e-05 | 2.3619113185432274e-05 | 4.05% | 4.22% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\x01'*2048]` | 2.4678017114344647e-05 | 2.3634427387786082e-05 | 4.23% | 4.42% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\x01\\x02\\x03']` | 2.4572510597629415e-05 | 2.359994523727068e-05 | 3.96% | 4.12% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\x10\\x20\\x30\\x40\\x50']` | 2.4589460027862698e-05 | 2.3576902300287786e-05 | 4.12% | 4.29% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\x7f'*8]` | 2.4626820810679497e-05 | 2.3656497480319165e-05 | 3.94% | 4.10% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\x80'*8]` | 2.4747849276462312e-05 | 2.3645006642664146e-05 | 4.46% | 4.66% | 1.05x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\xde\\xad\\xbe\\xef']` | 2.4583974056238633e-05 | 2.359287923656128e-05 | 4.03% | 4.20% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'\\xff'*64]` | 2.4544709483951567e-05 | 2.3595497673351355e-05 | 3.87% | 4.02% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'a'*1024]` | 2.4483334251996926e-05 | 2.3612979719667437e-05 | 3.55% | 3.69% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-b'abc']` | 2.4560362582342804e-05 | 2.3715761336256807e-05 | 3.44% | 3.56% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-long alternating]` | 2.4618111348386204e-05 | 2.3531825590540738e-05 | 4.41% | 4.62% | 1.05x | ✅ |
+| `hexbytes_getitem_index[-1-mixed pattern]` | 2.4724049001109708e-05 | 2.369512151196294e-05 | 4.16% | 4.34% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-multiples of 0x10]` | 2.455291702177301e-05 | 2.3489054130846976e-05 | 4.33% | 4.53% | 1.05x | ✅ |
+| `hexbytes_getitem_index[-1-palindrome ascii]` | 2.4546995701513382e-05 | 2.3648568737696574e-05 | 3.66% | 3.80% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-palindrome numeric]` | 2.4702616628717063e-05 | 2.358890726708897e-05 | 4.51% | 4.72% | 1.05x | ✅ |
+| `hexbytes_getitem_index[-1-palindrome]` | 2.472118702285308e-05 | 2.3681092928277004e-05 | 4.21% | 4.39% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-repeated 0-9]` | 2.4657610076223038e-05 | 2.3648651237013356e-05 | 4.09% | 4.27% | 1.04x | ✅ |
+| `hexbytes_getitem_index[-1-two patterns]` | 2.4726823156436738e-05 | 2.3535193651716672e-05 | 4.82% | 5.06% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-0-9]` | 2.3653914360877058e-05 | 2.2463522921498778e-05 | 5.03% | 5.30% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-4-byte pattern]` | 2.367130339675212e-05 | 2.2471090243249114e-05 | 5.07% | 5.34% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-all byte values]` | 2.3710275775608707e-05 | 2.2444446919854474e-05 | 5.34% | 5.64% | 1.06x | ✅ |
+| `hexbytes_getitem_index[0-alternating 0x00/0xff]` | 2.361477010723229e-05 | 2.260641163714182e-05 | 4.27% | 4.46% | 1.04x | ✅ |
+| `hexbytes_getitem_index[0-alternating 0xaa/0x55]` | 2.3672365620969454e-05 | 2.266128493790144e-05 | 4.27% | 4.46% | 1.04x | ✅ |
+| `hexbytes_getitem_index[0-ascii sentence]` | 2.3483728850967646e-05 | 2.2321158126020838e-05 | 4.95% | 5.21% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-b'\\x00'*32]` | 2.3410234153005702e-05 | 2.2397207109235824e-05 | 4.33% | 4.52% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-b'\\x00\\xff\\x00\\xff']` | 2.3879822142704216e-05 | 2.2610183494646515e-05 | 5.32% | 5.62% | 1.06x | ✅ |
+| `hexbytes_getitem_index[0-b'\\x01'*100]` | 2.3707341209669692e-05 | 2.23886273524005e-05 | 5.56% | 5.89% | 1.06x | ✅ |
+| `hexbytes_getitem_index[0-b'\\x01'*2048]` | 2.3551418758443034e-05 | 2.243911851308063e-05 | 4.72% | 4.96% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-b'\\x01\\x02\\x03']` | 2.3510719283824624e-05 | 2.23905204187659e-05 | 4.76% | 5.00% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-b'\\x10\\x20\\x30\\x40\\x50']` | 2.3686083409607932e-05 | 2.2399041327006084e-05 | 5.43% | 5.75% | 1.06x | ✅ |
+| `hexbytes_getitem_index[0-b'\\x7f'*8]` | 2.353267925844908e-05 | 2.212439256999471e-05 | 5.98% | 6.37% | 1.06x | ✅ |
+| `hexbytes_getitem_index[0-b'\\x80'*8]` | 2.3603149375831055e-05 | 2.2304867249368943e-05 | 5.50% | 5.82% | 1.06x | ✅ |
+| `hexbytes_getitem_index[0-b'\\xde\\xad\\xbe\\xef']` | 2.3655322211436717e-05 | 2.2458400294969834e-05 | 5.06% | 5.33% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-b'\\xff'*64]` | 2.3551896996119484e-05 | 2.2462012545588188e-05 | 4.63% | 4.85% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-b'a'*1024]` | 2.348006899248821e-05 | 2.2337872550197466e-05 | 4.86% | 5.11% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-b'abc']` | 2.3731079182003324e-05 | 2.2435234485650645e-05 | 5.46% | 5.78% | 1.06x | ✅ |
+| `hexbytes_getitem_index[0-long alternating]` | 2.3593923305283106e-05 | 2.2709108638725713e-05 | 3.75% | 3.90% | 1.04x | ✅ |
+| `hexbytes_getitem_index[0-mixed pattern]` | 2.3545559947666643e-05 | 2.232636109174195e-05 | 5.18% | 5.46% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-multiples of 0x10]` | 2.3601974701768285e-05 | 2.2472909513676315e-05 | 4.78% | 5.02% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-palindrome ascii]` | 2.3717308345073365e-05 | 2.238082290750277e-05 | 5.64% | 5.97% | 1.06x | ✅ |
+| `hexbytes_getitem_index[0-palindrome numeric]` | 2.3552463507213843e-05 | 2.2384453587258148e-05 | 4.96% | 5.22% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-palindrome]` | 2.3499628297959297e-05 | 2.249559328528787e-05 | 4.27% | 4.46% | 1.04x | ✅ |
+| `hexbytes_getitem_index[0-repeated 0-9]` | 2.3439045884860202e-05 | 2.243335366937186e-05 | 4.29% | 4.48% | 1.04x | ✅ |
+| `hexbytes_getitem_index[0-single 0xff]` | 2.3474665417591917e-05 | 2.244344015436289e-05 | 4.39% | 4.59% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-single null byte]` | 2.3649476421554493e-05 | 2.2514269895929077e-05 | 4.80% | 5.04% | 1.05x | ✅ |
+| `hexbytes_getitem_index[0-two patterns]` | 2.350082432413607e-05 | 2.2379574973088306e-05 | 4.77% | 5.01% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-0-9]` | 2.354967374644227e-05 | 2.2356450460968857e-05 | 5.07% | 5.34% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-4-byte pattern]` | 2.3699380822283682e-05 | 2.2363022962208177e-05 | 5.64% | 5.98% | 1.06x | ✅ |
+| `hexbytes_getitem_index[1-all byte values]` | 2.3688186994021613e-05 | 2.2504132572692648e-05 | 5.00% | 5.26% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-alternating 0x00/0xff]` | 2.3459814647501343e-05 | 2.2459391453436926e-05 | 4.26% | 4.45% | 1.04x | ✅ |
+| `hexbytes_getitem_index[1-alternating 0xaa/0x55]` | 2.353786183181441e-05 | 2.243084189816341e-05 | 4.70% | 4.94% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-ascii sentence]` | 2.3710053351764536e-05 | 2.2425282471030707e-05 | 5.42% | 5.73% | 1.06x | ✅ |
+| `hexbytes_getitem_index[1-b'\\x00'*32]` | 2.351338512656775e-05 | 2.2703477064130654e-05 | 3.44% | 3.57% | 1.04x | ✅ |
+| `hexbytes_getitem_index[1-b'\\x00\\xff\\x00\\xff']` | 2.3459888985467244e-05 | 2.224130189601139e-05 | 5.19% | 5.48% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-b'\\x01'*100]` | 2.3426082926715766e-05 | 2.2516488010573154e-05 | 3.88% | 4.04% | 1.04x | ✅ |
+| `hexbytes_getitem_index[1-b'\\x01'*2048]` | 2.3639904174216166e-05 | 2.2379075094912517e-05 | 5.33% | 5.63% | 1.06x | ✅ |
+| `hexbytes_getitem_index[1-b'\\x01\\x02\\x03']` | 2.3557719231807014e-05 | 2.2325865953665935e-05 | 5.23% | 5.52% | 1.06x | ✅ |
+| `hexbytes_getitem_index[1-b'\\x10\\x20\\x30\\x40\\x50']` | 2.3502684713504363e-05 | 2.2483876615499802e-05 | 4.33% | 4.53% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-b'\\x7f'*8]` | 2.3514853476755268e-05 | 2.2312054839415482e-05 | 5.12% | 5.39% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-b'\\x80'*8]` | 2.3561912372766432e-05 | 2.234327746781412e-05 | 5.17% | 5.45% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-b'\\xde\\xad\\xbe\\xef']` | 2.3597023147576657e-05 | 2.2328309898491414e-05 | 5.38% | 5.68% | 1.06x | ✅ |
+| `hexbytes_getitem_index[1-b'\\xff'*64]` | 2.349464058788358e-05 | 2.2312919858327352e-05 | 5.03% | 5.30% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-b'a'*1024]` | 2.3530382375257288e-05 | 2.2393526597393004e-05 | 4.83% | 5.08% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-b'abc']` | 2.3490329639579773e-05 | 2.2285679973939054e-05 | 5.13% | 5.41% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-long alternating]` | 2.365497048561587e-05 | 2.2368718712111794e-05 | 5.44% | 5.75% | 1.06x | ✅ |
+| `hexbytes_getitem_index[1-mixed pattern]` | 2.3677383900212466e-05 | 2.257980858609838e-05 | 4.64% | 4.86% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-multiples of 0x10]` | 2.373143030034161e-05 | 2.2399243730856478e-05 | 5.61% | 5.95% | 1.06x | ✅ |
+| `hexbytes_getitem_index[1-palindrome ascii]` | 2.3418659748818482e-05 | 2.233583505805335e-05 | 4.62% | 4.85% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-palindrome numeric]` | 2.371027313023741e-05 | 2.2377234922974275e-05 | 5.62% | 5.96% | 1.06x | ✅ |
+| `hexbytes_getitem_index[1-palindrome]` | 2.3476020332764552e-05 | 2.2262347783929915e-05 | 5.17% | 5.45% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-repeated 0-9]` | 2.3650334570994406e-05 | 2.2456625990548107e-05 | 5.05% | 5.32% | 1.05x | ✅ |
+| `hexbytes_getitem_index[1-two patterns]` | 2.360638845925334e-05 | 2.225244633189211e-05 | 5.74% | 6.08% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-0-9]` | 2.3599430114752546e-05 | 2.2276426502177903e-05 | 5.61% | 5.94% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-4-byte pattern]` | 2.3659717892892452e-05 | 2.224203579393862e-05 | 5.99% | 6.37% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-all byte values]` | 2.356144305176894e-05 | 2.2182210934811652e-05 | 5.85% | 6.22% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-alternating 0x00/0xff]` | 2.3657955453601163e-05 | 2.254457567461397e-05 | 4.71% | 4.94% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-alternating 0xaa/0x55]` | 2.363732391526449e-05 | 2.2349858719311495e-05 | 5.45% | 5.76% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-ascii sentence]` | 2.375499392533822e-05 | 2.2312162854192733e-05 | 6.07% | 6.47% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-b'\\x00'*32]` | 2.358644437320078e-05 | 2.2560049659482412e-05 | 4.35% | 4.55% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-b'\\x00\\xff\\x00\\xff']` | 2.3566858219457378e-05 | 2.2529515671086355e-05 | 4.40% | 4.60% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-b'\\x01'*100]` | 2.3609738217025402e-05 | 2.234154698199972e-05 | 5.37% | 5.68% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-b'\\x01'*2048]` | 2.360249062156897e-05 | 2.2257091582596772e-05 | 5.70% | 6.04% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-b'\\x01\\x02\\x03']` | 2.3587794438844678e-05 | 2.2344717666296922e-05 | 5.27% | 5.56% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-b'\\x10\\x20\\x30\\x40\\x50']` | 2.355731697745838e-05 | 2.2411460741974493e-05 | 4.86% | 5.11% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-b'\\x7f'*8]` | 2.3543079305190536e-05 | 2.2266975316754835e-05 | 5.42% | 5.73% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-b'\\x80'*8]` | 2.3627651785829928e-05 | 2.2303232130674877e-05 | 5.61% | 5.94% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-b'\\xde\\xad\\xbe\\xef']` | 2.3508286837327063e-05 | 2.2286006884281854e-05 | 5.20% | 5.48% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-b'\\xff'*64]` | 2.365663479960213e-05 | 2.24636060328567e-05 | 5.04% | 5.31% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-b'a'*1024]` | 2.3606786794594802e-05 | 2.510523678816978e-05 | -6.35% | -5.97% | 0.94x | ❌ |
+| `hexbytes_getitem_index[2-b'abc']` | 2.3712867547093327e-05 | 2.2491429260770252e-05 | 5.15% | 5.43% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-long alternating]` | 2.3638129883065257e-05 | 2.217741330634203e-05 | 6.18% | 6.59% | 1.07x | ✅ |
+| `hexbytes_getitem_index[2-mixed pattern]` | 2.350822288437943e-05 | 2.2473473186295112e-05 | 4.40% | 4.60% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-multiples of 0x10]` | 2.3735509956886047e-05 | 2.229784147513683e-05 | 6.06% | 6.45% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-palindrome ascii]` | 2.36013913958991e-05 | 2.2335582363501212e-05 | 5.36% | 5.67% | 1.06x | ✅ |
+| `hexbytes_getitem_index[2-palindrome numeric]` | 2.372542277858427e-05 | 2.2262855229102148e-05 | 6.16% | 6.57% | 1.07x | ✅ |
+| `hexbytes_getitem_index[2-palindrome]` | 2.349573528727234e-05 | 2.2312885095463225e-05 | 5.03% | 5.30% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-repeated 0-9]` | 2.3741483154848343e-05 | 2.2661202762327262e-05 | 4.55% | 4.77% | 1.05x | ✅ |
+| `hexbytes_getitem_index[2-two patterns]` | 2.3748330224055847e-05 | 2.2298272342409772e-05 | 6.11% | 6.50% | 1.07x | ✅ |
+| `hexbytes_getitem_index[3-0-9]` | 2.3611231613725396e-05 | 2.2481809513605065e-05 | 4.78% | 5.02% | 1.05x | ✅ |
+| `hexbytes_getitem_index[3-4-byte pattern]` | 2.3635841102263847e-05 | 2.2410603161290452e-05 | 5.18% | 5.47% | 1.05x | ✅ |
+| `hexbytes_getitem_index[3-all byte values]` | 2.371284068676666e-05 | 2.2411515482566435e-05 | 5.49% | 5.81% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-alternating 0x00/0xff]` | 2.355537033211467e-05 | 2.2419893757539325e-05 | 4.82% | 5.06% | 1.05x | ✅ |
+| `hexbytes_getitem_index[3-alternating 0xaa/0x55]` | 2.3707024161814725e-05 | 2.2401077410274593e-05 | 5.51% | 5.83% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-ascii sentence]` | 2.3674661939976228e-05 | 2.216575296324091e-05 | 6.37% | 6.81% | 1.07x | ✅ |
+| `hexbytes_getitem_index[3-b'\\x00'*32]` | 2.3773489719073047e-05 | 2.265448854514742e-05 | 4.71% | 4.94% | 1.05x | ✅ |
+| `hexbytes_getitem_index[3-b'\\x00\\xff\\x00\\xff']` | 2.364147893209844e-05 | 2.2339624109454158e-05 | 5.51% | 5.83% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-b'\\x01'*100]` | 2.3758341857574795e-05 | 2.2093724080794743e-05 | 7.01% | 7.53% | 1.08x | ✅ |
+| `hexbytes_getitem_index[3-b'\\x01'*2048]` | 2.3631634809177238e-05 | 2.243971373125132e-05 | 5.04% | 5.31% | 1.05x | ✅ |
+| `hexbytes_getitem_index[3-b'\\x10\\x20\\x30\\x40\\x50']` | 2.361858769380911e-05 | 2.2386458170430285e-05 | 5.22% | 5.50% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-b'\\x7f'*8]` | 2.3681610777233446e-05 | 2.239157479907887e-05 | 5.45% | 5.76% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-b'\\x80'*8]` | 2.3689329935813062e-05 | 2.2314884715662066e-05 | 5.80% | 6.16% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-b'\\xde\\xad\\xbe\\xef']` | 2.3728066745723532e-05 | 2.2534959614947212e-05 | 5.03% | 5.29% | 1.05x | ✅ |
+| `hexbytes_getitem_index[3-b'\\xff'*64]` | 2.378492947793379e-05 | 2.2319332618047665e-05 | 6.16% | 6.57% | 1.07x | ✅ |
+| `hexbytes_getitem_index[3-b'a'*1024]` | 2.3631911877312698e-05 | 2.2298542172818308e-05 | 5.64% | 5.98% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-long alternating]` | 2.3677077914760805e-05 | 2.2424196499037976e-05 | 5.29% | 5.59% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-mixed pattern]` | 2.3709334388712777e-05 | 2.2478038709757012e-05 | 5.19% | 5.48% | 1.05x | ✅ |
+| `hexbytes_getitem_index[3-multiples of 0x10]` | 2.372484070626804e-05 | 2.2302265645464103e-05 | 6.00% | 6.38% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-palindrome ascii]` | 2.3647416430367883e-05 | 2.242730373350649e-05 | 5.16% | 5.44% | 1.05x | ✅ |
+| `hexbytes_getitem_index[3-palindrome numeric]` | 2.4049565375863137e-05 | 2.2422355673169315e-05 | 6.77% | 7.26% | 1.07x | ✅ |
+| `hexbytes_getitem_index[3-palindrome]` | 2.3640689939527118e-05 | 2.2295142182668216e-05 | 5.69% | 6.04% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-repeated 0-9]` | 2.3596571450424333e-05 | 2.229508628832565e-05 | 5.52% | 5.84% | 1.06x | ✅ |
+| `hexbytes_getitem_index[3-two patterns]` | 2.3710205836199287e-05 | 2.242821953314232e-05 | 5.41% | 5.72% | 1.06x | ✅ |
+| `hexbytes_getitem_index[4-0-9]` | 2.335361486105321e-05 | 2.2314413699419055e-05 | 4.45% | 4.66% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-4-byte pattern]` | 2.3517260899778204e-05 | 2.2230120287059016e-05 | 5.47% | 5.79% | 1.06x | ✅ |
+| `hexbytes_getitem_index[4-all byte values]` | 2.3453647063064917e-05 | 2.2322180605015268e-05 | 4.82% | 5.07% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-alternating 0x00/0xff]` | 2.3526805013436077e-05 | 2.245601976814912e-05 | 4.55% | 4.77% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-alternating 0xaa/0x55]` | 2.339135788737607e-05 | 2.2105579948578923e-05 | 5.50% | 5.82% | 1.06x | ✅ |
+| `hexbytes_getitem_index[4-ascii sentence]` | 2.3701058181330544e-05 | 2.247883509865566e-05 | 5.16% | 5.44% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-b'\\x00'*32]` | 2.3711248345897714e-05 | 2.280591369081298e-05 | 3.82% | 3.97% | 1.04x | ✅ |
+| `hexbytes_getitem_index[4-b'\\x01'*100]` | 2.3378621576994667e-05 | 2.2244870019947232e-05 | 4.85% | 5.10% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-b'\\x01'*2048]` | 2.3441983942264113e-05 | 2.2157035376587068e-05 | 5.48% | 5.80% | 1.06x | ✅ |
+| `hexbytes_getitem_index[4-b'\\x10\\x20\\x30\\x40\\x50']` | 2.343283511390203e-05 | 2.2372197901205154e-05 | 4.53% | 4.74% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-b'\\x7f'*8]` | 2.3205660496689954e-05 | 2.231750448762149e-05 | 3.83% | 3.98% | 1.04x | ✅ |
+| `hexbytes_getitem_index[4-b'\\x80'*8]` | 2.3611136666380603e-05 | 2.234785441543575e-05 | 5.35% | 5.65% | 1.06x | ✅ |
+| `hexbytes_getitem_index[4-b'\\xff'*64]` | 2.3603381716775045e-05 | 2.264972683086415e-05 | 4.04% | 4.21% | 1.04x | ✅ |
+| `hexbytes_getitem_index[4-b'a'*1024]` | 2.3779646885708388e-05 | 2.2635397409758526e-05 | 4.81% | 5.06% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-long alternating]` | 2.3604406799553288e-05 | 2.2323969945256724e-05 | 5.42% | 5.74% | 1.06x | ✅ |
+| `hexbytes_getitem_index[4-mixed pattern]` | 2.366637904434628e-05 | 2.248658159737897e-05 | 4.99% | 5.25% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-multiples of 0x10]` | 2.3626938783908857e-05 | 2.2302226662851185e-05 | 5.61% | 5.94% | 1.06x | ✅ |
+| `hexbytes_getitem_index[4-palindrome ascii]` | 2.347876503908877e-05 | 2.2282758235592302e-05 | 5.09% | 5.37% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-palindrome numeric]` | 2.3524264736678465e-05 | 2.2309981441903424e-05 | 5.16% | 5.44% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-palindrome]` | 2.37266256087456e-05 | 2.255694463627861e-05 | 4.93% | 5.19% | 1.05x | ✅ |
+| `hexbytes_getitem_index[4-repeated 0-9]` | 2.35869630724806e-05 | 2.2658809563816513e-05 | 3.94% | 4.10% | 1.04x | ✅ |
+| `hexbytes_getitem_index[4-two patterns]` | 2.3526615139728432e-05 | 2.2419636430956126e-05 | 4.71% | 4.94% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-0-9]` | 2.3603471928787953e-05 | 2.23624526760868e-05 | 5.26% | 5.55% | 1.06x | ✅ |
+| `hexbytes_getitem_index[5-4-byte pattern]` | 2.3466354049967494e-05 | 2.226282545999091e-05 | 5.13% | 5.41% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-all byte values]` | 2.348035979303214e-05 | 2.229729534151137e-05 | 5.04% | 5.31% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-alternating 0x00/0xff]` | 2.355446438762229e-05 | 2.266761257281256e-05 | 3.77% | 3.91% | 1.04x | ✅ |
+| `hexbytes_getitem_index[5-alternating 0xaa/0x55]` | 2.355956825753474e-05 | 2.246064438097619e-05 | 4.66% | 4.89% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-ascii sentence]` | 2.3517083695787736e-05 | 2.2547314422149923e-05 | 4.12% | 4.30% | 1.04x | ✅ |
+| `hexbytes_getitem_index[5-b'\\x00'*32]` | 2.3591089876334224e-05 | 2.243014862620661e-05 | 4.92% | 5.18% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-b'\\x01'*100]` | 2.3531115594799295e-05 | 2.2359195392193663e-05 | 4.98% | 5.24% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-b'\\x01'*2048]` | 2.3501341203005697e-05 | 2.233586489732463e-05 | 4.96% | 5.22% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-b'\\x7f'*8]` | 2.3524719677058867e-05 | 2.243946332590261e-05 | 4.61% | 4.84% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-b'\\x80'*8]` | 2.3368880976246652e-05 | 2.240879756271063e-05 | 4.11% | 4.28% | 1.04x | ✅ |
+| `hexbytes_getitem_index[5-b'\\xff'*64]` | 2.330962605876996e-05 | 2.2384691176074942e-05 | 3.97% | 4.13% | 1.04x | ✅ |
+| `hexbytes_getitem_index[5-b'a'*1024]` | 2.3577903314351824e-05 | 2.2373640504793813e-05 | 5.11% | 5.38% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-long alternating]` | 2.354668151454387e-05 | 2.2336526481644465e-05 | 5.14% | 5.42% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-mixed pattern]` | 2.3479603265358603e-05 | 2.2447979132455663e-05 | 4.39% | 4.60% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-multiples of 0x10]` | 2.352228983364377e-05 | 2.23392744284128e-05 | 5.03% | 5.30% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-palindrome ascii]` | 2.3590061967432985e-05 | 2.23475147348799e-05 | 5.27% | 5.56% | 1.06x | ✅ |
+| `hexbytes_getitem_index[5-palindrome]` | 2.3547466565964215e-05 | 2.264199540058984e-05 | 3.85% | 4.00% | 1.04x | ✅ |
+| `hexbytes_getitem_index[5-repeated 0-9]` | 2.351500458550898e-05 | 2.2374244090788593e-05 | 4.85% | 5.10% | 1.05x | ✅ |
+| `hexbytes_getitem_index[5-two patterns]` | 2.358053294342417e-05 | 2.2358837910250792e-05 | 5.18% | 5.46% | 1.05x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-0-9]` | 8.190379988157797e-05 | 5.934538038641278e-05 | 27.54% | 38.01% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-4-byte pattern]` | 8.306939431463772e-05 | 5.871836312443319e-05 | 29.31% | 41.47% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-all byte values]` | 8.18350433749647e-05 | 5.915802341894911e-05 | 27.71% | 38.33% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-alternating 0x00/0xff]` | 8.151850216305233e-05 | 5.891015027224754e-05 | 27.73% | 38.38% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-alternating 0xaa/0x55]` | 8.187954747058233e-05 | 5.9522188372573715e-05 | 27.31% | 37.56% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-ascii sentence]` | 8.165298670236829e-05 | 5.8895778242261234e-05 | 27.87% | 38.64% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'']` | 8.015666503656268e-05 | 5.636580608468528e-05 | 29.68% | 42.21% | 1.42x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\x00'*32]` | 8.299435712299563e-05 | 5.897243731602382e-05 | 28.94% | 40.73% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\x00\\xff\\x00\\xff']` | 8.209526564860326e-05 | 5.878302934937172e-05 | 28.40% | 39.66% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\x01'*100]` | 8.219794570044344e-05 | 5.8942664595957334e-05 | 28.29% | 39.45% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\x01'*2048]` | 8.266646314940752e-05 | 5.908512168616611e-05 | 28.53% | 39.91% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\x01\\x02\\x03']` | 8.191289973878277e-05 | 5.9230602501143507e-05 | 27.69% | 38.29% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.242006104329696e-05 | 5.8831916827331786e-05 | 28.62% | 40.09% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\x7f'*8]` | 8.248998066857959e-05 | 5.8644429017875204e-05 | 28.91% | 40.66% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\x80'*8]` | 8.24324151648069e-05 | 5.9038166584085244e-05 | 28.38% | 39.63% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\xde\\xad\\xbe\\xef']` | 8.20138807319668e-05 | 5.8241598663742474e-05 | 28.99% | 40.82% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'\\xff'*64]` | 8.29576046089224e-05 | 5.846771270274366e-05 | 29.52% | 41.89% | 1.42x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'a'*1024]` | 8.261282259865186e-05 | 5.879505285073481e-05 | 28.83% | 40.51% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-b'abc']` | 8.284415612197723e-05 | 5.9818821878731056e-05 | 27.79% | 38.49% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-long alternating]` | 8.18040996194119e-05 | 5.8882170226571184e-05 | 28.02% | 38.93% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-mixed pattern]` | 8.230085291108775e-05 | 5.9282401991982324e-05 | 27.97% | 38.83% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-multiples of 0x10]` | 8.184016471954797e-05 | 5.8836097776341775e-05 | 28.11% | 39.10% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-palindrome ascii]` | 8.20350173004139e-05 | 5.9099185002785685e-05 | 27.96% | 38.81% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-palindrome numeric]` | 8.232634657337168e-05 | 5.8969987376407175e-05 | 28.37% | 39.61% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-palindrome]` | 8.265823799851756e-05 | 5.9101634717045784e-05 | 28.50% | 39.86% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-repeated 0-9]` | 8.127348929034912e-05 | 5.884959334779851e-05 | 27.59% | 38.10% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-single 0xff]` | 8.0323789969524e-05 | 5.709163220273039e-05 | 28.92% | 40.69% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-single null byte]` | 8.040990334252973e-05 | 5.724486967501335e-05 | 28.81% | 40.47% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(-3,None)-two patterns]` | 8.174733287634098e-05 | 5.9048096742616875e-05 | 27.77% | 38.44% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-0-9]` | 8.220468111512177e-05 | 5.996623213296902e-05 | 27.05% | 37.08% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-4-byte pattern]` | 8.242157311758781e-05 | 5.954675929630296e-05 | 27.75% | 38.41% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-all byte values]` | 8.3517181313903e-05 | 5.996525207398075e-05 | 28.20% | 39.28% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-alternating 0x00/0xff]` | 8.226495794936503e-05 | 5.9849239834001016e-05 | 27.25% | 37.45% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-alternating 0xaa/0x55]` | 8.275795642211439e-05 | 5.97115946471853e-05 | 27.85% | 38.60% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-ascii sentence]` | 8.248972071941094e-05 | 5.9105420477193046e-05 | 28.35% | 39.56% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'']` | 8.06583769469954e-05 | 5.6761411306731954e-05 | 29.63% | 42.10% | 1.42x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\x00'*32]` | 8.342859903328984e-05 | 5.9083516825544157e-05 | 29.18% | 41.20% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\x00\\xff\\x00\\xff']` | 8.277335614072913e-05 | 5.9003158127748685e-05 | 28.72% | 40.29% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\x01'*100]` | 8.272338446651138e-05 | 6.001493802792191e-05 | 27.45% | 37.84% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\x01'*2048]` | 8.319674283673023e-05 | 5.934207942308621e-05 | 28.67% | 40.20% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\x01\\x02\\x03']` | 8.336583601826963e-05 | 5.925328835292872e-05 | 28.92% | 40.69% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.215148830945994e-05 | 5.975433094794774e-05 | 27.26% | 37.48% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\x7f'*8]` | 8.248656643039752e-05 | 6.0073172728794306e-05 | 27.17% | 37.31% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\x80'*8]` | 8.202934692310486e-05 | 5.9897841958690104e-05 | 26.98% | 36.95% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\xde\\xad\\xbe\\xef']` | 8.299701225521836e-05 | 5.9209272001580495e-05 | 28.66% | 40.18% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'\\xff'*64]` | 8.24562462120678e-05 | 5.906454846798839e-05 | 28.37% | 39.60% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'a'*1024]` | 8.26911094857488e-05 | 5.928744990410511e-05 | 28.30% | 39.47% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-b'abc']` | 8.334650901847517e-05 | 5.972757637932566e-05 | 28.34% | 39.54% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-long alternating]` | 8.238628864224607e-05 | 5.9647041042497146e-05 | 27.60% | 38.12% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-mixed pattern]` | 8.362615315509049e-05 | 5.900502715179114e-05 | 29.44% | 41.73% | 1.42x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-multiples of 0x10]` | 8.25320335760378e-05 | 5.988205698569665e-05 | 27.44% | 37.82% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-palindrome ascii]` | 8.366725928176524e-05 | 5.933794158086095e-05 | 29.08% | 41.00% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-palindrome numeric]` | 8.257130723389882e-05 | 5.806203120835167e-05 | 29.68% | 42.21% | 1.42x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-palindrome]` | 8.218181484660324e-05 | 6.011678870722912e-05 | 26.85% | 36.70% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-repeated 0-9]` | 8.339078573234548e-05 | 5.9232738133578624e-05 | 28.97% | 40.78% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-single 0xff]` | 8.18038388587744e-05 | 5.731708917396799e-05 | 29.93% | 42.72% | 1.43x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-single null byte]` | 8.246684336790971e-05 | 5.730594220744938e-05 | 30.51% | 43.91% | 1.44x | ✅ |
+| `hexbytes_getitem_slice[slice(0,3)-two patterns]` | 8.331555987817469e-05 | 5.902576857460939e-05 | 29.15% | 41.15% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-0-9]` | 8.262541693452296e-05 | 6.016890385186118e-05 | 27.18% | 37.32% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-4-byte pattern]` | 8.254603338104102e-05 | 5.9556847631629874e-05 | 27.85% | 38.60% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-all byte values]` | 8.289980322205707e-05 | 5.945475213511626e-05 | 28.28% | 39.43% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-alternating 0x00/0xff]` | 8.196601146907169e-05 | 5.9986457201494123e-05 | 26.82% | 36.64% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-alternating 0xaa/0x55]` | 8.247472236739025e-05 | 5.9679885320393936e-05 | 27.64% | 38.20% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-ascii sentence]` | 8.182838137674554e-05 | 6.022047807700847e-05 | 26.41% | 35.88% | 1.36x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'']` | 8.100230318268411e-05 | 5.622103896727064e-05 | 30.59% | 44.08% | 1.44x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\x00'*32]` | 8.268399683022635e-05 | 5.9242404339934066e-05 | 28.35% | 39.57% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\x00\\xff\\x00\\xff']` | 8.368417926848318e-05 | 5.9896000749304865e-05 | 28.43% | 39.72% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\x01'*100]` | 7.972273251013468e-05 | 5.9580936373408155e-05 | 25.26% | 33.81% | 1.34x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\x01'*2048]` | 8.248868139793032e-05 | 5.949036400085637e-05 | 27.88% | 38.66% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\x01\\x02\\x03']` | 8.276231304619346e-05 | 5.937935366189107e-05 | 28.25% | 39.38% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.210445735528278e-05 | 5.961196226615494e-05 | 27.39% | 37.73% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\x7f'*8]` | 8.29549210698803e-05 | 5.944126700817022e-05 | 28.35% | 39.56% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\x80'*8]` | 8.305836089794266e-05 | 5.965193846031066e-05 | 28.18% | 39.24% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\xde\\xad\\xbe\\xef']` | 8.342195755338989e-05 | 5.8720529437523465e-05 | 29.61% | 42.07% | 1.42x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'\\xff'*64]` | 8.229921982544033e-05 | 5.929216200186053e-05 | 27.96% | 38.80% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'a'*1024]` | 8.480120655195051e-05 | 5.940838054497666e-05 | 29.94% | 42.74% | 1.43x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-b'abc']` | 8.325303497639755e-05 | 5.934153174067927e-05 | 28.72% | 40.29% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-long alternating]` | 8.254264216731829e-05 | 5.90476081932961e-05 | 28.46% | 39.79% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-mixed pattern]` | 8.280443354180441e-05 | 5.979672559168633e-05 | 27.79% | 38.48% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-multiples of 0x10]` | 8.248463309432029e-05 | 5.986669237395913e-05 | 27.42% | 37.78% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-palindrome ascii]` | 8.32483943160949e-05 | 5.967312692634763e-05 | 28.32% | 39.51% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-palindrome numeric]` | 8.332319380562967e-05 | 5.942125134073383e-05 | 28.69% | 40.22% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-palindrome]` | 8.297387854650085e-05 | 5.964153877945102e-05 | 28.12% | 39.12% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-repeated 0-9]` | 8.241375131287796e-05 | 5.9711924968636506e-05 | 27.55% | 38.02% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-single 0xff]` | 8.048451245919201e-05 | 5.690824172589235e-05 | 29.29% | 41.43% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-single null byte]` | 8.053455099169198e-05 | 5.739148997478836e-05 | 28.74% | 40.32% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(1,6)-two patterns]` | 8.275223330289797e-05 | 5.9173005645839215e-05 | 28.49% | 39.85% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-0-9]` | 8.105186004734886e-05 | 5.8003859022091226e-05 | 28.44% | 39.74% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-4-byte pattern]` | 8.273560361168663e-05 | 6.067622227964549e-05 | 26.66% | 36.36% | 1.36x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-all byte values]` | 8.269635508359338e-05 | 6.023436069211172e-05 | 27.16% | 37.29% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-alternating 0x00/0xff]` | 8.157208634255586e-05 | 5.905724809919495e-05 | 27.60% | 38.12% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-alternating 0xaa/0x55]` | 8.193677559627354e-05 | 5.818811851834678e-05 | 28.98% | 40.81% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-ascii sentence]` | 8.202741255959191e-05 | 5.915835239963054e-05 | 27.88% | 38.66% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'']` | 7.894964681444543e-05 | 5.6644350189357074e-05 | 28.25% | 39.38% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\x00'*32]` | 8.127519283895609e-05 | 5.922029543361223e-05 | 27.14% | 37.24% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\x00\\xff\\x00\\xff']` | 8.146829115874127e-05 | 5.916134102225352e-05 | 27.38% | 37.71% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\x01'*100]` | 8.161911378722524e-05 | 5.970169885843873e-05 | 26.85% | 36.71% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\x01'*2048]` | 0.00010383269134602709 | 8.036156324030432e-05 | 22.60% | 29.21% | 1.29x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\x01\\x02\\x03']` | 7.94449955354334e-05 | 5.677473578859056e-05 | 28.54% | 39.93% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.192500146592935e-05 | 5.891459129163992e-05 | 28.09% | 39.06% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\x7f'*8]` | 8.230297558326546e-05 | 5.901208059020412e-05 | 28.30% | 39.47% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\x80'*8]` | 8.194251070605032e-05 | 5.897350088054158e-05 | 28.03% | 38.95% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\xde\\xad\\xbe\\xef']` | 8.150004087287909e-05 | 5.906512820854441e-05 | 27.53% | 37.98% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'\\xff'*64]` | 8.147403952079107e-05 | 5.8948735349359155e-05 | 27.65% | 38.21% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'a'*1024]` | 9.646762911321298e-05 | 7.462926367199821e-05 | 22.64% | 29.26% | 1.29x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-b'abc']` | 7.890979746114898e-05 | 5.76177794769648e-05 | 26.98% | 36.95% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-long alternating]` | 9.948382061001204e-05 | 7.32151479945905e-05 | 26.40% | 35.88% | 1.36x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-mixed pattern]` | 8.285677140729749e-05 | 6.025146464123879e-05 | 27.28% | 37.52% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-multiples of 0x10]` | 8.139309330722131e-05 | 5.848353973388271e-05 | 28.15% | 39.17% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-palindrome ascii]` | 8.191586176169067e-05 | 5.895904427728067e-05 | 28.02% | 38.94% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-palindrome numeric]` | 8.177785081378596e-05 | 5.8894064719025375e-05 | 27.98% | 38.86% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-palindrome]` | 8.180280247881963e-05 | 5.910627578147117e-05 | 27.75% | 38.40% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-repeated 0-9]` | 8.218237026078734e-05 | 6.026949161219534e-05 | 26.66% | 36.36% | 1.36x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-single 0xff]` | 7.945711646350504e-05 | 5.626680568449005e-05 | 29.19% | 41.21% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-single null byte]` | 7.951565598931574e-05 | 5.6298164590781294e-05 | 29.20% | 41.24% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(2,None)-two patterns]` | 8.17818039682081e-05 | 5.953127149636881e-05 | 27.21% | 37.38% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-0-9]` | 8.023061829538044e-05 | 5.748860211971954e-05 | 28.35% | 39.56% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-4-byte pattern]` | 8.122881810002127e-05 | 5.929266464153064e-05 | 27.01% | 37.00% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-all byte values]` | 8.111841312277588e-05 | 5.924382548343755e-05 | 26.97% | 36.92% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-alternating 0x00/0xff]` | 8.005560228274258e-05 | 5.786158347990837e-05 | 27.72% | 38.36% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-alternating 0xaa/0x55]` | 8.036835898500966e-05 | 5.8267784922765574e-05 | 27.50% | 37.93% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-ascii sentence]` | 8.108383815033608e-05 | 5.792121136243297e-05 | 28.57% | 39.99% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'']` | 7.828553026141559e-05 | 5.455796085052709e-05 | 30.31% | 43.49% | 1.43x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\x00'*32]` | 8.058342266376741e-05 | 5.871231176404337e-05 | 27.14% | 37.25% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\x00\\xff\\x00\\xff']` | 8.088212759148858e-05 | 5.781033106694499e-05 | 28.53% | 39.91% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\x01'*100]` | 8.103052819391699e-05 | 5.84753745577849e-05 | 27.84% | 38.57% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\x01'*2048]` | 0.00010502145010170153 | 8.12024845972436e-05 | 22.68% | 29.33% | 1.29x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\x01\\x02\\x03']` | 8.090135145183484e-05 | 5.8644098766747754e-05 | 27.51% | 37.95% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\x10\\x20\\x30\\x40\\x50']` | 8.056686472834691e-05 | 5.772077360620228e-05 | 28.36% | 39.58% | 1.40x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\x7f'*8]` | 7.992459015922476e-05 | 5.753768476812431e-05 | 28.01% | 38.91% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\x80'*8]` | 8.109369857041423e-05 | 5.7359354553995725e-05 | 29.27% | 41.38% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\xde\\xad\\xbe\\xef']` | 8.134969846186881e-05 | 5.900299416652736e-05 | 27.47% | 37.87% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'\\xff'*64]` | 8.162715018441804e-05 | 5.85611323638553e-05 | 28.26% | 39.39% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'a'*1024]` | 9.59268759523392e-05 | 7.567598646064693e-05 | 21.11% | 26.76% | 1.27x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-b'abc']` | 8.06228655071301e-05 | 5.861250174110627e-05 | 27.30% | 37.55% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-long alternating]` | 9.845893342731985e-05 | 7.506069143812594e-05 | 23.76% | 31.17% | 1.31x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-mixed pattern]` | 8.17399992426917e-05 | 5.94097225324592e-05 | 27.32% | 37.59% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-multiples of 0x10]` | 8.132324147905934e-05 | 5.7712532626782305e-05 | 29.03% | 40.91% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-palindrome ascii]` | 8.029629556537445e-05 | 5.832565972514969e-05 | 27.36% | 37.67% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-palindrome numeric]` | 8.030794487916832e-05 | 5.816629572743251e-05 | 27.57% | 38.07% | 1.38x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-palindrome]` | 8.08390687644724e-05 | 5.728432779530604e-05 | 29.14% | 41.12% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-repeated 0-9]` | 8.12800260295623e-05 | 5.9243544196419686e-05 | 27.11% | 37.20% | 1.37x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-single 0xff]` | 7.811070465690947e-05 | 5.613959721580183e-05 | 28.13% | 39.14% | 1.39x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-single null byte]` | 7.894191613815326e-05 | 5.59389838300982e-05 | 29.14% | 41.12% | 1.41x | ✅ |
+| `hexbytes_getitem_slice[slice(None,None)-two patterns]` | 8.054082858789044e-05 | 5.851001123656311e-05 | 27.35% | 37.65% | 1.38x | ✅ |
+| `hexbytes_new['']` | 6.938619278288445e-05 | 3.760541703900335e-05 | 45.80% | 84.51% | 1.85x | ✅ |
+| `hexbytes_new['0x'+'00'*64]` | 9.17517351843006e-05 | 5.0370068112333096e-05 | 45.10% | 82.16% | 1.82x | ✅ |
+| `hexbytes_new['0x'+'a'*128]` | 9.074924301477318e-05 | 5.066484938897335e-05 | 44.17% | 79.12% | 1.79x | ✅ |
+| `hexbytes_new['0x'+'ff'*32]` | 8.565398370044108e-05 | 4.771718630114923e-05 | 44.29% | 79.50% | 1.80x | ✅ |
+| `hexbytes_new['0x']` | 7.725664702057014e-05 | 3.882996071666457e-05 | 49.74% | 98.96% | 1.99x | ✅ |
+| `hexbytes_new['0x1234']` | 8.429097997870164e-05 | 4.554478647275071e-05 | 45.97% | 85.07% | 1.85x | ✅ |
+| `hexbytes_new['0xCAFEBABE']` | 8.438827612660532e-05 | 4.520680997711317e-05 | 46.43% | 86.67% | 1.87x | ✅ |
+| `hexbytes_new['0xabcdef']` | 8.403600284981716e-05 | 4.53006270585836e-05 | 46.09% | 85.51% | 1.86x | ✅ |
+| `hexbytes_new['0xdeadbeef']` | 8.475748082895605e-05 | 4.52282525403496e-05 | 46.64% | 87.40% | 1.87x | ✅ |
+| `hexbytes_new['abc']` | 8.086201568945207e-05 | 4.7545473198866524e-05 | 41.20% | 70.07% | 1.70x | ✅ |
+| `hexbytes_new['deadbeef']` | 7.570429274306797e-05 | 4.2122278998453166e-05 | 44.36% | 79.73% | 1.80x | ✅ |
+| `hexbytes_new[0-9]` | 4.237510071616e-05 | 2.6309048186758913e-05 | 37.91% | 61.07% | 1.61x | ✅ |
+| `hexbytes_new[0]` | 0.0001207044236616555 | 5.969908674901084e-05 | 50.54% | 102.19% | 2.02x | ✅ |
+| `hexbytes_new[123456]` | 0.00012369956585346885 | 6.607715759253772e-05 | 46.58% | 87.20% | 1.87x | ✅ |
+| `hexbytes_new[2**16]` | 0.00012361578323309407 | 6.568136750569354e-05 | 46.87% | 88.21% | 1.88x | ✅ |
+| `hexbytes_new[2**256-1]` | 0.0001280822799575219 | 7.24366571099162e-05 | 43.45% | 76.82% | 1.77x | ✅ |
+| `hexbytes_new[2**32]` | 0.00012443786451352677 | 6.821308332106753e-05 | 45.18% | 82.43% | 1.82x | ✅ |
+| `hexbytes_new[2**64]` | 0.00012540451166720074 | 7.09794123948543e-05 | 43.40% | 76.68% | 1.77x | ✅ |
+| `hexbytes_new[2**8]` | 0.00012252716872218335 | 6.345577590868693e-05 | 48.21% | 93.09% | 1.93x | ✅ |
+| `hexbytes_new[4-byte pattern]` | 4.339174803270454e-05 | 2.731013743221346e-05 | 37.06% | 58.89% | 1.59x | ✅ |
+| `hexbytes_new[False]` | 6.03837168361066e-05 | 2.676308872885696e-05 | 55.68% | 125.62% | 2.26x | ✅ |
+| `hexbytes_new[True]` | 6.0816531341101104e-05 | 2.7062894364235804e-05 | 55.50% | 124.72% | 2.25x | ✅ |
+| `hexbytes_new[all byte values]` | 4.363375525364799e-05 | 2.6877653320084318e-05 | 38.40% | 62.34% | 1.62x | ✅ |
+| `hexbytes_new[alternating 0x00/0xff]` | 4.3538257513170315e-05 | 2.6697977932997607e-05 | 38.68% | 63.08% | 1.63x | ✅ |
+| `hexbytes_new[alternating 0xaa/0x55]` | 4.377506451607436e-05 | 2.6875586455361764e-05 | 38.61% | 62.88% | 1.63x | ✅ |
+| `hexbytes_new[ascii sentence]` | 4.2666445100202885e-05 | 2.616686706865067e-05 | 38.67% | 63.06% | 1.63x | ✅ |
+| `hexbytes_new[b'']` | 4.168449339451173e-05 | 2.542037724012178e-05 | 39.02% | 63.98% | 1.64x | ✅ |
+| `hexbytes_new[b'\\x00'*32]` | 4.275307905560597e-05 | 2.625612717685198e-05 | 38.59% | 62.83% | 1.63x | ✅ |
+| `hexbytes_new[b'\\x00\\xff\\x00\\xff']` | 4.244781916280666e-05 | 2.5703013078055828e-05 | 39.45% | 65.15% | 1.65x | ✅ |
+| `hexbytes_new[b'\\x01'*100]` | 4.350345449457151e-05 | 2.661157463500857e-05 | 38.83% | 63.48% | 1.63x | ✅ |
+| `hexbytes_new[b'\\x01'*2048]` | 5.5529256011204345e-05 | 3.885958457959185e-05 | 30.02% | 42.90% | 1.43x | ✅ |
+| `hexbytes_new[b'\\x01\\x02\\x03']` | 4.326020703542453e-05 | 2.61984116304066e-05 | 39.44% | 65.13% | 1.65x | ✅ |
+| `hexbytes_new[b'\\x10\\x20\\x30\\x40\\x50']` | 4.248132216975691e-05 | 2.6211183294512374e-05 | 38.30% | 62.07% | 1.62x | ✅ |
+| `hexbytes_new[b'\\x7f'*8]` | 4.259667035474647e-05 | 2.6115170614018678e-05 | 38.69% | 63.11% | 1.63x | ✅ |
+| `hexbytes_new[b'\\x80'*8]` | 4.2053410108130946e-05 | 2.6123096532551874e-05 | 37.88% | 60.98% | 1.61x | ✅ |
+| `hexbytes_new[b'\\xde\\xad\\xbe\\xef']` | 4.267779942043575e-05 | 2.6217997176313375e-05 | 38.57% | 62.78% | 1.63x | ✅ |
+| `hexbytes_new[b'\\xff'*64]` | 4.291619083103965e-05 | 2.6865156482154072e-05 | 37.40% | 59.75% | 1.60x | ✅ |
+| `hexbytes_new[b'a'*1024]` | 5.075167504145122e-05 | 3.3199430823288664e-05 | 34.58% | 52.87% | 1.53x | ✅ |
+| `hexbytes_new[b'abc']` | 4.2488018542870964e-05 | 2.6519504081855407e-05 | 37.58% | 60.21% | 1.60x | ✅ |
+| `hexbytes_new[bytearray(0-9)]` | 6.878458131283852e-05 | 3.7240083221183345e-05 | 45.86% | 84.71% | 1.85x | ✅ |
+| `hexbytes_new[bytearray(4-byte pattern)]` | 6.985115359135715e-05 | 3.778264588254597e-05 | 45.91% | 84.88% | 1.85x | ✅ |
+| `hexbytes_new[bytearray(all byte values)]` | 6.911742473937819e-05 | 3.802843927215381e-05 | 44.98% | 81.75% | 1.82x | ✅ |
+| `hexbytes_new[bytearray(alternating 0x00/0xff)]` | 6.90019263668787e-05 | 3.790830804747277e-05 | 45.06% | 82.02% | 1.82x | ✅ |
+| `hexbytes_new[bytearray(alternating 0xaa/0x55)]` | 6.897162405011948e-05 | 3.793614908955955e-05 | 45.00% | 81.81% | 1.82x | ✅ |
+| `hexbytes_new[bytearray(ascii sentence)]` | 6.879613615322103e-05 | 4.076996537750976e-05 | 40.74% | 68.74% | 1.69x | ✅ |
+| `hexbytes_new[bytearray(b'')]` | 6.758860726389019e-05 | 3.5571258201564745e-05 | 47.37% | 90.01% | 1.90x | ✅ |
+| `hexbytes_new[bytearray(b'\\x00'*32)]` | 6.94585844743919e-05 | 3.737516721536837e-05 | 46.19% | 85.84% | 1.86x | ✅ |
+| `hexbytes_new[bytearray(b'\\x00\\xff\\x00\\xff')]` | 6.888417000880959e-05 | 3.787867498468845e-05 | 45.01% | 81.85% | 1.82x | ✅ |
+| `hexbytes_new[bytearray(b'\\x01'*100)]` | 6.922407640918112e-05 | 3.758085784644384e-05 | 45.71% | 84.20% | 1.84x | ✅ |
+| `hexbytes_new[bytearray(b'\\x01'*2048)]` | 9.013634310432992e-05 | 5.678903926740411e-05 | 37.00% | 58.72% | 1.59x | ✅ |
+| `hexbytes_new[bytearray(b'\\x01\\x02\\x03')]` | 6.989947108712522e-05 | 3.8159258614925595e-05 | 45.41% | 83.18% | 1.83x | ✅ |
+| `hexbytes_new[bytearray(b'\\x10\\x20\\x30\\x40\\x50')]` | 6.874091150602528e-05 | 3.779333271661767e-05 | 45.02% | 81.89% | 1.82x | ✅ |
+| `hexbytes_new[bytearray(b'\\x7f'*8)]` | 6.80019843127132e-05 | 3.7341941545472245e-05 | 45.09% | 82.11% | 1.82x | ✅ |
+| `hexbytes_new[bytearray(b'\\x80'*8)]` | 6.830300579614708e-05 | 3.743678500676213e-05 | 45.19% | 82.45% | 1.82x | ✅ |
+| `hexbytes_new[bytearray(b'\\xde\\xad\\xbe\\xef')]` | 6.949521752123289e-05 | 3.790427335381117e-05 | 45.46% | 83.34% | 1.83x | ✅ |
+| `hexbytes_new[bytearray(b'\\xff'*64)]` | 6.925205136252939e-05 | 3.7653665445667726e-05 | 45.63% | 83.92% | 1.84x | ✅ |
+| `hexbytes_new[bytearray(b'a'*1024)]` | 8.413324114992084e-05 | 5.0073075524725044e-05 | 40.48% | 68.02% | 1.68x | ✅ |
+| `hexbytes_new[bytearray(b'abc')]` | 6.89095689412439e-05 | 3.812388610239906e-05 | 44.68% | 80.75% | 1.81x | ✅ |
+| `hexbytes_new[bytearray(long alternating)]` | 8.427474198621472e-05 | 5.0416838657692486e-05 | 40.18% | 67.16% | 1.67x | ✅ |
+| `hexbytes_new[bytearray(mixed pattern)]` | 6.91808224859089e-05 | 3.764755990322622e-05 | 45.58% | 83.76% | 1.84x | ✅ |
+| `hexbytes_new[bytearray(multiples of 0x10)]` | 6.860518146305064e-05 | 3.733201180743785e-05 | 45.58% | 83.77% | 1.84x | ✅ |
+| `hexbytes_new[bytearray(palindrome ascii)]` | 6.780069339701013e-05 | 3.795894198873789e-05 | 44.01% | 78.62% | 1.79x | ✅ |
+| `hexbytes_new[bytearray(palindrome numeric)]` | 6.89184321921041e-05 | 3.805052374508036e-05 | 44.79% | 81.12% | 1.81x | ✅ |
+| `hexbytes_new[bytearray(palindrome)]` | 6.90938170801417e-05 | 3.771064115941096e-05 | 45.42% | 83.22% | 1.83x | ✅ |
+| `hexbytes_new[bytearray(repeated 0-9)]` | 6.987840012003069e-05 | 3.7624769764429055e-05 | 46.16% | 85.72% | 1.86x | ✅ |
+| `hexbytes_new[bytearray(single 0xff)]` | 7.000516463656183e-05 | 3.7687196540373684e-05 | 46.17% | 85.75% | 1.86x | ✅ |
+| `hexbytes_new[bytearray(single null byte)]` | 7.015859492200782e-05 | 3.785054729291423e-05 | 46.05% | 85.36% | 1.85x | ✅ |
+| `hexbytes_new[bytearray(two patterns)]` | 6.941110504189939e-05 | 3.806721542283591e-05 | 45.16% | 82.34% | 1.82x | ✅ |
+| `hexbytes_new[long alternating]` | 5.0617458606221975e-05 | 3.3197977808250656e-05 | 34.41% | 52.47% | 1.52x | ✅ |
+| `hexbytes_new[memoryview(0-9)]` | 8.285841260315195e-05 | 4.388353889002814e-05 | 47.04% | 88.81% | 1.89x | ✅ |
+| `hexbytes_new[memoryview(4-byte pattern)]` | 8.43034407301335e-05 | 4.342217090998564e-05 | 48.49% | 94.15% | 1.94x | ✅ |
+| `hexbytes_new[memoryview(all byte values)]` | 8.352891036327335e-05 | 4.4133318333829334e-05 | 47.16% | 89.26% | 1.89x | ✅ |
+| `hexbytes_new[memoryview(alternating 0x00/0xff)]` | 8.434044589648633e-05 | 4.401757391660821e-05 | 47.81% | 91.61% | 1.92x | ✅ |
+| `hexbytes_new[memoryview(alternating 0xaa/0x55)]` | 8.375316817375239e-05 | 4.381726201162182e-05 | 47.68% | 91.14% | 1.91x | ✅ |
+| `hexbytes_new[memoryview(ascii sentence)]` | 8.325435829272897e-05 | 4.3119868932190346e-05 | 48.21% | 93.08% | 1.93x | ✅ |
+| `hexbytes_new[memoryview(b'')]` | 8.074546988395617e-05 | 3.9798509102276206e-05 | 50.71% | 102.89% | 2.03x | ✅ |
+| `hexbytes_new[memoryview(b'\\x00'*32)]` | 8.473821290272063e-05 | 4.3739309019476473e-05 | 48.38% | 93.73% | 1.94x | ✅ |
+| `hexbytes_new[memoryview(b'\\x00\\xff\\x00\\xff')]` | 8.277839816231509e-05 | 4.3447491597585724e-05 | 47.51% | 90.53% | 1.91x | ✅ |
+| `hexbytes_new[memoryview(b'\\x01'*100)]` | 8.420769284794484e-05 | 4.357708329806015e-05 | 48.25% | 93.24% | 1.93x | ✅ |
+| `hexbytes_new[memoryview(b'\\x01'*2048)]` | 0.00010464641349548765 | 6.329160840146956e-05 | 39.52% | 65.34% | 1.65x | ✅ |
+| `hexbytes_new[memoryview(b'\\x01\\x02\\x03')]` | 8.216828041800318e-05 | 4.3544269016002456e-05 | 47.01% | 88.70% | 1.89x | ✅ |
+| `hexbytes_new[memoryview(b'\\x10\\x20\\x30\\x40\\x50')]` | 8.227146414316733e-05 | 4.362370193817801e-05 | 46.98% | 88.59% | 1.89x | ✅ |
+| `hexbytes_new[memoryview(b'\\x7f'*8)]` | 8.265903721479144e-05 | 4.3375237201619367e-05 | 47.53% | 90.57% | 1.91x | ✅ |
+| `hexbytes_new[memoryview(b'\\x80'*8)]` | 8.367536206883866e-05 | 4.3386383257224006e-05 | 48.15% | 92.86% | 1.93x | ✅ |
+| `hexbytes_new[memoryview(b'\\xde\\xad\\xbe\\xef')]` | 8.351041551341017e-05 | 4.332157431897943e-05 | 48.12% | 92.77% | 1.93x | ✅ |
+| `hexbytes_new[memoryview(b'\\xff'*64)]` | 8.449341744830508e-05 | 4.387295937276842e-05 | 48.08% | 92.59% | 1.93x | ✅ |
+| `hexbytes_new[memoryview(b'a'*1024)]` | 9.814737181945632e-05 | 5.7020825436471866e-05 | 41.90% | 72.13% | 1.72x | ✅ |
+| `hexbytes_new[memoryview(b'abc')]` | 8.419454583008365e-05 | 4.327156908772533e-05 | 48.61% | 94.57% | 1.95x | ✅ |
+| `hexbytes_new[memoryview(long alternating)]` | 9.682731675000878e-05 | 5.588489093011249e-05 | 42.28% | 73.26% | 1.73x | ✅ |
+| `hexbytes_new[memoryview(mixed pattern)]` | 8.180882420428777e-05 | 4.3382570181940554e-05 | 46.97% | 88.58% | 1.89x | ✅ |
+| `hexbytes_new[memoryview(multiples of 0x10)]` | 8.300722366951443e-05 | 4.2944218833470775e-05 | 48.26% | 93.29% | 1.93x | ✅ |
+| `hexbytes_new[memoryview(palindrome ascii)]` | 8.28725845268707e-05 | 4.3189600607859877e-05 | 47.88% | 91.88% | 1.92x | ✅ |
+| `hexbytes_new[memoryview(palindrome numeric)]` | 8.386659214107966e-05 | 4.241922905766875e-05 | 49.42% | 97.71% | 1.98x | ✅ |
+| `hexbytes_new[memoryview(palindrome)]` | 8.287787518438645e-05 | 4.262766999371227e-05 | 48.57% | 94.42% | 1.94x | ✅ |
+| `hexbytes_new[memoryview(repeated 0-9)]` | 8.379761331339269e-05 | 4.359878960438296e-05 | 47.97% | 92.20% | 1.92x | ✅ |
+| `hexbytes_new[memoryview(single 0xff)]` | 8.26511607904935e-05 | 4.298768516529673e-05 | 47.99% | 92.27% | 1.92x | ✅ |
+| `hexbytes_new[memoryview(single null byte)]` | 8.339817014639323e-05 | 4.3067625550951465e-05 | 48.36% | 93.64% | 1.94x | ✅ |
+| `hexbytes_new[memoryview(two patterns)]` | 8.275112224714799e-05 | 4.391395656304182e-05 | 46.93% | 88.44% | 1.88x | ✅ |
+| `hexbytes_new[mixed pattern]` | 4.3095925186633244e-05 | 2.6781073775267203e-05 | 37.86% | 60.92% | 1.61x | ✅ |
+| `hexbytes_new[multiples of 0x10]` | 4.281892991444951e-05 | 2.6012609534216782e-05 | 39.25% | 64.61% | 1.65x | ✅ |
+| `hexbytes_new[palindrome ascii]` | 4.273420128519318e-05 | 2.597909980250872e-05 | 39.21% | 64.49% | 1.64x | ✅ |
+| `hexbytes_new[palindrome numeric]` | 4.1979992111094876e-05 | 2.601550961849127e-05 | 38.03% | 61.37% | 1.61x | ✅ |
+| `hexbytes_new[palindrome]` | 4.285664705094974e-05 | 2.5961445845332673e-05 | 39.42% | 65.08% | 1.65x | ✅ |
+| `hexbytes_new[repeated 0-9]` | 4.27439415323296e-05 | 2.6719970002806213e-05 | 37.49% | 59.97% | 1.60x | ✅ |
+| `hexbytes_new[single 0xff]` | 4.2261936799987275e-05 | 2.5512186268485627e-05 | 39.63% | 65.65% | 1.66x | ✅ |
+| `hexbytes_new[single null byte]` | 4.214569941716429e-05 | 2.529209672055853e-05 | 39.99% | 66.64% | 1.67x | ✅ |
+| `hexbytes_new[two patterns]` | 4.2684167156417634e-05 | 2.6716881789297264e-05 | 37.41% | 59.76% | 1.60x | ✅ |
+| `hexbytes_repr[0-9]` | 2.894588524008421e-05 | 1.4899247747842206e-05 | 48.53% | 94.28% | 1.94x | ✅ |
+| `hexbytes_repr[4-byte pattern]` | 0.00012060524852572275 | 4.128620288946952e-05 | 65.77% | 192.12% | 2.92x | ✅ |
+| `hexbytes_repr[all byte values]` | 0.00012085624745242802 | 4.147924330490503e-05 | 65.68% | 191.37% | 2.91x | ✅ |
+| `hexbytes_repr[alternating 0x00/0xff]` | 4.858495295259968e-05 | 2.0080497960463707e-05 | 58.67% | 141.95% | 2.42x | ✅ |
+| `hexbytes_repr[alternating 0xaa/0x55]` | 4.923210552265169e-05 | 2.0175670745319566e-05 | 59.02% | 144.02% | 2.44x | ✅ |
+| `hexbytes_repr[ascii sentence]` | 4.037655470204624e-05 | 1.8383612227928805e-05 | 54.47% | 119.63% | 2.20x | ✅ |
+| `hexbytes_repr[b'']` | 2.1066234361430925e-05 | 1.2459731272482898e-05 | 40.85% | 69.07% | 1.69x | ✅ |
+| `hexbytes_repr[b'\\x00'*32]` | 3.607995898214466e-05 | 1.697274539933052e-05 | 52.96% | 112.58% | 2.13x | ✅ |
+| `hexbytes_repr[b'\\x00\\xff\\x00\\xff']` | 2.6273048148631072e-05 | 1.4464436076848599e-05 | 44.95% | 81.64% | 1.82x | ✅ |
+| `hexbytes_repr[b'\\x01'*100]` | 6.37556014602889e-05 | 2.377308403427677e-05 | 62.71% | 168.18% | 2.68x | ✅ |
+| `hexbytes_repr[b'\\x01'*2048]` | 0.0007630583051378909 | 0.00022458614986725658 | 70.57% | 239.76% | 3.40x | ✅ |
+| `hexbytes_repr[b'\\x01\\x02\\x03']` | 2.5907584747822565e-05 | 1.443686941690129e-05 | 44.28% | 79.45% | 1.79x | ✅ |
+| `hexbytes_repr[b'\\x10\\x20\\x30\\x40\\x50']` | 2.6765296745786857e-05 | 1.4487959800621988e-05 | 45.87% | 84.74% | 1.85x | ✅ |
+| `hexbytes_repr[b'\\x7f'*8]` | 2.8233080452065127e-05 | 1.4805438807790449e-05 | 47.56% | 90.69% | 1.91x | ✅ |
+| `hexbytes_repr[b'\\x80'*8]` | 2.8446872787651083e-05 | 1.4688553891964364e-05 | 48.36% | 93.67% | 1.94x | ✅ |
+| `hexbytes_repr[b'\\xde\\xad\\xbe\\xef']` | 2.6213814176787643e-05 | 1.4337545312575689e-05 | 45.31% | 82.83% | 1.83x | ✅ |
+| `hexbytes_repr[b'\\xff'*64]` | 4.856495291395626e-05 | 2.0022713069369518e-05 | 58.77% | 142.55% | 2.43x | ✅ |
+| `hexbytes_repr[b'a'*1024]` | 0.0004031458809698011 | 0.00011884841348234935 | 70.52% | 239.21% | 3.39x | ✅ |
+| `hexbytes_repr[b'abc']` | 2.5834359485922872e-05 | 1.4297845449476436e-05 | 44.66% | 80.69% | 1.81x | ✅ |
+| `hexbytes_repr[long alternating]` | 0.0003995816625334203 | 0.00012242671432351475 | 69.36% | 226.38% | 3.26x | ✅ |
+| `hexbytes_repr[mixed pattern]` | 9.770163130203125e-05 | 3.423432420152483e-05 | 64.96% | 185.39% | 2.85x | ✅ |
+| `hexbytes_repr[multiples of 0x10]` | 2.884832441213508e-05 | 1.4938449881754098e-05 | 48.22% | 93.11% | 1.93x | ✅ |
+| `hexbytes_repr[palindrome ascii]` | 2.73782424098731e-05 | 1.444876865390348e-05 | 47.23% | 89.48% | 1.89x | ✅ |
+| `hexbytes_repr[palindrome numeric]` | 2.683518307320923e-05 | 1.4390224247051856e-05 | 46.38% | 86.48% | 1.86x | ✅ |
+| `hexbytes_repr[palindrome]` | 3.1790496623232954e-05 | 1.5963203310177842e-05 | 49.79% | 99.15% | 1.99x | ✅ |
+| `hexbytes_repr[repeated 0-9]` | 6.399714320035098e-05 | 2.4031319185576113e-05 | 62.45% | 166.31% | 2.66x | ✅ |
+| `hexbytes_repr[single 0xff]` | 2.5515490219912863e-05 | 1.4437645148760041e-05 | 43.42% | 76.73% | 1.77x | ✅ |
+| `hexbytes_repr[single null byte]` | 2.5167631951924074e-05 | 1.423133409787509e-05 | 43.45% | 76.85% | 1.77x | ✅ |
+| `hexbytes_repr[two patterns]` | 4.8585950193884997e-05 | 2.0357756564245936e-05 | 58.10% | 138.66% | 2.39x | ✅ |
+| `hexbytes_to_0x_hex[0-9]` | 1.544961809097447e-05 | 1.3642734209110571e-05 | 11.70% | 13.24% | 1.13x | ✅ |
+| `hexbytes_to_0x_hex[4-byte pattern]` | 4.226468706127327e-05 | 4.0000431516804294e-05 | 5.36% | 5.66% | 1.06x | ✅ |
+| `hexbytes_to_0x_hex[all byte values]` | 4.2334208867862064e-05 | 4.022960731066302e-05 | 4.97% | 5.23% | 1.05x | ✅ |
+| `hexbytes_to_0x_hex[alternating 0x00/0xff]` | 2.0546203700786903e-05 | 1.8948895355544675e-05 | 7.77% | 8.43% | 1.08x | ✅ |
+| `hexbytes_to_0x_hex[alternating 0xaa/0x55]` | 2.0689377084378802e-05 | 1.883388020305997e-05 | 8.97% | 9.85% | 1.10x | ✅ |
+| `hexbytes_to_0x_hex[ascii sentence]` | 1.8760293349930132e-05 | 1.6893597428837184e-05 | 9.95% | 11.05% | 1.11x | ✅ |
+| `hexbytes_to_0x_hex[b'']` | 1.0031205415641834e-05 | 1.121360482582497e-05 | -11.79% | -10.54% | 0.89x | ❌ |
+| `hexbytes_to_0x_hex[b'\\x00'*32]` | 1.74070832714692e-05 | 1.583747911092421e-05 | 9.02% | 9.91% | 1.10x | ✅ |
+| `hexbytes_to_0x_hex[b'\\x00\\xff\\x00\\xff']` | 1.5471478705487503e-05 | 1.3162780179825988e-05 | 14.92% | 17.54% | 1.18x | ✅ |
+| `hexbytes_to_0x_hex[b'\\x01'*100]` | 2.5197144233818322e-05 | 2.266483233562825e-05 | 10.05% | 11.17% | 1.11x | ✅ |
+| `hexbytes_to_0x_hex[b'\\x01'*2048]` | 0.00022236359129712874 | 0.00022144785128371759 | 0.41% | 0.41% | 1.00x | ✅ |
+| `hexbytes_to_0x_hex[b'\\x01\\x02\\x03']` | 1.4799208604862832e-05 | 1.3285546280754111e-05 | 10.23% | 11.39% | 1.11x | ✅ |
+| `hexbytes_to_0x_hex[b'\\x10\\x20\\x30\\x40\\x50']` | 1.4858089747206222e-05 | 1.3422149598616265e-05 | 9.66% | 10.70% | 1.11x | ✅ |
+| `hexbytes_to_0x_hex[b'\\x7f'*8]` | 1.524439942594406e-05 | 1.3603496717257668e-05 | 10.76% | 12.06% | 1.12x | ✅ |
+| `hexbytes_to_0x_hex[b'\\x80'*8]` | 1.523115453100077e-05 | 1.3656859560581806e-05 | 10.34% | 11.53% | 1.12x | ✅ |
+| `hexbytes_to_0x_hex[b'\\xde\\xad\\xbe\\xef']` | 1.4809399667126596e-05 | 1.3165530735771046e-05 | 11.10% | 12.49% | 1.12x | ✅ |
+| `hexbytes_to_0x_hex[b'\\xff'*64]` | 2.093005373752278e-05 | 1.8756976847091458e-05 | 10.38% | 11.59% | 1.12x | ✅ |
+| `hexbytes_to_0x_hex[b'a'*1024]` | 0.0001224828188873382 | 0.00012151721609183016 | 0.79% | 0.79% | 1.01x | ✅ |
+| `hexbytes_to_0x_hex[b'abc']` | 1.4818079393524982e-05 | 1.3045448251449776e-05 | 11.96% | 13.59% | 1.14x | ✅ |
+| `hexbytes_to_0x_hex[long alternating]` | 0.00012281016255790176 | 0.0001215506609373889 | 1.03% | 1.04% | 1.01x | ✅ |
+| `hexbytes_to_0x_hex[mixed pattern]` | 3.5462599693117424e-05 | 3.2950548204383006e-05 | 7.08% | 7.62% | 1.08x | ✅ |
+| `hexbytes_to_0x_hex[multiples of 0x10]` | 1.5533365017689284e-05 | 1.3682603999838052e-05 | 11.91% | 13.53% | 1.14x | ✅ |
+| `hexbytes_to_0x_hex[palindrome ascii]` | 1.5251084450413287e-05 | 1.3439713929203534e-05 | 11.88% | 13.48% | 1.13x | ✅ |
+| `hexbytes_to_0x_hex[palindrome numeric]` | 1.5041965636324625e-05 | 1.3190416099044154e-05 | 12.31% | 14.04% | 1.14x | ✅ |
+| `hexbytes_to_0x_hex[palindrome]` | 1.6386434345250324e-05 | 1.4618957929580712e-05 | 10.79% | 12.09% | 1.12x | ✅ |
+| `hexbytes_to_0x_hex[repeated 0-9]` | 2.5324289446271865e-05 | 2.2632787167562655e-05 | 10.63% | 11.89% | 1.12x | ✅ |
+| `hexbytes_to_0x_hex[single 0xff]` | 1.4582331149011055e-05 | 1.2600530033802218e-05 | 13.59% | 15.73% | 1.16x | ✅ |
+| `hexbytes_to_0x_hex[single null byte]` | 1.4820136688977967e-05 | 1.2710660216070684e-05 | 14.23% | 16.60% | 1.17x | ✅ |
+| `hexbytes_to_0x_hex[two patterns]` | 2.063336110182005e-05 | 1.8939542032443143e-05 | 8.21% | 8.94% | 1.09x | ✅ |
