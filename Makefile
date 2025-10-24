@@ -112,7 +112,9 @@ check-git:
 		exit 1; \
 	fi
 
-benchmark:
+benchmark: run-benchmarks benchmark-results
+
+run-benchmarks:
 	pytest --benchmark-only --benchmark-json=benchmark.json benchmarks/
 
 benchmark-parse:
