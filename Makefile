@@ -111,3 +111,17 @@ check-git:
 		echo "Error: You must have a remote named 'upstream' that points to 'hexbytes'"; \
 		exit 1; \
 	fi
+
+benchmark:
+	pytest --benchmark-only --benchmark-json=benchmark.json benchmarks/
+
+benchmark-parse:
+	python scripts/benchmark/parse_benchmark_output.py benchmark.json pytest_benchmark_results.json
+
+benchmark-compare:
+	python scripts/benchmark/compare_benchmark_results.py pytest_benchmark_results.json pytest_benchmark_diff.json
+
+benchmark-markdown:
+	python scripts/benchmark/generate_benchmark_markdown.py
+
+benchmark-results: benchmark-parse benchmark-compare benchmark-markdown
