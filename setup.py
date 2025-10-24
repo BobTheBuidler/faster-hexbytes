@@ -35,6 +35,7 @@ extras_require = {
     ],
     "codspeed": [
         "pytest-codspeed>=4.2,<4.3",
+        "eth-typing",
     ],
 }
 
