@@ -84,7 +84,11 @@ setup(
         "Original": "https://github.com/ethereum/hexbytes",
     },
     include_package_data=True,
-    install_requires=[f"hexbytes=={hexbytes_version}", "mypy_extensions"],
+    install_requires=[
+        f"hexbytes=={hexbytes_version}",
+        "mypy_extensions>=0.4.2,<2",
+        "typing-extensions>=4.0.0,<5",
+    ],
     python_requires=">=3.9, <4",
     extras_require=extras_require,
     py_modules=["faster_hexbytes"],
