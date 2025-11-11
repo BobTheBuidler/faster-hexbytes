@@ -7,7 +7,7 @@ from setuptools import (
 from mypyc.build import mypycify
 
 
-version = "1.3.2"
+version = "1.3.3"
 hexbytes_version = "1.3.1"
 
 extras_require = {
@@ -32,6 +32,15 @@ extras_require = {
         "hypothesis>=3.44.24",
         "pytest>=7.0.0",
         "pytest-xdist>=2.4.0",
+    ],
+    "benchmark": [
+        "pytest-benchmark",
+        "pytest-codspeed>=4.2,<4.3",
+        "eth-typing",
+    ],
+    "codspeed": [
+        "pytest-codspeed>=4.2,<4.3",
+        "eth-typing",
     ],
 }
 
@@ -69,9 +78,23 @@ setup(
     long_description_content_type="text/markdown",
     author="The Ethereum Foundation",
     author_email="snakecharmers@ethereum.org",
-    url="https://github.com/ethereum/hexbytes",
+    url="https://github.com/BobTheBuidler/faster-hexbytes",
+    project_urls={
+        "Documentation": "https://hexbytes.readthedocs.io/en/stable/",
+        "Release Notes": "https://github.com/BobTheBuidler/faster-hexbytes/releases",
+        "Issues": "https://github.com/BobTheBuidler/faster-hexbytes/issues",
+        "Source - Precompiled (.py)": "https://github.com/BobTheBuidler/faster-hexbytes/tree/master/faster_eth_utils",
+        "Source - Compiled (.c)": "https://github.com/BobTheBuidler/faster-hexbytes/tree/master/build",
+        "Benchmarks": "https://github.com/BobTheBuidler/faster-hexbytes/tree/master/benchmarks",
+        "Benchmarks - Results": "https://github.com/BobTheBuidler/faster-hexbytes/tree/master/benchmarks/results",
+        "Original": "https://github.com/ethereum/hexbytes",
+    },
     include_package_data=True,
-    install_requires=[f"hexbytes=={hexbytes_version}", "mypy_extensions"],
+    install_requires=[
+        f"hexbytes=={hexbytes_version}",
+        "mypy_extensions>=0.4.2,<2",
+        "typing-extensions>=4.0.0,<5",
+    ],
     python_requires=">=3.9, <4",
     extras_require=extras_require,
     py_modules=["faster_hexbytes"],

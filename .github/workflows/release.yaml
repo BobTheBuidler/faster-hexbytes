@@ -116,7 +116,7 @@ jobs:
           python -m cibuildwheel --output-dir wheelhouse
 
       - name: Upload wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.artifact_name }}
           path: wheelhouse/*.whl
@@ -143,53 +143,58 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install setuptools wheel twine mypy==1.18.2 hexbytes==1.3.1
+          pip install setuptools wheel twine mypy==1.18.2
 
+      - name: Drop build folder to prevent shadowing issues w/ the PyPA “build” module
+        run: rm -rf build
+      
+      - name: Install PyPA “build” module
+        run: pip install -U build
+      
       - name: Build sdist
-        run: |
-          python setup.py sdist
+        run: python -m build --sdist
 
       # ----------------------------------------------------
       # Download wheels built on each runner
       # ----------------------------------------------------
       - name: Download manylinux 64-bit wheels
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: "wheels-ubuntu-latest-manylinux-x64"
           path: wheelhouse/linux-many-x64
 
       - name: Download manylinux 32-bit wheels
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: "wheels-ubuntu-latest-manylinux-x86"
           path: wheelhouse/linux-many-x86
 
       - name: Download musllinux 64-bit wheels
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: "wheels-ubuntu-latest-musllinux-x64"
           path: wheelhouse/linux-musl-x64
 
       - name: Download musllinux 32-bit wheels
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: "wheels-ubuntu-latest-musllinux-x86"
           path: wheelhouse/linux-musl-x86
 
       - name: Download macOS wheels
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: "wheels-macos-latest"
           path: wheelhouse/macos
 
       - name: Download Windows 64-bit wheels
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: "wheels-windows-latest-x64"
           path: wheelhouse/windows-x64
 
       - name: Download Windows 32-bit wheels
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: "wheels-windows-latest-x86"
           path: wheelhouse/windows-x86
