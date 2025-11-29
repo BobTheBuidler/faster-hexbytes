@@ -7,7 +7,7 @@ from setuptools import (
 from mypyc.build import mypycify
 
 
-version = "1.3.3"
+version = "1.3.4"
 hexbytes_version = "1.3.1"
 
 extras_require = {
