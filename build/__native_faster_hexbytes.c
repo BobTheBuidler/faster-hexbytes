@@ -1073,6 +1073,7 @@ main_____new___3_HexBytes_obj_dealloc(faster_hexbytes___main_____new___3_HexByte
     main_____new___3_HexBytes_obj_clear(self);
     Py_TYPE(self)->tp_free((PyObject *)self);
     CPy_TRASHCAN_END(self)
+    done: ;
 }
 
 static CPyVTableItem main_____new___3_HexBytes_obj_vtable[2];
@@ -1088,6 +1089,7 @@ CPyDef_main_____new___3_HexBytes_obj_trait_vtable_setup(void)
 }
 
 static PyMethodDef main_____new___3_HexBytes_obj_methods[] = {
+    {"__internal_mypyc_setup", (PyCFunction)CPyDef_main_____mypyc___3__new___3_HexBytes_obj_setup, METH_O, NULL},
     {"__call__",
      (PyCFunction)CPyPy_main_____new___3_HexBytes_obj_____call__,
      METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__call__($cls, val)\n--\n\n")},
@@ -1188,6 +1190,7 @@ main_____getitem___3_HexBytes_obj_dealloc(faster_hexbytes___main_____getitem___3
     main_____getitem___3_HexBytes_obj_clear(self);
     Py_TYPE(self)->tp_free((PyObject *)self);
     CPy_TRASHCAN_END(self)
+    done: ;
 }
 
 static CPyVTableItem main_____getitem___3_HexBytes_obj_vtable[2];
@@ -1203,6 +1206,7 @@ CPyDef_main_____getitem___3_HexBytes_obj_trait_vtable_setup(void)
 }
 
 static PyMethodDef main_____getitem___3_HexBytes_obj_methods[] = {
+    {"__internal_mypyc_setup", (PyCFunction)CPyDef_main_____mypyc___3__getitem___3_HexBytes_obj_setup, METH_O, NULL},
     {"__call__",
      (PyCFunction)CPyPy_main_____getitem___3_HexBytes_obj_____call__,
      METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__call__($self, key, /)\n--\n\n")},
@@ -1303,6 +1307,7 @@ main_____repr___3_HexBytes_obj_dealloc(faster_hexbytes___main_____repr___3_HexBy
     main_____repr___3_HexBytes_obj_clear(self);
     Py_TYPE(self)->tp_free((PyObject *)self);
     CPy_TRASHCAN_END(self)
+    done: ;
 }
 
 static CPyVTableItem main_____repr___3_HexBytes_obj_vtable[2];
@@ -1318,6 +1323,7 @@ CPyDef_main_____repr___3_HexBytes_obj_trait_vtable_setup(void)
 }
 
 static PyMethodDef main_____repr___3_HexBytes_obj_methods[] = {
+    {"__internal_mypyc_setup", (PyCFunction)CPyDef_main_____mypyc___3__repr___3_HexBytes_obj_setup, METH_O, NULL},
     {"__call__",
      (PyCFunction)CPyPy_main_____repr___3_HexBytes_obj_____call__,
      METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__call__($self, /)\n--\n\n")},
@@ -1418,6 +1424,7 @@ main___to_0x_hex_HexBytes_obj_dealloc(faster_hexbytes___main___to_0x_hex_HexByte
     main___to_0x_hex_HexBytes_obj_clear(self);
     Py_TYPE(self)->tp_free((PyObject *)self);
     CPy_TRASHCAN_END(self)
+    done: ;
 }
 
 static CPyVTableItem main___to_0x_hex_HexBytes_obj_vtable[2];
@@ -1433,6 +1440,7 @@ CPyDef_main___to_0x_hex_HexBytes_obj_trait_vtable_setup(void)
 }
 
 static PyMethodDef main___to_0x_hex_HexBytes_obj_methods[] = {
+    {"__internal_mypyc_setup", (PyCFunction)CPyDef_main_____mypyc__to_0x_hex_HexBytes_obj_setup, METH_O, NULL},
     {"__call__",
      (PyCFunction)CPyPy_main___to_0x_hex_HexBytes_obj_____call__,
      METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__call__($self)\n--\n\n")},
@@ -1533,6 +1541,7 @@ main_____reduce___3_HexBytes_obj_dealloc(faster_hexbytes___main_____reduce___3_H
     main_____reduce___3_HexBytes_obj_clear(self);
     Py_TYPE(self)->tp_free((PyObject *)self);
     CPy_TRASHCAN_END(self)
+    done: ;
 }
 
 static CPyVTableItem main_____reduce___3_HexBytes_obj_vtable[2];
@@ -1548,6 +1557,7 @@ CPyDef_main_____reduce___3_HexBytes_obj_trait_vtable_setup(void)
 }
 
 static PyMethodDef main_____reduce___3_HexBytes_obj_methods[] = {
+    {"__internal_mypyc_setup", (PyCFunction)CPyDef_main_____mypyc___3__reduce___3_HexBytes_obj_setup, METH_O, NULL},
     {"__call__",
      (PyCFunction)CPyPy_main_____reduce___3_HexBytes_obj_____call__,
      METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__call__($self)\n--\n\n")},
@@ -1617,18 +1627,23 @@ int CPyExec_faster_hexbytes___main(PyObject *module)
     CPyType_main_____new___3_HexBytes_obj = (PyTypeObject *)CPyType_FromTemplate((PyObject *)CPyType_main_____new___3_HexBytes_obj_template, NULL, modname);
     if (unlikely(!CPyType_main_____new___3_HexBytes_obj))
         goto fail;
+    CPyDef_main_____new___3_HexBytes_obj_trait_vtable_setup();
     CPyType_main_____getitem___3_HexBytes_obj = (PyTypeObject *)CPyType_FromTemplate((PyObject *)CPyType_main_____getitem___3_HexBytes_obj_template, NULL, modname);
     if (unlikely(!CPyType_main_____getitem___3_HexBytes_obj))
         goto fail;
+    CPyDef_main_____getitem___3_HexBytes_obj_trait_vtable_setup();
     CPyType_main_____repr___3_HexBytes_obj = (PyTypeObject *)CPyType_FromTemplate((PyObject *)CPyType_main_____repr___3_HexBytes_obj_template, NULL, modname);
     if (unlikely(!CPyType_main_____repr___3_HexBytes_obj))
         goto fail;
+    CPyDef_main_____repr___3_HexBytes_obj_trait_vtable_setup();
     CPyType_main___to_0x_hex_HexBytes_obj = (PyTypeObject *)CPyType_FromTemplate((PyObject *)CPyType_main___to_0x_hex_HexBytes_obj_template, NULL, modname);
     if (unlikely(!CPyType_main___to_0x_hex_HexBytes_obj))
         goto fail;
+    CPyDef_main___to_0x_hex_HexBytes_obj_trait_vtable_setup();
     CPyType_main_____reduce___3_HexBytes_obj = (PyTypeObject *)CPyType_FromTemplate((PyObject *)CPyType_main_____reduce___3_HexBytes_obj_template, NULL, modname);
     if (unlikely(!CPyType_main_____reduce___3_HexBytes_obj))
         goto fail;
+    CPyDef_main_____reduce___3_HexBytes_obj_trait_vtable_setup();
     if (CPyGlobalsInit() < 0)
         goto fail;
     char result = CPyDef_main_____top_level__();
