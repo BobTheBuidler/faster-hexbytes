@@ -1,4 +1,4 @@
-#### [faster_hexbytes._utils](https://github.com/BobTheBuidler/faster-hexbytes/blob/master/faster_hexbytes/_utils.py) - [view benchmarks](https://github.com/BobTheBuidler/faster-hexbytes/blob/master/benchmarks/test__utils_benchmarks.py)
+#### [faster_hexbytes._utils](https://github.com/BobTheBuidler/faster-hexbytes/blob/renovate/actions-checkout-6.x/faster_hexbytes/_utils.py) - [view benchmarks](https://github.com/BobTheBuidler/faster-hexbytes/blob/renovate/actions-checkout-6.x/benchmarks/test__utils_benchmarks.py)
 
 | Function | Reference Mean | Faster Mean | % Change | Speedup (%) | x Faster | Faster |
 |----------|---------------|-------------|----------|-------------|----------|--------|
