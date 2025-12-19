@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build wheel
-        uses: BobTheBuidler/mypycify@master
+        uses: BobTheBuidler/mypycify@v0.2.6
         with:
           hash-key: |
             **/*.py
@@ -37,7 +37,7 @@ jobs:
             pyproject.toml
             
       - name: Cache .mypy_cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .mypy_cache
           key: mypy-cache-${{ runner.os }}-x64-${{ hashFiles('**/*.py', 'pyproject.toml') }}

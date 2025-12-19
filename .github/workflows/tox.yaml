@@ -47,7 +47,7 @@ jobs:
       TOX_RECREATE_FLAG: ${{ github.event_name == 'schedule' && '-r' || '' }}
       IS_UBUNTU_32BIT: ${{ matrix.os == 'ubuntu-latest' && matrix.architecture == 'x86' }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       # Use i386/python Docker for all 32-bit Ubuntu jobs (TODO cache some of this)
       - name: Run job in 32-bit Ubuntu Docker container
@@ -98,14 +98,14 @@ jobs:
             
       - name: Cache .mypy_cache
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .mypy_cache
           key: mypy-cache-${{ runner.os }}-${{ matrix.architecture }}-${{ hashFiles('**/*.py', 'pyproject.toml') }}
 
       - name: Cache tox environment and hypothesis examples
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             .tox

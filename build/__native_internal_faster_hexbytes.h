@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_INTERNAL_faster_hexbytes_H
-#define MYPYC_NATIVE_INTERNAL_faster_hexbytes_H
+#ifndef MYPYC_LIBRT_INTERNAL_faster_hexbytes_H
+#define MYPYC_LIBRT_INTERNAL_faster_hexbytes_H
 #include <Python.h>
 #include <CPy.h>
 #include "__native_faster_hexbytes.h"
