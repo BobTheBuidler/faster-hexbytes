@@ -26,14 +26,28 @@ jobs:
     name: Run CodSpeed Benchmarks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      
-      - name: Set up Python
-        uses: actions/setup-python@v6
+      - name: Checkout code
+        id: checkout
+        uses: actions/checkout@v6
+        with:
+          # Check out the PR branch
+          ref: ${{ github.head_ref }}
+        continue-on-error: true
+
+      - name: Branch no longer exists on GitHub
+        if: failure() && steps.checkout.outcome == 'failure'
+        run: |
+          echo "The branch ${{ github.head_ref }} no longer exists on GitHub"
+          exit 0
+          
+      - name: Build wheel
+        uses: BobTheBuidler/mypycify@v0.2.6
         with:
           python-version: "3.14"
-          cache: pip
-          cache-dependency-path: |
+          hash-key: |
+            **/*.py
+            pyproject.toml
+          pip-cache-dependency-path: |
             setup.py
             pyproject.toml
             
