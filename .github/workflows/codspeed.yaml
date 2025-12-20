@@ -26,6 +26,20 @@ jobs:
     name: Run CodSpeed Benchmarks
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        id: checkout
+        uses: actions/checkout@v6
+        with:
+          # Check out the PR branch
+          ref: ${{ github.head_ref }}
+        continue-on-error: true
+
+      - name: Branch no longer exists on GitHub
+        if: failure() && steps.checkout.outcome == 'failure'
+        run: |
+          echo "The branch ${{ github.head_ref }} no longer exists on GitHub"
+          exit 0
+          
       - name: Build wheel
         uses: BobTheBuidler/mypycify@v0.2.6
         with:
