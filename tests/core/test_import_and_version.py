@@ -1,10 +1,10 @@
-def test_import_and_version():
+def test_import_and_version() -> None:
     import faster_hexbytes
 
     assert isinstance(faster_hexbytes.__version__, str)
 
 
-def test_compiled_extension_loaded():
+def test_compiled_extension_loaded() -> None:
     import importlib.machinery
     import sys
 
