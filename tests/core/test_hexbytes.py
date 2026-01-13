@@ -1,21 +1,39 @@
-import pytest
 import pickle
+from typing import (
+    Any,
+    Callable,
+    Final,
+    TypeVar,
+    cast,
+)
+
+import hypothesis
+import pytest
 
 from eth_utils import (
     decode_hex,
     remove_0x_prefix,
-    to_bytes as standard_to_bytes,
+    to_bytes,
 )
-from hypothesis import (
-    given,
-    strategies as st,
+from typing_extensions import (
+    ParamSpec,
 )
 
 from faster_hexbytes import (
     HexBytes,
 )
 
-hexstr_strategy = st.from_regex(r"\A(0[xX])?[0-9a-fA-F]*\Z")
+P = ParamSpec("P")
+R = TypeVar("R")
+
+hexstr_strategy: Final = hypothesis.strategies.from_regex(r"\A(0[xX])?[0-9a-fA-F]*\Z")
+
+
+def given(*args: Any, **kwargs: Any) -> Callable[[Callable[P, R]], Callable[P, R]]:
+    return cast(
+        Callable[[Callable[P, R]], Callable[P, R]],
+        hypothesis.given(*args, **kwargs),
+    )
 
 
 def assert_equal(hexbytes: HexBytes, bytes_expected: bytes) -> None:
@@ -26,20 +44,20 @@ def assert_equal(hexbytes: HexBytes, bytes_expected: bytes) -> None:
     assert bytes(hexbytes) == bytes_expected
 
 
-@given(st.binary())
+@given(hypothesis.strategies.binary())
 def test_bytes_inputs(primitive: bytes) -> None:
     wrapped = HexBytes(primitive)
     assert_equal(wrapped, primitive)
 
 
-@given(st.binary())
+@given(hypothesis.strategies.binary())
 def test_bytearray_inputs(primitive: bytes) -> None:
     byte_array_input = bytearray(primitive)
     wrapped = HexBytes(byte_array_input)
     assert_equal(wrapped, primitive)
 
 
-@given(st.binary())
+@given(hypothesis.strategies.binary())
 def test_memoryview_inputs(primitive: bytes) -> None:
     memoryview_input = memoryview(primitive)
     wrapped = HexBytes(memoryview_input)
@@ -56,10 +74,10 @@ def test_memoryview_inputs(primitive: bytes) -> None:
 def test_bool_inputs(boolval: bool, expected_repr: str) -> None:
     wrapped = HexBytes(boolval)
     assert repr(wrapped) == expected_repr
-    assert_equal(wrapped, standard_to_bytes(boolval))
+    assert_equal(wrapped, to_bytes(boolval))
 
 
-@given(st.integers(max_value=-1))
+@given(hypothesis.strategies.integers(max_value=-1))
 def test_invalid_integer_inputs(integer: int) -> None:
     with pytest.raises(ValueError) as exc_info:
         HexBytes(integer)
@@ -69,11 +87,11 @@ def test_invalid_integer_inputs(integer: int) -> None:
     assert str(integer) in message
 
 
-@given(st.integers(min_value=0))
+@given(hypothesis.strategies.integers(min_value=0))
 def test_integer_inputs(integer: int) -> None:
     wrapped = HexBytes(integer)
     assert hex(integer)[2:] in repr(wrapped)
-    assert_equal(wrapped, standard_to_bytes(integer))
+    assert_equal(wrapped, to_bytes(integer))
 
 
 @given(hexstr_strategy)
@@ -102,7 +120,7 @@ def test_to_0x_hex() -> None:
     assert hb.to_0x_hex() == "0x0f1a"
 
 
-@given(st.binary(), st.integers())
+@given(hypothesis.strategies.binary(), hypothesis.strategies.integers())
 def test_hexbytes_index(primitive: bytes, index: int) -> None:
     hexbytes = HexBytes(primitive)
     if index >= len(primitive) or index < -1 * len(primitive):
@@ -112,20 +130,27 @@ def test_hexbytes_index(primitive: bytes, index: int) -> None:
         assert hexbytes[index] == primitive[index]
 
 
-@given(st.binary(), st.integers(), st.integers())
+@given(
+    hypothesis.strategies.binary(),
+    hypothesis.strategies.integers(),
+    hypothesis.strategies.integers(),
+)
 def test_slice(primitive: bytes, start: int, stop: int) -> None:
     hexbytes = HexBytes(primitive)
     expected = HexBytes(primitive[start:stop])
     assert hexbytes[start:stop] == expected
 
 
-@given(st.binary(), st.integers(), st.integers(), st.integers())
+@given(
+    hypothesis.strategies.binary(),
+    hypothesis.strategies.integers(),
+    hypothesis.strategies.integers(),
+    hypothesis.strategies.integers(),
+)
 def test_slice_stepped(primitive: bytes, start: int, stop: int, step: int) -> None:
     hexbytes = HexBytes(primitive)
-    if step == 0:
-        step = None
-    expected = HexBytes(primitive[start:stop:step])
-    assert hexbytes[start:stop:step] == expected
+    expected = HexBytes(primitive[start:stop:step or None])
+    assert hexbytes[start:stop:step or None] == expected
 
 
 def test_reduce_consistency() -> None:
