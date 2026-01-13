@@ -2,8 +2,6 @@ from typing import (
     TYPE_CHECKING,
     Callable,
     Final,
-    Tuple,
-    Type,
     Union,
     overload,
 )
@@ -81,7 +79,7 @@ class HexBytes(hexbytes.HexBytes):
 
     def __reduce__(
         self,
-    ) -> Tuple[Callable[..., bytes], Tuple[Type["HexBytes"], bytes]]:
+    ) -> tuple[Callable[..., bytes], tuple[type["HexBytes"], bytes]]:
         """
         An optimized ``__reduce__`` that bypasses the input validation in
         ``HexBytes.__new__`` since an existing HexBytes instance has already been
