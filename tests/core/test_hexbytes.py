@@ -3,7 +3,6 @@ from typing import (
     Any,
     Callable,
     Final,
-    ParamSpec,
     TypeVar,
     cast,
 )
@@ -15,6 +14,9 @@ from eth_utils import (
     decode_hex,
     remove_0x_prefix,
     to_bytes,
+)
+from typing_extensions import (
+    ParamSpec,
 )
 
 from faster_hexbytes import (
