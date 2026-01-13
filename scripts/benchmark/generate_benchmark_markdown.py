@@ -2,7 +2,7 @@ import os
 import json
 
 
-def main():
+def main() -> None:
     diff_path = "pytest_benchmark_diff.json"
     results_dir = os.path.join("benchmarks", "results")
     os.makedirs(results_dir, exist_ok=True)
