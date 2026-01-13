@@ -14,7 +14,7 @@ import pytest
 from eth_utils import (
     decode_hex,
     remove_0x_prefix,
-    to_bytes as standard_to_bytes,
+    to_bytes,
 )
 
 from faster_hexbytes import (
@@ -23,6 +23,7 @@ from faster_hexbytes import (
 
 P = ParamSpec("P")
 R = TypeVar("R")
+
 hexstr_strategy: Final = hypothesis.strategies.from_regex(r"\A(0[xX])?[0-9a-fA-F]*\Z")
 
 
@@ -71,7 +72,7 @@ def test_memoryview_inputs(primitive: bytes) -> None:
 def test_bool_inputs(boolval: bool, expected_repr: str) -> None:
     wrapped = HexBytes(boolval)
     assert repr(wrapped) == expected_repr
-    assert_equal(wrapped, standard_to_bytes(boolval))
+    assert_equal(wrapped, to_bytes(boolval))
 
 
 @given(hypothesis.strategies.integers(max_value=-1))
@@ -88,7 +89,7 @@ def test_invalid_integer_inputs(integer: int) -> None:
 def test_integer_inputs(integer: int) -> None:
     wrapped = HexBytes(integer)
     assert hex(integer)[2:] in repr(wrapped)
-    assert_equal(wrapped, standard_to_bytes(integer))
+    assert_equal(wrapped, to_bytes(integer))
 
 
 @given(hexstr_strategy)
