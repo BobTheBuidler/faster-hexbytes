@@ -103,16 +103,27 @@ jobs:
           path: .mypy_cache
           key: mypy-cache-${{ runner.os }}-${{ matrix.architecture }}-${{ hashFiles('**/*.py', 'pyproject.toml') }}
 
-      - name: Cache tox environment and hypothesis examples
+      - name: Restore tox environment and hypothesis examples
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
+        id: tox-cache
         with:
           path: |
             .tox
             .hypothesis
           key: ${{ runner.os }}-tox-${{ hashFiles('pyproject.toml', 'setup.py', 'tox.ini') }}-${{ matrix.python-version }}-${{ matrix.architecture }}-${{ matrix.jobtype }}
-          save-always: ${{ env.TOX_RECREATE_FLAG == '-r' }}
 
       - name: Run tox
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
         run: python -m tox run ${{ env.TOX_RECREATE_FLAG }}
+
+      - name: Save tox environment and hypothesis examples
+        # Run on success or recreate runs even if the cache was already restored;
+        # cache/save is a no-op when the key already exists.
+        if: ${{ env.IS_UBUNTU_32BIT != 'true' && (success() || env.TOX_RECREATE_FLAG == '-r') }}
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            .tox
+            .hypothesis
+          key: ${{ steps.tox-cache.outputs.cache-primary-key }}
