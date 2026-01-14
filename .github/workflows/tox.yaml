@@ -118,7 +118,7 @@ jobs:
         run: python -m tox run ${{ env.TOX_RECREATE_FLAG }}
 
       - name: Save tox environment and hypothesis examples
-        if: ${{ always() && env.IS_UBUNTU_32BIT != 'true' && env.TOX_RECREATE_FLAG == '-r' }}
+        if: ${{ env.IS_UBUNTU_32BIT != 'true' && (success() || env.TOX_RECREATE_FLAG == '-r') }}
         uses: actions/cache/save@v5
         with:
           path: |
