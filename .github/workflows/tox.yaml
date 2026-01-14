@@ -118,6 +118,8 @@ jobs:
         run: python -m tox run ${{ env.TOX_RECREATE_FLAG }}
 
       - name: Save tox environment and hypothesis examples
+        # Run on success or recreate runs even if the cache was already restored;
+        # cache/save is a no-op when the key already exists.
         if: ${{ env.IS_UBUNTU_32BIT != 'true' && (success() || env.TOX_RECREATE_FLAG == '-r') }}
         uses: actions/cache/save@v5
         with:
