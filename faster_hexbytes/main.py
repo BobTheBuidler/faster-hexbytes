@@ -63,8 +63,10 @@ class HexBytes(hexbytes.HexBytes):
         if isinstance(result, int):
             return result
         cls = type(self)
+        if cls is HexBytes and isinstance(key, slice):
+            # fast-path base-class slice: bypass __new__ validation
+            return _bytes_new(HexBytes, result)  # type: ignore [return-value]
         if cls is HexBytes:
-            # fast-path case with faster C code for non-subclass
             return HexBytes(result)  # type: ignore [return-value]
         return cls(result)
 
