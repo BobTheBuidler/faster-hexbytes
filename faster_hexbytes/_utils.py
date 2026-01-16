@@ -37,13 +37,13 @@ def to_bytes(val: Union[bytes, str, bytearray, bool, int, memoryview]) -> bytes:
 
 
 def hexstr_to_bytes(hexstr: str) -> bytes:
-    if hexstr.startswith(("0x", "0X")):
+    if len(hexstr) >= 2 and hexstr[0] == "0" and (hexstr[1] == "x" or hexstr[1] == "X"):
         non_prefixed_hex = hexstr[2:]
     else:
         non_prefixed_hex = hexstr
 
     # if the hex string is odd-length, then left-pad it to an even length
-    if len(hexstr) % 2:
+    if len(non_prefixed_hex) & 1:
         padded_hex = "0" + non_prefixed_hex
     else:
         padded_hex = non_prefixed_hex
