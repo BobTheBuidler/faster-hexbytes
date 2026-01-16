@@ -45,6 +45,10 @@ class HexBytes(hexbytes.HexBytes):
     """
 
     def __new__(cls, val: BytesLike) -> Self:
+        if isinstance(val, bytes):
+            if type(val) is cls:
+                return val
+            return _bytes_new(cls, val)
         bytesval = to_bytes(val)
         return _bytes_new(cls, bytesval)
 
