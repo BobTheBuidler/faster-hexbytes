@@ -3,6 +3,7 @@ from typing import (
     Callable,
     Final,
     Union,
+    cast,
     overload,
 )
 
