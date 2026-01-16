@@ -1,11 +1,7 @@
 import binascii
 from typing import (
-    Final,
     Union,
 )
-
-
-unhexlify: Final = binascii.unhexlify
 
 
 def to_bytes(val: Union[bytes, str, bytearray, bool, int, memoryview]) -> bytes:
@@ -49,10 +45,16 @@ def hexstr_to_bytes(hexstr: str) -> bytes:
         padded_hex = non_prefixed_hex
 
     try:
-        ascii_hex = padded_hex.encode("ascii")
-    except UnicodeDecodeError:
-        raise ValueError(
-            f"hex string {padded_hex} may only contain [0-9a-fA-F] characters"
-        )
-    else:
-        return unhexlify(ascii_hex)
+        result = bytes.fromhex(padded_hex)
+    except ValueError:
+        if not padded_hex.isascii():
+            raise ValueError(
+                f"hex string {padded_hex} may only contain [0-9a-fA-F] characters"
+            ) from None
+        raise binascii.Error("Non-hexadecimal digit found") from None
+
+    if padded_hex and not padded_hex.isalnum():
+        # bytes.fromhex allows whitespace; keep binascii.unhexlify behavior.
+        raise binascii.Error("Non-hexadecimal digit found")
+
+    return result
