@@ -64,7 +64,12 @@ class HexBytes(hexbytes.HexBytes):
             return result
         cls = type(self)
         if cls is HexBytes:
-            return cast(Self, _bytes_new(HexBytes, result) if isinstance(key, slice) else HexBytes(result))
+            # fast-path case with faster C code for non-subclass
+            if isinstance(key, slice):
+                # fast-path case to skip __init__
+                return cast(Self, _bytes_new(HexBytes, result))
+            else:
+                return cast(Self, HexBytes(result))
         return cls(result)
 
     def __repr__(self) -> str:
