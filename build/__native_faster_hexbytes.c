@@ -1977,10 +1977,10 @@ PyObject *CPyDef_main_____getitem___3_HexBytes_obj_____call__(PyObject *cpy_r___
     else {
         cpy_r_r5 = NULL;
     }
-    if (cpy_r_r5 != NULL) goto __LL5;
+    if (cpy_r_r5 != NULL) goto __LL3;
     CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 63, CPyStatic_main___globals, "union[int, bytes]", cpy_r_r4);
     goto CPyL24;
-__LL5: ;
+__LL3: ;
     cpy_r_r6 = PyLong_Check(cpy_r_r5);
     if (!cpy_r_r6) goto CPyL5;
     if (likely(PyLong_Check(cpy_r_r5)))
@@ -3596,14 +3596,13 @@ const char * const CPyLit_Str[] = {
     "\005\0020x\0020X\0010\022UnicodeDecodeError\vhex string ",
     "\002( may only contain [0-9a-fA-F] characters\bbinascii",
     "\006\031faster_hexbytes/_utils.py\b<module>\005Final\005Union\006typing\tunhexlify",
-    "\a\v__getitem__\005slice\fHexBytes(\'0x\002\')\rTYPE_CHECKING\bCallable\004cast",
+    "\b\v__getitem__\005slice\fHexBytes(\'0x\003hex\002\')\rTYPE_CHECKING\bCallable\004cast",
     "\004\boverload\rhexbytes.main\027faster_hexbytes/main.py\nmypyc_attr",
-    "\004\017mypy_extensions\004Self\021typing_extensions\bto_bytes",
-    "\005\026faster_hexbytes._utils\tbytearray\tBytesLike\a__new__\n_bytes_new",
-    "\005\v__prepare__\fstaticmethod\b__repr__\tto_0x_hex\n__reduce__",
-    "\004\017__annotations__\026mypyc filler docstring\a__doc__\n__module__",
-    "\003\fnative_class\034allow_interpreted_subclasses\022_HexBytesSubclass1",
-    "\002\022_HexBytesSubclass2\022_HexBytesSubclass3",
+    "\004\017mypy_extensions\004Self\021typing_extensions\026faster_hexbytes._utils",
+    "\006\tbytearray\tBytesLike\a__new__\n_bytes_new\v__prepare__\fstaticmethod",
+    "\005\b__repr__\tto_0x_hex\n__reduce__\017__annotations__\026mypyc filler docstring",
+    "\004\a__doc__\n__module__\fnative_class\034allow_interpreted_subclasses",
+    "\003\022_HexBytesSubclass1\022_HexBytesSubclass2\022_HexBytesSubclass3",
     "",
 };
 const char * const CPyLit_Bytes[] = {
@@ -3616,9 +3615,9 @@ const char * const CPyLit_Int[] = {
 const double CPyLit_Float[] = {0};
 const double CPyLit_Complex[] = {0};
 const int CPyLit_Tuple[] = {
-    14, 1, 4, 1, 5, 1, 7, 3, 31, 31, 31, 1, 76, 2, 34, 35, 5, 42, 43,
-    34, 35, 44, 3, 45, 45, 10, 1, 80, 1, 47, 1, 49, 1, 16, 2, 65, 66, 1,
-    65
+    14, 1, 4, 1, 5, 1, 7, 3, 31, 31, 31, 1, 78, 2, 34, 35, 6, 43, 44,
+    34, 35, 45, 46, 3, 47, 47, 10, 1, 82, 1, 49, 1, 51, 1, 16, 2, 67, 68,
+    1, 67
 };
 const int CPyLit_FrozenSet[] = {0};
 CPyModule *CPyModule_faster_hexbytes__internal = NULL;
