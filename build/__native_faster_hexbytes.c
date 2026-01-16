@@ -3589,8 +3589,8 @@ const char * const CPyLit_Int[] = {
 const double CPyLit_Float[] = {0};
 const double CPyLit_Complex[] = {0};
 const int CPyLit_Tuple[] = {
-    14, 1, 4, 1, 5, 1, 7, 3, 30, 30, 30, 1, 75, 2, 33, 34, 5, 41, 42,
-    33, 34, 43, 3, 44, 44, 10, 1, 79, 1, 46, 1, 48, 1, 50, 2, 65, 66, 1,
+    14, 1, 4, 1, 5, 1, 7, 3, 30, 30, 30, 1, 76, 2, 33, 34, 5, 41, 42,
+    33, 34, 43, 3, 44, 44, 10, 1, 80, 1, 46, 1, 48, 1, 50, 2, 65, 66, 1,
     65
 };
 const int CPyLit_FrozenSet[] = {0};
