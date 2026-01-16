@@ -2032,7 +2032,7 @@ PyObject *CPyDef_main_____getitem___3_HexBytes_obj_____call__(PyObject *cpy_r___
     else {
         cpy_r_r5 = NULL;
     }
-    if (cpy_r_r5 != NULL) goto __LL5;
+    if (cpy_r_r5 != NULL) goto __LL3;
     CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 68, CPyStatic_main___globals, "union[int, bytes]", cpy_r_r4);
     goto CPyL14;
 __LL3: ;
