@@ -29,7 +29,7 @@ def to_bytes(val: Union[bytes, str, bytearray, bool, int, memoryview]) -> bytes:
         if val < 0:
             raise ValueError(f"Cannot convert negative integer {val} to bytes")
         else:
-            return to_bytes(hex(val))
+            return val.to_bytes(max(1, (val.bit_length() + 7) // 8), "big")
     elif isinstance(val, memoryview):
         return bytes(val)
     else:
@@ -37,7 +37,7 @@ def to_bytes(val: Union[bytes, str, bytearray, bool, int, memoryview]) -> bytes:
 
 
 def hexstr_to_bytes(hexstr: str) -> bytes:
-    if len(hexstr) >= 2 and hexstr[0] == "0" and (hexstr[1] == "x" or hexstr[1] == "X"):
+    if hexstr.startswith("0x") or hexstr.startswith("0X"):
         non_prefixed_hex = hexstr[2:]
     else:
         non_prefixed_hex = hexstr
