@@ -1809,7 +1809,7 @@ PyObject *CPyDef_main_____new___3_HexBytes_obj_____call__(PyObject *cpy_r___mypy
     if (likely(PyObject_TypeCheck(cpy_r_val, CPyType_main___HexBytes)))
         cpy_r_r2 = cpy_r_val;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__new__", 50, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_val);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__new__", 51, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_val);
         goto CPyL18;
     }
     return cpy_r_r2;
@@ -1820,7 +1820,7 @@ CPyL3: ;
     if (likely(PyBytes_Check(cpy_r_val) || PyByteArray_Check(cpy_r_val)))
         cpy_r_r4 = cpy_r_val;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__new__", 53, CPyStatic_main___globals, "bytes", cpy_r_val);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__new__", 54, CPyStatic_main___globals, "bytes", cpy_r_val);
         goto CPyL18;
     }
     cpy_r_r5 = CPyStatic_main____bytes_new;
@@ -1848,7 +1848,7 @@ CPyL8: ;
     if (likely(PyObject_TypeCheck(cpy_r_r9, CPyType_main___HexBytes)))
         cpy_r_r10 = cpy_r_r9;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__new__", 53, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r9);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__new__", 54, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r9);
         goto CPyL18;
     }
     return cpy_r_r10;
@@ -1883,8 +1883,8 @@ CPyL15: ;
     if (likely(PyObject_TypeCheck(cpy_r_r16, CPyType_main___HexBytes)))
         cpy_r_r17 = cpy_r_r16;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__new__", 50, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r5);
-        goto CPyL7;
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__new__", 56, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r16);
+        goto CPyL18;
     }
     return cpy_r_r17;
 CPyL18: ;
@@ -2046,7 +2046,7 @@ PyObject *CPyDef_main_____getitem___3_HexBytes_obj_____call__(PyObject *cpy_r___
         cpy_r_r5 = NULL;
     }
     if (cpy_r_r5 != NULL) goto __LL3;
-    CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 63, CPyStatic_main___globals, "union[int, bytes]", cpy_r_r4);
+    CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 69, CPyStatic_main___globals, "union[int, bytes]", cpy_r_r4);
     goto CPyL24;
 __LL3: ;
     cpy_r_r6 = PyLong_Check(cpy_r_r5);
@@ -2092,7 +2092,7 @@ CPyL6: ;
     if (likely(PyBytes_Check(cpy_r_r5) || PyByteArray_Check(cpy_r_r5)))
         cpy_r_r19 = cpy_r_r5;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 71, CPyStatic_main___globals, "bytes", cpy_r_r5);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 77, CPyStatic_main___globals, "bytes", cpy_r_r5);
         goto CPyL24;
     }
     cpy_r_r20 = CPyStatic_main____bytes_new;
@@ -2120,7 +2120,7 @@ CPyL13: ;
     if (likely(PyObject_TypeCheck(cpy_r_r24, CPyType_main___HexBytes)))
         cpy_r_r25 = cpy_r_r24;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 71, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r24);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 77, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r24);
         goto CPyL24;
     }
     return cpy_r_r25;
@@ -2128,7 +2128,7 @@ CPyL16: ;
     if (likely(PyBytes_Check(cpy_r_r5) || PyByteArray_Check(cpy_r_r5)))
         cpy_r_r26 = cpy_r_r5;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 73, CPyStatic_main___globals, "bytes", cpy_r_r5);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 79, CPyStatic_main___globals, "bytes", cpy_r_r5);
         goto CPyL24;
     }
     cpy_r_r27 = (PyObject *)CPyType_main___HexBytes;
@@ -2143,7 +2143,7 @@ CPyL16: ;
     if (likely(PyObject_TypeCheck(cpy_r_r30, CPyType_main___HexBytes)))
         cpy_r_r31 = cpy_r_r30;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 73, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r30);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 79, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r30);
         goto CPyL24;
     }
     return cpy_r_r31;
@@ -2151,7 +2151,7 @@ CPyL20: ;
     if (likely(PyBytes_Check(cpy_r_r5) || PyByteArray_Check(cpy_r_r5)))
         cpy_r_r32 = cpy_r_r5;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 74, CPyStatic_main___globals, "bytes", cpy_r_r5);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 80, CPyStatic_main___globals, "bytes", cpy_r_r5);
         goto CPyL30;
     }
     PyObject *cpy_r_r33[1] = {cpy_r_r32};
@@ -2166,7 +2166,7 @@ CPyL20: ;
     if (likely(PyObject_TypeCheck(cpy_r_r35, CPyType_main___HexBytes)))
         cpy_r_r36 = cpy_r_r35;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 74, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r35);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__getitem__", 80, CPyStatic_main___globals, "faster_hexbytes.main.HexBytes", cpy_r_r35);
         goto CPyL24;
     }
     return cpy_r_r36;
@@ -2280,7 +2280,7 @@ PyObject *CPyDef_main_____repr___3_HexBytes_obj_____call__(PyObject *cpy_r___myp
     if (likely(PyUnicode_Check(cpy_r_r4)))
         cpy_r_r5 = cpy_r_r4;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__repr__", 77, CPyStatic_main___globals, "str", cpy_r_r4);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__repr__", 83, CPyStatic_main___globals, "str", cpy_r_r4);
         goto CPyL4;
     }
     cpy_r_r6 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* "')" */
@@ -2377,7 +2377,7 @@ PyObject *CPyDef_main___to_0x_hex_HexBytes_obj_____call__(PyObject *cpy_r___mypy
     if (likely(PyUnicode_Check(cpy_r_r4)))
         cpy_r_r5 = cpy_r_r4;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "to_0x_hex", 83, CPyStatic_main___globals, "str", cpy_r_r4);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "to_0x_hex", 89, CPyStatic_main___globals, "str", cpy_r_r4);
         goto CPyL4;
     }
     cpy_r_r6 = CPyStr_Build(2, cpy_r_r0, cpy_r_r5);
@@ -2486,7 +2486,7 @@ CPyL3: ;
     if (likely(PyBytes_Check(cpy_r_r6) || PyByteArray_Check(cpy_r_r6)))
         cpy_r_r7 = cpy_r_r6;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__reduce__", 93, CPyStatic_main___globals, "bytes", cpy_r_r6);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "__reduce__", 99, CPyStatic_main___globals, "bytes", cpy_r_r6);
         goto CPyL7;
     }
     cpy_r_r8.f0 = cpy_r_r2;
@@ -3213,7 +3213,7 @@ CPyL26: ;
     if (likely(PyDict_Check(cpy_r_r147)))
         cpy_r_r148 = cpy_r_r147;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "<module>", 100, CPyStatic_main___globals, "dict", cpy_r_r147);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "<module>", 106, CPyStatic_main___globals, "dict", cpy_r_r147);
         goto CPyL113;
     }
     cpy_r_r149 = cpy_r_r148;
@@ -3343,7 +3343,7 @@ CPyL57: ;
     if (likely(PyDict_Check(cpy_r_r196)))
         cpy_r_r197 = cpy_r_r196;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "<module>", 102, CPyStatic_main___globals, "dict", cpy_r_r196);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "<module>", 108, CPyStatic_main___globals, "dict", cpy_r_r196);
         goto CPyL116;
     }
     cpy_r_r198 = cpy_r_r197;
@@ -3473,7 +3473,7 @@ CPyL76: ;
     if (likely(PyDict_Check(cpy_r_r245)))
         cpy_r_r246 = cpy_r_r245;
     else {
-        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "<module>", 104, CPyStatic_main___globals, "dict", cpy_r_r245);
+        CPy_TypeErrorTraceback("faster_hexbytes/main.py", "<module>", 110, CPyStatic_main___globals, "dict", cpy_r_r245);
         goto CPyL119;
     }
     cpy_r_r247 = cpy_r_r246;
