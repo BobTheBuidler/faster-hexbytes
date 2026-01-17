@@ -8,6 +8,7 @@ on:
       - '.circleci/**'
       - '.github/workflows/**'
       - '!.github/workflows/compile.yaml'
+      - '**/*.md'
   push:
     branches:
       - master
@@ -15,6 +16,7 @@ on:
       - '.circleci/**'
       - '.github/workflows/**'
       - '!.github/workflows/compile.yaml'
+      - '**/*.md'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
