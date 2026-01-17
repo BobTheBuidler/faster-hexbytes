@@ -3,6 +3,7 @@ from typing import (
     Callable,
     Final,
     Union,
+    cast,
     overload,
 )
 
@@ -71,7 +72,11 @@ class HexBytes(hexbytes.HexBytes):
         cls = type(self)
         if cls is HexBytes:
             # fast-path case with faster C code for non-subclass
-            return HexBytes(result)  # type: ignore [return-value]
+            if isinstance(key, slice):
+                # fast-path case to skip __init__
+                return cast(Self, _bytes_new(HexBytes, result))
+            else:
+                return cast(Self, HexBytes(result))
         return cls(result)
 
     def __repr__(self) -> str:
