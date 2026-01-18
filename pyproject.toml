@@ -20,6 +20,9 @@ profile = "black"
 use_parentheses = true
 
 [tool.mypy]
+packages = ["faster_hexbytes"]
+pretty = true
+no_implicit_reexport = true
 check_untyped_defs = true
 disallow_any_generics = true
 disallow_incomplete_defs = true

@@ -63,7 +63,7 @@ if skip_mypyc:
     ext_modules = []
 else:
     ext_modules = mypycify(
-      ["faster_hexbytes/", "--strict", "--pretty"],
+      ["faster_hexbytes/"],
       group_name="faster_hexbytes",
       strict_dunder_typing=True,
     )
