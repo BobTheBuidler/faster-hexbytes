@@ -12,6 +12,6 @@ All agents must follow these rules:
 6) Follow formatting/linting configured in pyproject.toml, setup.cfg, tox.ini, or ruff.toml.
 7) Update dependency lockfiles when adding or removing Python dependencies.
 8) If the repo uses mypyc, verify tests run against compiled extensions (not interpreted Python) and note how you confirmed.
-9) All mypy configuration should go in pyproject.toml.
+9) All mypy configuration (flags, overrides, per-module ignores, and file targets) should go in pyproject.toml. Do not split config across CLI args, mypy.ini, setup.cfg, or workflow steps.
 
 Reference: https://www.conventionalcommits.org/en/v1.0.0/

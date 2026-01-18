@@ -1,129 +1,87 @@
-#!/usr/bin/env python
+import os
 import sys
-from setuptools import (
-    find_packages,
-    setup,
-)
+
+from setuptools import setup
+from setuptools import find_packages
+
 from mypyc.build import mypycify
 
 
-version = "1.3.6"
+version = "1.3.5"
 hexbytes_version = "1.3.1"
 
 extras_require = {
     "dev": [
-        "build>=0.9.0",
-        "bump_my_version>=0.19.0",
-        "ipython",
+        "black>=22.3.0",
+        "flake8==3.8.4",
+        "isort>=5.10.0",
         "mypy==1.19.1",
-        "pre-commit>=3.4.0",
-        "tox>=4.0.0",
-        "twine",
+        "pytest>=8.0",
+        "setuptools>=75.6.0",
         "wheel",
-    ],
-    "docs": [
-        "sphinx>=6.0.0",
-        "sphinx-autobuild>=2021.3.14",
-        "sphinx_rtd_theme>=1.0.0",
-        "towncrier>=25,<26",
-    ],
-    "test": [
-        "eth_utils>=2.0.0",
-        "hypothesis>=3.44.24",
-        "pytest>=7.0.0",
-        "pytest-xdist>=2.4.0",
-    ],
-    "benchmark": [
-        "pytest-benchmark",
-        "pytest-codspeed>=4.2,<4.3",
-        "eth-typing",
-    ],
-    "codspeed": [
-        "pytest-codspeed>=4.2,<4.3",
-        "eth-typing",
+        "towncrier>=19.2.0, <20",
+        "hypothesis>=6.56.4",
+        "pydocstyle>=6.2.3",
+        "pre-commit",
+        "mdformat-gfm>=0.3.5",
+        "mdformat>=0.7.14",
+        "typing-extensions>=4.4.0",
     ],
 }
 
-extras_require["dev"] = (
-    extras_require["dev"] + extras_require["docs"] + extras_require["test"]
-)
+if sys.implementation.name == "cpython":
+    MYPYC_DEBUG_LEVEL = int(os.environ.get("MYPYC_DEBUG_LEVEL", "0"))
 
-
-with open("./README.md") as readme:
-    long_description = readme.read()
-
-
-# we can't compile on python3.8 but we can still let the user install
-skip_mypyc = sys.version_info < (3, 9) or any(
-    cmd in sys.argv
-    for cmd in ("sdist", "egg_info", "--name", "--version", "--help", "--help-commands")
-)
-
-if skip_mypyc:
-    ext_modules = []
-else:
-    ext_modules = mypycify(
-      ["faster_hexbytes/", "--strict", "--pretty"],
-      group_name="faster_hexbytes",
-      strict_dunder_typing=True,
+    skip_mypyc = any(
+        cmd in sys.argv
+        for cmd in ("sdist", "egg_info", "--name", "--version", "--help", "--help-commands")
     )
+
+    if skip_mypyc:
+        ext_modules = []
+    else:
+        ext_modules = mypycify(
+          ["faster_hexbytes/"],
+          group_name="faster_hexbytes",
+          strict_dunder_typing=True,
+        )
 
 
 setup(
     name="faster_hexbytes",
     # *IMPORTANT*: Don't manually change the version here. See Contributing docs for the release process.
     version=version,
-    description="""A faster fork of hexbytes: Python `bytes` subclass that decodes hex, with a readable console output. Implemented in C.""",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    author="The Ethereum Foundation",
-    author_email="snakecharmers@ethereum.org",
-    url="https://github.com/BobTheBuidler/faster-hexbytes",
-    project_urls={
-        "Documentation": "https://hexbytes.readthedocs.io/en/stable/",
-        "Release Notes": "https://github.com/BobTheBuidler/faster-hexbytes/releases",
-        "Issues": "https://github.com/BobTheBuidler/faster-hexbytes/issues",
-        "Source - Precompiled (.py)": "https://github.com/BobTheBuidler/faster-hexbytes/tree/master/faster_eth_utils",
-        "Source - Compiled (.c)": "https://github.com/BobTheBuidler/faster-hexbytes/tree/master/build",
-        "Benchmarks": "https://github.com/BobTheBuidler/faster-hexbytes/tree/master/benchmarks",
-        "Benchmarks - Results": "https://github.com/BobTheBuidler/faster-hexbytes/tree/master/benchmarks/results",
-        "Original": "https://github.com/ethereum/hexbytes",
-    },
-    include_package_data=True,
-    install_requires=[
-        f"hexbytes=={hexbytes_version}",
-        "mypy_extensions>=0.4.2,<2",
-        "typing-extensions>=4.0.0,<5",
-    ],
-    python_requires=">=3.9, <4",
-    extras_require=extras_require,
-    py_modules=["faster_hexbytes"],
-    license="MIT",
-    zip_safe=False,
-    keywords="ethereum",
-    packages=find_packages(
-        exclude=[
-            "scripts",
-            "scripts.*",
-            "tests",
-            "tests.*",
-            "benchmarks",
-            "benchmarks.*",
-        ]
+    description=(
+        "A faster fork of hexbytes: Python `bytes` subclass that decodes hex, with a readable console output. Implemented in C."
     ),
-    ext_modules=ext_modules,
-    package_data={"faster_hexbytes": ["py.typed"]},
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/BobTheBuidler/faster-hexbytes",
+    author="BobTheBuidler",
+    author_email="bobthebuidlerdefi@gmail.com",
+    license="MIT",
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Natural Language :: English",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
         "Programming Language :: Python :: 3.14",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Topic :: Software Development :: Libraries",
     ],
+    python_requires=">=3.10,<3.15",
+    setup_requires=["setuptools_scm"],
+    install_requires=[
+        "eth-hash>=0.7.0",
+        "cchecksum>=0.3.8.dev0,<1",
+        "hexbytes=={}".format(hexbytes_version),
+    ],
+    extras_require=extras_require,
+    packages=find_packages(),
+    py_modules=["faster_hexbytes"],
+    package_data={"faster_hexbytes": ["py.typed"]},
+    include_package_data=True,
+    ext_modules=ext_modules,
 )
