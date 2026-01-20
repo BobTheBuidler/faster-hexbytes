@@ -41,7 +41,7 @@ jobs:
           exit 0
           
       - name: Build wheel
-        uses: BobTheBuidler/mypycify@v0.3.2
+        uses: BobTheBuidler/mypycify@v0.3.0
         with:
           python-version: "3.14"
           hash-key: |
@@ -67,6 +67,8 @@ jobs:
         
       - name: Run CodSpeed
         uses: CodSpeedHQ/action@v4
+        env:
+          PYTEST_ADDOPTS: "-c benchmarks/pytest-codspeed.ini"
         with:
           mode: instrumentation
-          run: pytest --codspeed -k "test_faster_" benchmarks/
+          run: pytest
