@@ -67,6 +67,8 @@ jobs:
         
       - name: Run CodSpeed
         uses: CodSpeedHQ/action@v4
+        env:
+          PYTEST_ADDOPTS: "-c benchmarks/pytest-codspeed.ini"
         with:
           mode: instrumentation
-          run: pytest --codspeed -k "test_faster_" benchmarks/
+          run: pytest
