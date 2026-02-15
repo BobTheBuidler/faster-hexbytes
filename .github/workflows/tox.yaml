@@ -4,21 +4,21 @@ on:
   push:
     branches: [main, master]
     paths:
-      - '**.py'
-      - '.github/workflows/tox.yaml'
-      - 'pyproject.toml'
-      - 'setup.py'
-      - 'tox.ini'
+      - "**.py"
+      - ".github/workflows/tox.yaml"
+      - "pyproject.toml"
+      - "setup.py"
+      - "tox.ini"
   pull_request:
     branches: [main, master]
     paths:
-      - '**.py'
-      - '.github/workflows/tox.yaml'
-      - 'pyproject.toml'
-      - 'setup.py'
-      - 'tox.ini'
+      - "**.py"
+      - ".github/workflows/tox.yaml"
+      - "pyproject.toml"
+      - "setup.py"
+      - "tox.ini"
   schedule:
-    - cron: '0 10 * * *'  # Daily 10:00 UTC
+    - cron: "0 10 * * *" # Daily 10:00 UTC
   workflow_dispatch:
 
 concurrency:
@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   test:
-    name: Test (${{ matrix.jobtype }}, ${{ matrix.python-version}}, ${{ matrix.os }}, ${{ matrix.architecture }})
+    name: Test (${{ matrix.jobtype }}, ${{ matrix.python-version }}, ${{ matrix.os }}, ${{ matrix.architecture }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -42,27 +42,36 @@ jobs:
             architecture: x86
       # limit parallelism for cronjob, otherwise blast it
       max-parallel: ${{ (github.event_name == 'schedule' || github.event_name == 'push') && 4 || 1000 }}
+
     env:
       TOXENV: py${{ matrix.python-version }}-${{ matrix.jobtype }}
       TOX_RECREATE_FLAG: ${{ github.event_name == 'schedule' && '-r' || '' }}
       IS_UBUNTU_32BIT: ${{ matrix.os == 'ubuntu-latest' && matrix.architecture == 'x86' }}
+
     steps:
       - uses: actions/checkout@v6
 
-      # Use i386/python Docker for all 32-bit Ubuntu jobs (TODO cache some of this)
+      # Use i386/python Docker for all 32-bit Ubuntu jobs
+      # (Avoid addnab/docker-run-action: its embedded docker client is too old for GitHub's runner daemon.)
       - name: Run job in 32-bit Ubuntu Docker container
         if: ${{ env.IS_UBUNTU_32BIT == 'true' }}
-        uses: addnab/docker-run-action@v3
-        with:
-          image: i386/python:${{ matrix.python-version }}
-          shell: bash
-          options: -v ${{ github.workspace }}:/workspace -w /workspace
-          run: |
-            python -m pip install --upgrade pip
-            python -m pip install tox
-            python -m tox -e ${{ env.TOXENV }} ${{ env.TOX_RECREATE_FLAG }}
-        # There are no prebuilt 32-bit freethreaded Python containers at the time of this commit, but
-        # we will keep these runners so they will activate on their own whenever such containers exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker run --rm \
+            -e TOXENV="${{ env.TOXENV }}" \
+            -e TOX_RECREATE_FLAG="${{ env.TOX_RECREATE_FLAG }}" \
+            -e IS_UBUNTU_32BIT="${{ env.IS_UBUNTU_32BIT }}" \
+            -v "${{ github.workspace }}:/workspace" \
+            -w /workspace \
+            i386/python:${{ matrix.python-version }} \
+            bash -lc '
+              python -m pip install --upgrade pip
+              python -m pip install tox
+              python -m tox -e "$TOXENV" $TOX_RECREATE_FLAG
+            '
+        # There are no prebuilt 32-bit freethreaded Python containers at the time of this commit,
+        # but we will keep these runners so they will activate on their own whenever such containers exist
         continue-on-error: ${{ matrix.python-version == '3.13t' || matrix.python-version == '3.14t' }}
 
       # No architecture specified for MacOS
@@ -76,11 +85,11 @@ jobs:
             setup.py
             pyproject.toml
             tox.ini
-        
+
       # All other builds (64-bit Linux, 32-bit and 64-bit Windows)
       - name: Set up Python
         if: ${{ matrix.os != 'macos-latest' && env.IS_UBUNTU_32BIT != 'true' }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
           architecture: ${{ matrix.architecture }}
@@ -92,20 +101,21 @@ jobs:
 
       - name: Upgrade pip and install tox
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
+        shell: bash
         run: |
           python -m pip install --upgrade pip
           python -m pip install tox
-            
+
       - name: Cache .mypy_cache
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
-        uses: actions/cache@v5
+        uses: actions/cache@v4
         with:
           path: .mypy_cache
           key: mypy-cache-${{ runner.os }}-${{ matrix.architecture }}-${{ hashFiles('**/*.py', 'pyproject.toml') }}
 
       - name: Restore tox environment and hypothesis examples
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v4
         id: tox-cache
         with:
           path: |
@@ -115,13 +125,14 @@ jobs:
 
       - name: Run tox
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
+        shell: bash
         run: python -m tox run ${{ env.TOX_RECREATE_FLAG }}
 
       - name: Save tox environment and hypothesis examples
         # Run on success or recreate runs even if the cache was already restored;
         # cache/save is a no-op when the key already exists.
         if: ${{ env.IS_UBUNTU_32BIT != 'true' && (success() || env.TOX_RECREATE_FLAG == '-r') }}
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v4
         with:
           path: |
             .tox
