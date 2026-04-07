@@ -7,7 +7,7 @@ from setuptools import (
 from mypyc.build import mypycify
 
 
-version = "1.3.5"
+version = "1.3.6"
 hexbytes_version = "1.3.1"
 
 extras_require = {
@@ -15,7 +15,7 @@ extras_require = {
         "build>=0.9.0",
         "bump_my_version>=0.19.0",
         "ipython",
-        "mypy==1.19.1",
+        "mypy==1.20.0",
         "pre-commit>=3.4.0",
         "tox>=4.0.0",
         "twine",
@@ -35,11 +35,11 @@ extras_require = {
     ],
     "benchmark": [
         "pytest-benchmark",
-        "pytest-codspeed>=4.2,<4.3",
+        "pytest-codspeed>=4.3,<4.4",
         "eth-typing",
     ],
     "codspeed": [
-        "pytest-codspeed>=4.2,<4.3",
+        "pytest-codspeed>=4.3,<4.4",
         "eth-typing",
     ],
 }
@@ -63,7 +63,7 @@ if skip_mypyc:
     ext_modules = []
 else:
     ext_modules = mypycify(
-      ["faster_hexbytes/", "--strict", "--pretty"],
+      ["faster_hexbytes/"],
       group_name="faster_hexbytes",
       strict_dunder_typing=True,
     )
