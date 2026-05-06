@@ -74,6 +74,20 @@ PyObject *CPyInit_faster_hexbytes(void)
         goto fail;
     modname = PyUnicode_FromString("faster_hexbytes");
     if (modname == NULL) CPyError_OutOfMemory();
+    int rv = 0;
+    PyObject *mod_dict = PyImport_GetModuleDict();
+    PyObject *shared_lib = NULL;
+    rv = PyDict_GetItemStringRef(mod_dict, "faster_hexbytes__mypyc", &shared_lib);
+    if (rv < 0) goto fail;
+    PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
+    if (shared_lib_file == NULL) goto fail;
+    PyObject *ext_suffix = PyUnicode_FromString(".cpython-314-x86_64-linux-gnu.so");
+    if (ext_suffix == NULL) CPyError_OutOfMemory();
+    Py_ssize_t is_pkg = 1;
+    rv = CPyImport_SetDunderAttrs(CPyModule_faster_hexbytes__internal, modname, shared_lib_file, ext_suffix, is_pkg);
+    Py_DECREF(ext_suffix);
+    Py_DECREF(shared_lib_file);
+    if (rv < 0) goto fail;
     if (PyObject_SetItem(PyImport_GetModuleDict(), modname, CPyModule_faster_hexbytes__internal) < 0)
         goto fail;
     Py_CLEAR(modname);
@@ -332,6 +346,20 @@ CPyL18: ;
             goto fail;
         modname = PyUnicode_FromString("faster_hexbytes._utils");
         if (modname == NULL) CPyError_OutOfMemory();
+        int rv = 0;
+        PyObject *mod_dict = PyImport_GetModuleDict();
+        PyObject *shared_lib = NULL;
+        rv = PyDict_GetItemStringRef(mod_dict, "faster_hexbytes__mypyc", &shared_lib);
+        if (rv < 0) goto fail;
+        PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
+        if (shared_lib_file == NULL) goto fail;
+        PyObject *ext_suffix = PyUnicode_FromString(".cpython-314-x86_64-linux-gnu.so");
+        if (ext_suffix == NULL) CPyError_OutOfMemory();
+        Py_ssize_t is_pkg = 0;
+        rv = CPyImport_SetDunderAttrs(CPyModule_faster_hexbytes____utils__internal, modname, shared_lib_file, ext_suffix, is_pkg);
+        Py_DECREF(ext_suffix);
+        Py_DECREF(shared_lib_file);
+        if (rv < 0) goto fail;
         if (PyObject_SetItem(PyImport_GetModuleDict(), modname, CPyModule_faster_hexbytes____utils__internal) < 0)
             goto fail;
         Py_CLEAR(modname);
@@ -1225,26 +1253,11 @@ CPyL8: ;
             instance = instance ? instance : Py_None;
             return CPyDef_main_____new___3_HexBytes_obj_____get__(self, instance, owner);
         }
-        PyObject *CPyDef_main_____mypyc___3__new___3_HexBytes_obj_setup(PyObject *cpy_r_type);
-        PyObject *CPyDef_main_____new___3_HexBytes_obj(void);
-        
-        static PyObject *
-        main_____new___3_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
-        {
-            if (type != CPyType_main_____new___3_HexBytes_obj) {
-                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
-                return NULL;
-            }
-            PyObject *self = CPyDef_main_____mypyc___3__new___3_HexBytes_obj_setup((PyObject*)type);
-            if (self == NULL)
-                return NULL;
-            return self;
-        }
-        
         static int
         main_____new___3_HexBytes_obj_traverse(faster_hexbytes___main_____new___3_HexBytes_objObject *self, visitproc visit, void *arg)
         {
-            return 0;
+            int rv = 0;
+            return rv;
         }
         
         static int
@@ -1266,6 +1279,22 @@ CPyL8: ;
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
+        }
+        
+        PyObject *CPyDef_main_____mypyc___3__new___3_HexBytes_obj_setup(PyObject *cpy_r_type);
+        PyObject *CPyDef_main_____new___3_HexBytes_obj(void);
+        
+        static PyObject *
+        main_____new___3_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
+        {
+            if (type != CPyType_main_____new___3_HexBytes_obj) {
+                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
+                return NULL;
+            }
+            PyObject *self = CPyDef_main_____mypyc___3__new___3_HexBytes_obj_setup((PyObject*)type);
+            if (self == NULL)
+                return NULL;
+            return self;
         }
         
         static CPyVTableItem main_____new___3_HexBytes_obj_vtable[2];
@@ -1348,26 +1377,11 @@ CPyL8: ;
             instance = instance ? instance : Py_None;
             return CPyDef_main_____getitem___3_HexBytes_obj_____get__(self, instance, owner);
         }
-        PyObject *CPyDef_main_____mypyc___3__getitem___3_HexBytes_obj_setup(PyObject *cpy_r_type);
-        PyObject *CPyDef_main_____getitem___3_HexBytes_obj(void);
-        
-        static PyObject *
-        main_____getitem___3_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
-        {
-            if (type != CPyType_main_____getitem___3_HexBytes_obj) {
-                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
-                return NULL;
-            }
-            PyObject *self = CPyDef_main_____mypyc___3__getitem___3_HexBytes_obj_setup((PyObject*)type);
-            if (self == NULL)
-                return NULL;
-            return self;
-        }
-        
         static int
         main_____getitem___3_HexBytes_obj_traverse(faster_hexbytes___main_____getitem___3_HexBytes_objObject *self, visitproc visit, void *arg)
         {
-            return 0;
+            int rv = 0;
+            return rv;
         }
         
         static int
@@ -1389,6 +1403,22 @@ CPyL8: ;
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
+        }
+        
+        PyObject *CPyDef_main_____mypyc___3__getitem___3_HexBytes_obj_setup(PyObject *cpy_r_type);
+        PyObject *CPyDef_main_____getitem___3_HexBytes_obj(void);
+        
+        static PyObject *
+        main_____getitem___3_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
+        {
+            if (type != CPyType_main_____getitem___3_HexBytes_obj) {
+                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
+                return NULL;
+            }
+            PyObject *self = CPyDef_main_____mypyc___3__getitem___3_HexBytes_obj_setup((PyObject*)type);
+            if (self == NULL)
+                return NULL;
+            return self;
         }
         
         static CPyVTableItem main_____getitem___3_HexBytes_obj_vtable[2];
@@ -1471,26 +1501,11 @@ CPyL8: ;
             instance = instance ? instance : Py_None;
             return CPyDef_main_____repr___3_HexBytes_obj_____get__(self, instance, owner);
         }
-        PyObject *CPyDef_main_____mypyc___3__repr___3_HexBytes_obj_setup(PyObject *cpy_r_type);
-        PyObject *CPyDef_main_____repr___3_HexBytes_obj(void);
-        
-        static PyObject *
-        main_____repr___3_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
-        {
-            if (type != CPyType_main_____repr___3_HexBytes_obj) {
-                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
-                return NULL;
-            }
-            PyObject *self = CPyDef_main_____mypyc___3__repr___3_HexBytes_obj_setup((PyObject*)type);
-            if (self == NULL)
-                return NULL;
-            return self;
-        }
-        
         static int
         main_____repr___3_HexBytes_obj_traverse(faster_hexbytes___main_____repr___3_HexBytes_objObject *self, visitproc visit, void *arg)
         {
-            return 0;
+            int rv = 0;
+            return rv;
         }
         
         static int
@@ -1512,6 +1527,22 @@ CPyL8: ;
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
+        }
+        
+        PyObject *CPyDef_main_____mypyc___3__repr___3_HexBytes_obj_setup(PyObject *cpy_r_type);
+        PyObject *CPyDef_main_____repr___3_HexBytes_obj(void);
+        
+        static PyObject *
+        main_____repr___3_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
+        {
+            if (type != CPyType_main_____repr___3_HexBytes_obj) {
+                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
+                return NULL;
+            }
+            PyObject *self = CPyDef_main_____mypyc___3__repr___3_HexBytes_obj_setup((PyObject*)type);
+            if (self == NULL)
+                return NULL;
+            return self;
         }
         
         static CPyVTableItem main_____repr___3_HexBytes_obj_vtable[2];
@@ -1594,26 +1625,11 @@ CPyL8: ;
             instance = instance ? instance : Py_None;
             return CPyDef_main___to_0x_hex_HexBytes_obj_____get__(self, instance, owner);
         }
-        PyObject *CPyDef_main_____mypyc__to_0x_hex_HexBytes_obj_setup(PyObject *cpy_r_type);
-        PyObject *CPyDef_main___to_0x_hex_HexBytes_obj(void);
-        
-        static PyObject *
-        main___to_0x_hex_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
-        {
-            if (type != CPyType_main___to_0x_hex_HexBytes_obj) {
-                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
-                return NULL;
-            }
-            PyObject *self = CPyDef_main_____mypyc__to_0x_hex_HexBytes_obj_setup((PyObject*)type);
-            if (self == NULL)
-                return NULL;
-            return self;
-        }
-        
         static int
         main___to_0x_hex_HexBytes_obj_traverse(faster_hexbytes___main___to_0x_hex_HexBytes_objObject *self, visitproc visit, void *arg)
         {
-            return 0;
+            int rv = 0;
+            return rv;
         }
         
         static int
@@ -1635,6 +1651,22 @@ CPyL8: ;
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
+        }
+        
+        PyObject *CPyDef_main_____mypyc__to_0x_hex_HexBytes_obj_setup(PyObject *cpy_r_type);
+        PyObject *CPyDef_main___to_0x_hex_HexBytes_obj(void);
+        
+        static PyObject *
+        main___to_0x_hex_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
+        {
+            if (type != CPyType_main___to_0x_hex_HexBytes_obj) {
+                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
+                return NULL;
+            }
+            PyObject *self = CPyDef_main_____mypyc__to_0x_hex_HexBytes_obj_setup((PyObject*)type);
+            if (self == NULL)
+                return NULL;
+            return self;
         }
         
         static CPyVTableItem main___to_0x_hex_HexBytes_obj_vtable[2];
@@ -1717,26 +1749,11 @@ CPyL8: ;
             instance = instance ? instance : Py_None;
             return CPyDef_main_____reduce___3_HexBytes_obj_____get__(self, instance, owner);
         }
-        PyObject *CPyDef_main_____mypyc___3__reduce___3_HexBytes_obj_setup(PyObject *cpy_r_type);
-        PyObject *CPyDef_main_____reduce___3_HexBytes_obj(void);
-        
-        static PyObject *
-        main_____reduce___3_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
-        {
-            if (type != CPyType_main_____reduce___3_HexBytes_obj) {
-                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
-                return NULL;
-            }
-            PyObject *self = CPyDef_main_____mypyc___3__reduce___3_HexBytes_obj_setup((PyObject*)type);
-            if (self == NULL)
-                return NULL;
-            return self;
-        }
-        
         static int
         main_____reduce___3_HexBytes_obj_traverse(faster_hexbytes___main_____reduce___3_HexBytes_objObject *self, visitproc visit, void *arg)
         {
-            return 0;
+            int rv = 0;
+            return rv;
         }
         
         static int
@@ -1758,6 +1775,22 @@ CPyL8: ;
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
+        }
+        
+        PyObject *CPyDef_main_____mypyc___3__reduce___3_HexBytes_obj_setup(PyObject *cpy_r_type);
+        PyObject *CPyDef_main_____reduce___3_HexBytes_obj(void);
+        
+        static PyObject *
+        main_____reduce___3_HexBytes_obj_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
+        {
+            if (type != CPyType_main_____reduce___3_HexBytes_obj) {
+                PyErr_SetString(PyExc_TypeError, "interpreted classes cannot inherit from compiled");
+                return NULL;
+            }
+            PyObject *self = CPyDef_main_____mypyc___3__reduce___3_HexBytes_obj_setup((PyObject*)type);
+            if (self == NULL)
+                return NULL;
+            return self;
         }
         
         static CPyVTableItem main_____reduce___3_HexBytes_obj_vtable[2];
@@ -1921,6 +1954,20 @@ CPyL8: ;
                 goto fail;
             modname = PyUnicode_FromString("faster_hexbytes.main");
             if (modname == NULL) CPyError_OutOfMemory();
+            int rv = 0;
+            PyObject *mod_dict = PyImport_GetModuleDict();
+            PyObject *shared_lib = NULL;
+            rv = PyDict_GetItemStringRef(mod_dict, "faster_hexbytes__mypyc", &shared_lib);
+            if (rv < 0) goto fail;
+            PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
+            if (shared_lib_file == NULL) goto fail;
+            PyObject *ext_suffix = PyUnicode_FromString(".cpython-314-x86_64-linux-gnu.so");
+            if (ext_suffix == NULL) CPyError_OutOfMemory();
+            Py_ssize_t is_pkg = 0;
+            rv = CPyImport_SetDunderAttrs(CPyModule_faster_hexbytes___main__internal, modname, shared_lib_file, ext_suffix, is_pkg);
+            Py_DECREF(ext_suffix);
+            Py_DECREF(shared_lib_file);
+            if (rv < 0) goto fail;
             if (PyObject_SetItem(PyImport_GetModuleDict(), modname, CPyModule_faster_hexbytes___main__internal) < 0)
                 goto fail;
             Py_CLEAR(modname);
