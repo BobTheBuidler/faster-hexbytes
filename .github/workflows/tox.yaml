@@ -27,13 +27,13 @@ concurrency:
 
 jobs:
   test:
-    name: Test (${{ matrix.jobtype }}, ${{ matrix.python-version }}, ${{ matrix.os }}, ${{ matrix.architecture }})
+    name: Test (${{ matrix.jobtype }}, 3.${{ matrix.pyminor }}, ${{ matrix.os }}, ${{ matrix.architecture }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.10", "3.11", "3.12", "3.13", "3.13t", "3.14", "3.14t"]
+        pyminor: ["10", "11", "12", "13", "13t", "14", "14t"]
         jobtype: [core, lint, wheel]
         architecture: [x64, x86]
         exclude:
@@ -44,7 +44,7 @@ jobs:
       max-parallel: ${{ (github.event_name == 'schedule' || github.event_name == 'push') && 4 || 1000 }}
 
     env:
-      TOXENV: py${{ matrix.python-version }}-${{ matrix.jobtype }}
+      TOXENV: py3${{ matrix.pyminor }}-${{ matrix.jobtype }}
       TOX_RECREATE_FLAG: ${{ github.event_name == 'schedule' && '-r' || '' }}
       IS_UBUNTU_32BIT: ${{ matrix.os == 'ubuntu-latest' && matrix.architecture == 'x86' }}
 
@@ -64,7 +64,7 @@ jobs:
             -e IS_UBUNTU_32BIT="${{ env.IS_UBUNTU_32BIT }}" \
             -v "${{ github.workspace }}:/workspace" \
             -w /workspace \
-            i386/python:${{ matrix.python-version }} \
+            i386/python:3.${{ matrix.pyminor }} \
             bash -lc '
               python -m pip install --upgrade pip
               python -m pip install tox
@@ -72,14 +72,14 @@ jobs:
             '
         # There are no prebuilt 32-bit freethreaded Python containers at the time of this commit,
         # but we will keep these runners so they will activate on their own whenever such containers exist
-        continue-on-error: ${{ matrix.python-version == '3.13t' || matrix.python-version == '3.14t' }}
+        continue-on-error: ${{ matrix.pyminor == '13t' || matrix.pyminor == '14t' }}
 
       # No architecture specified for MacOS
       - name: Set up Python (macos)
         if: ${{ matrix.os == 'macos-latest' }}
         uses: actions/setup-python@v6
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.${{ matrix.pyminor }}
           cache: pip
           cache-dependency-path: |
             setup.py
@@ -91,7 +91,7 @@ jobs:
         if: ${{ matrix.os != 'macos-latest' && env.IS_UBUNTU_32BIT != 'true' }}
         uses: actions/setup-python@v6
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.${{ matrix.pyminor }}
           architecture: ${{ matrix.architecture }}
           cache: pip
           cache-dependency-path: |
@@ -121,7 +121,7 @@ jobs:
           path: |
             .tox
             .hypothesis
-          key: ${{ runner.os }}-tox-${{ hashFiles('pyproject.toml', 'setup.py', 'tox.ini') }}-${{ matrix.python-version }}-${{ matrix.architecture }}-${{ matrix.jobtype }}
+          key: ${{ runner.os }}-tox-${{ hashFiles('pyproject.toml', 'setup.py', 'tox.ini') }}-3.${{ matrix.pyminor }}-${{ matrix.architecture }}-${{ matrix.jobtype }}
 
       - name: Run tox
         if: ${{ env.IS_UBUNTU_32BIT != 'true' }}
