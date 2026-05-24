@@ -35,11 +35,11 @@ extras_require = {
     ],
     "benchmark": [
         "pytest-benchmark",
-        "pytest-codspeed>=4.5,<4.6",
+        "pytest-codspeed>=5,<5.1",
         "eth-typing",
     ],
     "codspeed": [
-        "pytest-codspeed>=4.5,<4.6",
+        "pytest-codspeed>=5,<5.1",
         "eth-typing",
     ],
 }
