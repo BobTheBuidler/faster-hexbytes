@@ -85,12 +85,10 @@ STR_VALS: List[str] = [v for v, _ in STR_CASES]
 STR_IDS: List[str] = [id for _, id in STR_CASES]
 
 INT_CASES: List[Tuple[int, str]] = [
-    (1, "1"),
-    (255, "255"),
-    (123456, "123456"),
     (0, "0"),
     (1, "1"),
     (255, "255"),
+    (123456, "123456"),
     (2**8, "2**8"),
     (2**16, "2**16"),
     (2**32, "2**32"),
