@@ -4,6 +4,9 @@ from typing import (
     Union,
 )
 
+from librt.strings import (
+    BytesWriter,
+)
 
 unhexlify: Final = binascii.unhexlify
 
@@ -26,10 +29,14 @@ def to_bytes(val: Union[bytes, str, bytearray, bool, int, memoryview]) -> bytes:
     elif isinstance(val, int):
         # Note that this int check must come after the bool check, because
         #   isinstance(True, int) is True
-        if val < 0:
+        if val > 255:
+            return val.to_bytes(max(1, (val.bit_length() + 7) // 8), "big")
+        elif val < 0:
             raise ValueError(f"Cannot convert negative integer {val} to bytes")
         else:
-            return val.to_bytes(max(1, (val.bit_length() + 7) // 8), "big")
+            writer = BytesWriter()
+            writer.append(val)
+            return writer.getvalue()
     elif isinstance(val, memoryview):
         return bytes(val)
     else:
