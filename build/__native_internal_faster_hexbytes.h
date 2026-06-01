@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[91];
+extern PyObject *CPyStatics[94];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -34,6 +34,7 @@ extern PyObject *CPyInit_faster_hexbytes____utils(void);
 extern PyObject *CPyInitOnly_faster_hexbytes____utils(void);
 extern PyObject *CPyStatic_main___globals;
 extern CPyModule *CPyModule_hexbytes___main;
+extern CPyModule *CPyModule_librt___strings;
 extern CPyModule *CPyModule_mypy_extensions;
 extern CPyModule *CPyModule_typing_extensions;
 extern int CPyExec_faster_hexbytes___main(PyObject *module);
