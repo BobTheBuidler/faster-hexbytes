@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 import sys
+
+from mypyc.build import (
+    mypycify,
+)
 from setuptools import (
     find_packages,
     setup,
 )
-from mypyc.build import mypycify
-
 
 version = "1.3.8"
 hexbytes_version = "1.3.1"
@@ -92,6 +94,7 @@ setup(
     include_package_data=True,
     install_requires=[
         f"hexbytes=={hexbytes_version}",
+        "librt>=0.11.0",
         "mypy_extensions>=0.4.2,<2",
         "typing-extensions>=4.0.0,<5",
     ],

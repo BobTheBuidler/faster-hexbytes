@@ -11,6 +11,9 @@ from typing import (
 # fails because mypyc tries to lookup HexBytes from
 # CPyModule_hexbytes___main which was never imported
 import hexbytes.main as hexbytes
+from librt.strings import (
+    StringWriter,
+)
 from mypy_extensions import (
     mypyc_attr,
 )
@@ -80,13 +83,20 @@ class HexBytes(hexbytes.HexBytes):
         return cls(result)
 
     def __repr__(self) -> str:
-        return f"HexBytes('0x{self.hex()}')"
+        writer = StringWriter()
+        writer.write("HexBytes('0x")
+        writer.write(self.hex())
+        writer.write("')")
+        return writer.getvalue()
 
     def to_0x_hex(self) -> str:
         """
         Convert the bytes to a 0x-prefixed hex string
         """
-        return f"0x{self.hex()}"
+        writer = StringWriter()
+        writer.write("0x")
+        writer.write(self.hex())
+        return writer.getvalue()
 
     def __reduce__(
         self,
@@ -101,6 +111,7 @@ class HexBytes(hexbytes.HexBytes):
 
 # these 3 helpers serve as a workaround for a mypyc bug until
 # https://github.com/python/mypy/pull/19957 is merged and released
+
 
 @mypyc_attr(native_class=False)
 class _HexBytesSubclass1(HexBytes): ...
