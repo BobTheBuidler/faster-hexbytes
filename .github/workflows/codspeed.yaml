@@ -68,5 +68,5 @@ jobs:
       - name: Run CodSpeed
         uses: CodSpeedHQ/action@v4
         with:
-          mode: instrumentation
+          mode: simulation
           run: pytest --codspeed -k "test_faster_" benchmarks/
