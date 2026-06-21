@@ -49,7 +49,7 @@ jobs:
       IS_UBUNTU_32BIT: ${{ matrix.os == 'ubuntu-latest' && matrix.architecture == 'x86' }}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       # Use i386/python Docker for all 32-bit Ubuntu jobs
       # (Avoid addnab/docker-run-action: its embedded docker client is too old for GitHub's runner daemon.)
