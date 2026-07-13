@@ -3086,8 +3086,7 @@ char CPyDef_main_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('TYPE_CHECKING', 'Callable', 'Final', 'Union', 'cast',
-                                  'overload') */
+    cpy_r_r5 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('TYPE_CHECKING', 'Callable', 'Final', 'Union', 'cast', 'overload') */
     cpy_r_r6 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'typing' */
     cpy_r_r7 = CPyStatic_main___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
@@ -3438,8 +3437,7 @@ CPyL30: ;
     cpy_r_r134 = 1 ? Py_True : Py_False;
     PyObject *cpy_r_r135[3] = {cpy_r_r132, cpy_r_r133, cpy_r_r134};
     cpy_r_r136 = (PyObject **)&cpy_r_r135;
-    cpy_r_r137 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('native_class', 'acyclic',
-                                    'allow_interpreted_subclasses') */
+    cpy_r_r137 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('native_class', 'acyclic', 'allow_interpreted_subclasses') */
     cpy_r_r138 = PyObject_Vectorcall(cpy_r_r131, cpy_r_r136, 0, cpy_r_r137);
     CPy_DECREF(cpy_r_r131);
     if (unlikely(cpy_r_r138 == NULL)) {
