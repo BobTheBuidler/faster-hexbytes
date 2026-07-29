@@ -44,11 +44,12 @@ class HexBytes(bytes):
     def __getitem__(  # noqa: F811
         self, key: "SupportsIndex | slice"
     ) -> "int | bytes | HexBytes":
-        result = super().__getitem__(key)
-        if hasattr(result, "hex"):
-            return type(self)(result)
-        else:
+        result = bytes.__getitem__(self, key)
+        if isinstance(result, int):
             return result
+        if type(self) is HexBytes:
+            return bytes.__new__(HexBytes, result)
+        return type(self)(result)
 
     def __repr__(self) -> str:
         return f"HexBytes({'0x' + self.hex()!r})"
