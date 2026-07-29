@@ -47,9 +47,11 @@ class HexBytes(bytes):
         result = bytes.__getitem__(self, key)
         if isinstance(result, int):
             return result
-        if type(self) is HexBytes:
+        cls = type(self)
+        if cls is HexBytes:
             return bytes.__new__(HexBytes, result)
-        return type(self)(result)
+        else:
+            return cls(result)
 
     def __repr__(self) -> str:
         return f"HexBytes({'0x' + self.hex()!r})"
