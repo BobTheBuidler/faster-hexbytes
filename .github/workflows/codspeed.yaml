@@ -66,7 +66,7 @@ jobs:
         run: rm -r faster_hexbytes
         
       - name: Run CodSpeed
-        uses: CodSpeedHQ/action@v4
+        uses: CodSpeedHQ/action@v5
         with:
           mode: simulation
           run: pytest --codspeed -k "test_faster_" benchmarks/
