@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Checkout code
         id: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # Check out the PR branch
           ref: ${{ github.head_ref }}
@@ -41,7 +41,7 @@ jobs:
           exit 0
           
       - name: Build wheel
-        uses: BobTheBuidler/mypycify@v0.3.2
+        uses: BobTheBuidler/mypycify@v0.5.1
         with:
           python-version: "3.14"
           hash-key: |
@@ -52,7 +52,7 @@ jobs:
             pyproject.toml
             
       - name: Cache .mypy_cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .mypy_cache
           key: mypy-cache-${{ runner.os }}-x64-${{ hashFiles('**/*.py', 'pyproject.toml') }}
@@ -66,7 +66,7 @@ jobs:
         run: rm -r faster_hexbytes
         
       - name: Run CodSpeed
-        uses: CodSpeedHQ/action@v4
+        uses: CodSpeedHQ/action@v5
         with:
-          mode: instrumentation
+          mode: simulation
           run: pytest --codspeed -k "test_faster_" benchmarks/

@@ -33,7 +33,7 @@ BytesLike = Union[bytes, str, bool, bytearray, int, memoryview]
 _bytes_new: Final = bytes.__new__
 
 
-@mypyc_attr(native_class=False, allow_interpreted_subclasses=True)
+@mypyc_attr(native_class=False, acyclic=True, allow_interpreted_subclasses=True)
 class HexBytes(hexbytes.HexBytes):
     """
     Thin wrapper around the python built-in :class:`bytes` class.
@@ -46,6 +46,12 @@ class HexBytes(hexbytes.HexBytes):
     """
 
     def __new__(cls, val: BytesLike) -> Self:
+        if type(val) is cls:
+            # These are immutable, just return it
+            return val
+        elif isinstance(val, bytes):
+            # These don't require `to_bytes`
+            return _bytes_new(cls, val)
         bytesval = to_bytes(val)
         return _bytes_new(cls, bytesval)
 

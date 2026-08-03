@@ -7,7 +7,7 @@ from setuptools import (
 from mypyc.build import mypycify
 
 
-version = "1.3.6"
+version = "1.3.8"
 hexbytes_version = "1.3.1"
 
 extras_require = {
@@ -15,7 +15,7 @@ extras_require = {
         "build>=0.9.0",
         "bump_my_version>=0.19.0",
         "ipython",
-        "mypy==1.19.1",
+        "mypy==2.3.0",
         "pre-commit>=3.4.0",
         "tox>=4.0.0",
         "twine",
@@ -35,11 +35,11 @@ extras_require = {
     ],
     "benchmark": [
         "pytest-benchmark",
-        "pytest-codspeed>=4.2,<4.3",
+        "pytest-codspeed>=5,<5.1",
         "eth-typing",
     ],
     "codspeed": [
-        "pytest-codspeed>=4.2,<4.3",
+        "pytest-codspeed>=5,<5.1",
         "eth-typing",
     ],
 }
@@ -95,7 +95,7 @@ setup(
         "mypy_extensions>=0.4.2,<2",
         "typing-extensions>=4.0.0,<5",
     ],
-    python_requires=">=3.9, <4",
+    python_requires=">=3.10, <4",
     extras_require=extras_require,
     py_modules=["faster_hexbytes"],
     license="MIT",
@@ -119,7 +119,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",

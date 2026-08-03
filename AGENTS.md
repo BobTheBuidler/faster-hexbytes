@@ -2,6 +2,8 @@
 
 All agents must follow these rules:
 
+faster-hexbytes is always compiled. PyPI wheels are compiled, setup compiles the project, and tests/CI must validate compiled extensions. Do not invent or reason from an interpreted `.py` runtime path; tracked `.py` files are mypyc source inputs.
+
 1) Fully test your changes before submitting a PR (run the full suite or all relevant tests).
 2) PR titles must be descriptive and follow Conventional Commits-style prefixes:
    - Common: `feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `test:`, `perf:`
@@ -17,6 +19,7 @@ All agents must follow these rules:
 11) All mypy configuration (flags, overrides, per-module ignores, and file targets) should go in pyproject.toml. Do not split config across CLI args, mypy.ini, setup.cfg, or workflow steps.
 12) Centralize pytest settings (flags, markers, ignore patterns, and targets) in pyproject.toml, pytest.ini, setup.cfg, or tox.ini; workflows/hooks should call pytest without inline args.
 13) If the branch you're assigned to work on is from a remote (ie origin/master or upstream/awesome-feature) you must ensure you fetch and pull from the remote before you begin your work.
+14) Local `pip install .` generates `build/`; clean it up before closing a worktree to avoid dirty state.
 
 14) Replace them with ruff IF possible while ensuring behavior parity.
 Reference: https://www.conventionalcommits.org/en/v1.0.0/

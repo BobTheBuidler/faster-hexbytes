@@ -26,10 +26,10 @@ jobs:
     name: Run Benchmarks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.14"
           cache: pip
@@ -38,7 +38,7 @@ jobs:
             pyproject.toml
             
       - name: Cache .mypy_cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .mypy_cache
           key: mypy-cache-${{ runner.os }}-x64-${{ hashFiles('**/*.py', 'pyproject.toml') }}
@@ -55,7 +55,7 @@ jobs:
         run: make benchmark
         
       - name: Upload Pytest Benchmark Results
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: pytest-benchmark-results
           path: benchmark.json
@@ -78,19 +78,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Upload Markdown Benchmark Results
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: markdown-benchmark-results
           path: benchmarks/results/*.md
           
       - name: Upload Pytest Benchmark Diff
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: pytest-benchmark-diff
           path: pytest_benchmark_diff.json
           
       - name: Post Pytest Benchmark Diff as PR Comment
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');
