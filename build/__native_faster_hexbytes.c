@@ -84,7 +84,7 @@ PyObject *CPyInit_faster_hexbytes(void)
     if (rv < 0) goto fail;
     PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
     if (shared_lib_file == NULL) goto fail;
-    PyObject *ext_suffix = PyUnicode_FromString(".cpython-314-x86_64-linux-gnu.so");
+    PyObject *ext_suffix = PyUnicode_FromString(".cpython-315-x86_64-linux-gnu.so");
     if (ext_suffix == NULL) CPyError_OutOfMemory();
     Py_ssize_t is_pkg = 1;
     rv = CPyImport_SetDunderAttrs(CPyModule_faster_hexbytes__internal, modname, shared_lib_file, ext_suffix, is_pkg);
@@ -242,7 +242,7 @@ CPyL8: ;
         CPy_AddTraceback("faster_hexbytes/__init__.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic_faster_hexbytes___globals);
         goto CPyL20;
     }
-    cpy_r_r28 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '.cpython-314-x86_64-linux-gnu.so' */
+    cpy_r_r28 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '.cpython-315-x86_64-linux-gnu.so' */
     cpy_r_r29 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'faster_hexbytes.main' */
     cpy_r_r30 = CPyImport_ImportNative(cpy_r_r29, cpy_r_r20, cpy_r_r21, cpy_r_r22, cpy_r_r12, cpy_r_r13, cpy_r_r14, cpy_r_r27, cpy_r_r28, 0);
     CPy_DECREF(cpy_r_r27);
@@ -388,7 +388,7 @@ CPyL21: ;
             if (rv < 0) goto fail;
             PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
             if (shared_lib_file == NULL) goto fail;
-            PyObject *ext_suffix = PyUnicode_FromString(".cpython-314-x86_64-linux-gnu.so");
+            PyObject *ext_suffix = PyUnicode_FromString(".cpython-315-x86_64-linux-gnu.so");
             if (ext_suffix == NULL) CPyError_OutOfMemory();
             Py_ssize_t is_pkg = 0;
             rv = CPyImport_SetDunderAttrs(CPyModule_faster_hexbytes____utils__internal, modname, shared_lib_file, ext_suffix, is_pkg);
@@ -2045,7 +2045,7 @@ CPyL9: ;
                     if (rv < 0) goto fail;
                     PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
                     if (shared_lib_file == NULL) goto fail;
-                    PyObject *ext_suffix = PyUnicode_FromString(".cpython-314-x86_64-linux-gnu.so");
+                    PyObject *ext_suffix = PyUnicode_FromString(".cpython-315-x86_64-linux-gnu.so");
                     if (ext_suffix == NULL) CPyError_OutOfMemory();
                     Py_ssize_t is_pkg = 0;
                     rv = CPyImport_SetDunderAttrs(CPyModule_faster_hexbytes___main__internal, modname, shared_lib_file, ext_suffix, is_pkg);
@@ -3269,7 +3269,7 @@ CPyL11: ;
         CPy_AddTraceback("faster_hexbytes/main.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic_main___globals);
         goto CPyL112;
     }
-    cpy_r_r47 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '.cpython-314-x86_64-linux-gnu.so' */
+    cpy_r_r47 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '.cpython-315-x86_64-linux-gnu.so' */
     cpy_r_r48 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'faster_hexbytes._utils' */
     cpy_r_r49 = CPyImport_ImportNative(cpy_r_r48, cpy_r_r39, cpy_r_r40, cpy_r_r41, cpy_r_r31, cpy_r_r32, cpy_r_r33, cpy_r_r46, cpy_r_r47, 0);
     CPy_DECREF(cpy_r_r46);
@@ -4066,7 +4066,7 @@ CPyL128: ;
                         PyObject *CPyStatics[DIFFCHECK_PLACEHOLDER];
                         const char * const CPyLit_Str[] = {
     "\005\bbuiltins\aversion\t__version\022importlib.metadata\024faster_hexbytes.main",
-    "\003\026faster_hexbytes__mypyc\b__file__ .cpython-314-x86_64-linux-gnu.so",
+    "\003\026faster_hexbytes__mypyc\b__file__ .cpython-315-x86_64-linux-gnu.so",
     "\004\bHexBytes\a__all__\bhexbytes\v__version__",
     "\005 Cannot convert negative integer \t to bytes\nValueError\nmemoryview\000",
     "\t\017Cannot convert \a{!r:{}}\006format\t of type \005{:{}}\tTypeError\0020x\0020X\0010",
