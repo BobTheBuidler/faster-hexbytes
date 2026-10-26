@@ -1260,9 +1260,15 @@ CPyL8: ;
             return rv;
         }
         
-        static int
-        main_____new___3_HexBytes_obj_clear(faster_hexbytes___main_____new___3_HexBytes_objObject *self)
+        static int32_t CPyDef_main_____new___3_HexBytes_obj_clear(PyObject *cpy_r_self)
         {
+            faster_hexbytes___main_____new___3_HexBytes_objObject *self = (faster_hexbytes___main_____new___3_HexBytes_objObject *)cpy_r_self;
+            return 0;
+        }
+        
+        static int32_t CPyDef_main_____new___3_HexBytes_obj_clear_on_completion(PyObject *cpy_r_self)
+        {
+            faster_hexbytes___main_____new___3_HexBytes_objObject *self = (faster_hexbytes___main_____new___3_HexBytes_objObject *)cpy_r_self;
             return 0;
         }
         
@@ -1275,7 +1281,7 @@ CPyL8: ;
                 return;
             }
             CPy_TRASHCAN_BEGIN(self, main_____new___3_HexBytes_obj_dealloc)
-            main_____new___3_HexBytes_obj_clear(self);
+            CPyDef_main_____new___3_HexBytes_obj_clear((PyObject *)self);
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
@@ -1334,7 +1340,7 @@ CPyL8: ;
             .tp_new = main_____new___3_HexBytes_obj_new,
             .tp_dealloc = (destructor)main_____new___3_HexBytes_obj_dealloc,
             .tp_traverse = (traverseproc)main_____new___3_HexBytes_obj_traverse,
-            .tp_clear = (inquiry)main_____new___3_HexBytes_obj_clear,
+            .tp_clear = (inquiry)CPyDef_main_____new___3_HexBytes_obj_clear,
             .tp_methods = main_____new___3_HexBytes_obj_methods,
             .tp_call = PyVectorcall_Call,
             .tp_descr_get = CPyDunder___get__main_____new___3_HexBytes_obj,
@@ -1384,9 +1390,15 @@ CPyL8: ;
             return rv;
         }
         
-        static int
-        main_____getitem___3_HexBytes_obj_clear(faster_hexbytes___main_____getitem___3_HexBytes_objObject *self)
+        static int32_t CPyDef_main_____getitem___3_HexBytes_obj_clear(PyObject *cpy_r_self)
         {
+            faster_hexbytes___main_____getitem___3_HexBytes_objObject *self = (faster_hexbytes___main_____getitem___3_HexBytes_objObject *)cpy_r_self;
+            return 0;
+        }
+        
+        static int32_t CPyDef_main_____getitem___3_HexBytes_obj_clear_on_completion(PyObject *cpy_r_self)
+        {
+            faster_hexbytes___main_____getitem___3_HexBytes_objObject *self = (faster_hexbytes___main_____getitem___3_HexBytes_objObject *)cpy_r_self;
             return 0;
         }
         
@@ -1399,7 +1411,7 @@ CPyL8: ;
                 return;
             }
             CPy_TRASHCAN_BEGIN(self, main_____getitem___3_HexBytes_obj_dealloc)
-            main_____getitem___3_HexBytes_obj_clear(self);
+            CPyDef_main_____getitem___3_HexBytes_obj_clear((PyObject *)self);
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
@@ -1458,7 +1470,7 @@ CPyL8: ;
             .tp_new = main_____getitem___3_HexBytes_obj_new,
             .tp_dealloc = (destructor)main_____getitem___3_HexBytes_obj_dealloc,
             .tp_traverse = (traverseproc)main_____getitem___3_HexBytes_obj_traverse,
-            .tp_clear = (inquiry)main_____getitem___3_HexBytes_obj_clear,
+            .tp_clear = (inquiry)CPyDef_main_____getitem___3_HexBytes_obj_clear,
             .tp_methods = main_____getitem___3_HexBytes_obj_methods,
             .tp_call = PyVectorcall_Call,
             .tp_descr_get = CPyDunder___get__main_____getitem___3_HexBytes_obj,
@@ -1508,9 +1520,15 @@ CPyL8: ;
             return rv;
         }
         
-        static int
-        main_____repr___3_HexBytes_obj_clear(faster_hexbytes___main_____repr___3_HexBytes_objObject *self)
+        static int32_t CPyDef_main_____repr___3_HexBytes_obj_clear(PyObject *cpy_r_self)
         {
+            faster_hexbytes___main_____repr___3_HexBytes_objObject *self = (faster_hexbytes___main_____repr___3_HexBytes_objObject *)cpy_r_self;
+            return 0;
+        }
+        
+        static int32_t CPyDef_main_____repr___3_HexBytes_obj_clear_on_completion(PyObject *cpy_r_self)
+        {
+            faster_hexbytes___main_____repr___3_HexBytes_objObject *self = (faster_hexbytes___main_____repr___3_HexBytes_objObject *)cpy_r_self;
             return 0;
         }
         
@@ -1523,7 +1541,7 @@ CPyL8: ;
                 return;
             }
             CPy_TRASHCAN_BEGIN(self, main_____repr___3_HexBytes_obj_dealloc)
-            main_____repr___3_HexBytes_obj_clear(self);
+            CPyDef_main_____repr___3_HexBytes_obj_clear((PyObject *)self);
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
@@ -1582,7 +1600,7 @@ CPyL8: ;
             .tp_new = main_____repr___3_HexBytes_obj_new,
             .tp_dealloc = (destructor)main_____repr___3_HexBytes_obj_dealloc,
             .tp_traverse = (traverseproc)main_____repr___3_HexBytes_obj_traverse,
-            .tp_clear = (inquiry)main_____repr___3_HexBytes_obj_clear,
+            .tp_clear = (inquiry)CPyDef_main_____repr___3_HexBytes_obj_clear,
             .tp_methods = main_____repr___3_HexBytes_obj_methods,
             .tp_call = PyVectorcall_Call,
             .tp_descr_get = CPyDunder___get__main_____repr___3_HexBytes_obj,
@@ -1632,9 +1650,15 @@ CPyL8: ;
             return rv;
         }
         
-        static int
-        main___to_0x_hex_HexBytes_obj_clear(faster_hexbytes___main___to_0x_hex_HexBytes_objObject *self)
+        static int32_t CPyDef_main___to_0x_hex_HexBytes_obj_clear(PyObject *cpy_r_self)
         {
+            faster_hexbytes___main___to_0x_hex_HexBytes_objObject *self = (faster_hexbytes___main___to_0x_hex_HexBytes_objObject *)cpy_r_self;
+            return 0;
+        }
+        
+        static int32_t CPyDef_main___to_0x_hex_HexBytes_obj_clear_on_completion(PyObject *cpy_r_self)
+        {
+            faster_hexbytes___main___to_0x_hex_HexBytes_objObject *self = (faster_hexbytes___main___to_0x_hex_HexBytes_objObject *)cpy_r_self;
             return 0;
         }
         
@@ -1647,7 +1671,7 @@ CPyL8: ;
                 return;
             }
             CPy_TRASHCAN_BEGIN(self, main___to_0x_hex_HexBytes_obj_dealloc)
-            main___to_0x_hex_HexBytes_obj_clear(self);
+            CPyDef_main___to_0x_hex_HexBytes_obj_clear((PyObject *)self);
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
@@ -1706,7 +1730,7 @@ CPyL8: ;
             .tp_new = main___to_0x_hex_HexBytes_obj_new,
             .tp_dealloc = (destructor)main___to_0x_hex_HexBytes_obj_dealloc,
             .tp_traverse = (traverseproc)main___to_0x_hex_HexBytes_obj_traverse,
-            .tp_clear = (inquiry)main___to_0x_hex_HexBytes_obj_clear,
+            .tp_clear = (inquiry)CPyDef_main___to_0x_hex_HexBytes_obj_clear,
             .tp_methods = main___to_0x_hex_HexBytes_obj_methods,
             .tp_call = PyVectorcall_Call,
             .tp_descr_get = CPyDunder___get__main___to_0x_hex_HexBytes_obj,
@@ -1756,9 +1780,15 @@ CPyL8: ;
             return rv;
         }
         
-        static int
-        main_____reduce___3_HexBytes_obj_clear(faster_hexbytes___main_____reduce___3_HexBytes_objObject *self)
+        static int32_t CPyDef_main_____reduce___3_HexBytes_obj_clear(PyObject *cpy_r_self)
         {
+            faster_hexbytes___main_____reduce___3_HexBytes_objObject *self = (faster_hexbytes___main_____reduce___3_HexBytes_objObject *)cpy_r_self;
+            return 0;
+        }
+        
+        static int32_t CPyDef_main_____reduce___3_HexBytes_obj_clear_on_completion(PyObject *cpy_r_self)
+        {
+            faster_hexbytes___main_____reduce___3_HexBytes_objObject *self = (faster_hexbytes___main_____reduce___3_HexBytes_objObject *)cpy_r_self;
             return 0;
         }
         
@@ -1771,7 +1801,7 @@ CPyL8: ;
                 return;
             }
             CPy_TRASHCAN_BEGIN(self, main_____reduce___3_HexBytes_obj_dealloc)
-            main_____reduce___3_HexBytes_obj_clear(self);
+            CPyDef_main_____reduce___3_HexBytes_obj_clear((PyObject *)self);
             Py_TYPE(self)->tp_free((PyObject *)self);
             CPy_TRASHCAN_END(self)
             done: ;
@@ -1830,7 +1860,7 @@ CPyL8: ;
             .tp_new = main_____reduce___3_HexBytes_obj_new,
             .tp_dealloc = (destructor)main_____reduce___3_HexBytes_obj_dealloc,
             .tp_traverse = (traverseproc)main_____reduce___3_HexBytes_obj_traverse,
-            .tp_clear = (inquiry)main_____reduce___3_HexBytes_obj_clear,
+            .tp_clear = (inquiry)CPyDef_main_____reduce___3_HexBytes_obj_clear,
             .tp_methods = main_____reduce___3_HexBytes_obj_methods,
             .tp_call = PyVectorcall_Call,
             .tp_descr_get = CPyDunder___get__main_____reduce___3_HexBytes_obj,
